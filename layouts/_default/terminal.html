@@ -30,45 +30,78 @@
  ║  Nashville, TN                        ║
  ╚═══════════════════════════════════════╝</pre>
 
-      <!-- Welcome message -->
+      <!-- Welcome + tagline -->
       <div class="terminal-line" style="animation: termType 0.4s ease-out 0.8s both;">
         <span class="terminal-muted">Builder of systems, keeper of memory.</span>
       </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1s both;">
-        <span class="terminal-muted">Type a command or click a link below.</span>
-      </div>
 
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.2s both;">&nbsp;</div>
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 1s both;">&nbsp;</div>
 
-      <!-- Available commands -->
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.4s both;">
+      <!-- whoami command — narrative arc -->
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.2s both;">
         <span class="terminal-prompt">$</span>
-        <span class="terminal-cmd">help</span>
+        <span class="terminal-cmd">whoami</span>
       </div>
 
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.6s both;">&nbsp;</div>
-
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.8s both;">
-        <span class="terminal-muted">Available commands:</span>
+      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.4s both;">
+        <span class="terminal-muted">Fifteen years building things that matter. Started on Wall Street,</span>
+      </div>
+      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.5s both;">
+        <span class="terminal-muted">survived Lehman Brothers, found my way to code. Now I lead</span>
+      </div>
+      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.6s both;">
+        <span class="terminal-muted">engineering teams, build products with AI, and spend my evenings</span>
+      </div>
+      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.7s both;">
+        <span class="terminal-muted">preserving five generations of family memory.</span>
       </div>
 
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2s both;">
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.9s both;">&nbsp;</div>
+
+      <!-- status command — current roles -->
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.1s both;">
+        <span class="terminal-prompt">$</span>
+        <span class="terminal-cmd">status</span>
+      </div>
+
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.3s both;">
+        <span style="color: #D4A574;">&nbsp;&nbsp;CURRENTLY</span>
+      </div>
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.4s both;">
+        <span class="terminal-muted">&nbsp;&nbsp;├─ VP of Engineering, Possip</span>
+      </div>
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.5s both;">
+        <span class="terminal-muted">&nbsp;&nbsp;├─ Thede Technologies — AI-augmented outcome engineering</span>
+      </div>
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.6s both;">
+        <span class="terminal-muted">&nbsp;&nbsp;└─ Tractor &amp; Silo — personal life-tracking platform</span>
+      </div>
+
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.8s both;">&nbsp;</div>
+
+      <!-- links command -->
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 3s both;">
+        <span class="terminal-prompt">$</span>
+        <span class="terminal-cmd">links</span>
+      </div>
+
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.2s both;">
         <span>&nbsp;&nbsp;</span>
         <a href="https://thedetech.com" target="_blank" rel="noopener" class="terminal-link terminal-link-gold">
           work
         </a>
-        <span class="terminal-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ Thede Technologies — engineering &amp; products</span>
+        <span class="terminal-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ Looking for my business? thedetech.com</span>
       </div>
 
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.2s both;">
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.4s both;">
         <span>&nbsp;&nbsp;</span>
         <a href="https://officeofadamthede.com" target="_blank" rel="noopener" class="terminal-link terminal-link-teal">
           personal
         </a>
-        <span class="terminal-muted">&nbsp;→ The Office of Adam Thede — personal archive</span>
+        <span class="terminal-muted">&nbsp;→ Looking for me? officeofadamthede.com</span>
       </div>
 
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.4s both;">
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.6s both;">
         <span>&nbsp;&nbsp;</span>
         <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="terminal-link terminal-link-white">
           github
@@ -76,7 +109,7 @@
         <span class="terminal-muted">&nbsp;&nbsp;&nbsp;→ Open source &amp; side projects</span>
       </div>
 
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.6s both;">
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.8s both;">
         <span>&nbsp;&nbsp;</span>
         <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener" class="terminal-link terminal-link-white">
           linkedin
@@ -84,10 +117,10 @@
         <span class="terminal-muted">&nbsp;→ Professional profile</span>
       </div>
 
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.8s both;">&nbsp;</div>
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 4s both;">&nbsp;</div>
 
       <!-- Interactive prompt with blinking cursor -->
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 3s both;">
+      <div class="terminal-line" style="animation: termType 0.4s ease-out 4.2s both;">
         <span class="terminal-prompt">$</span>
         <span class="terminal-cursor"></span>
       </div>
@@ -133,6 +166,10 @@
   .terminal-line {
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  .terminal-wrap {
+    white-space: normal;
   }
 
   .terminal-prompt {
