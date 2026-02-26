@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }} — Adam Thede</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="author" content="{{ .Site.Params.author }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+
+  <!-- Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adam Thede",
+    "url": "https://adamthede.com",
+    "jobTitle": "Engineering Leader & AI-Augmented Builder",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN"
+    },
+    "sameAs": [
+      "{{ .Site.Params.linkedin }}",
+      "{{ .Site.Params.github }}",
+      "{{ .Site.Params.thedetech }}",
+      "{{ .Site.Params.officeofadamthede }}"
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  {{ with resources.Get "css/main.css" | postCSS }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
+</head>
+<body class="min-h-screen">
+  <!-- Prototype nav — toggle between directions -->
+  {{ partial "prototype-nav.html" . }}
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>

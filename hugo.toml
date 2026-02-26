@@ -1,0 +1,39 @@
+baseURL = 'https://adamthede.com/'
+languageCode = 'en-us'
+title = 'Adam Thede'
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[params]
+  description = "Builder of systems, keeper of memory. Engineering leader, AI-augmented builder, and creator of the Silo ecosystem."
+  author = "Adam Thede"
+  tagline = "Builder of systems, keeper of memory."
+  email = "adam@thedetech.com"
+  linkedin = "https://linkedin.com/in/adamthede"
+  github = "https://github.com/adamthede"
+  location = "Nashville, TN"
+  thedetech = "https://thedetech.com"
+  officeofadamthede = "https://officeofadamthede.com"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'dracula'
+    lineNos = false
+
+[outputs]
+  home = ['HTML']
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "static"
+    target = "static"

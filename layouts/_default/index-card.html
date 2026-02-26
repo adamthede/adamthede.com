@@ -1,0 +1,191 @@
+{{ define "main" }}
+<!-- ═══════════════════════════════════════════════════════════════════════
+     DIRECTION 3: The Analog Index Card (with narrative)
+     Library catalog card aesthetic — warm, analog, unexpected
+     Now includes the full narrative arc and personable fork links
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<div class="min-h-screen flex flex-col justify-center items-center px-6"
+     style="background: #0a0a0a;">
+
+  <!-- The card -->
+  <div class="card-container" style="animation: cardSlideIn 0.8s ease-out;">
+
+    <!-- Card front -->
+    <div class="catalog-card">
+      <!-- Red top line — classic catalog card -->
+      <div style="height: 2px; background: #c44; margin-bottom: 1.5rem;"></div>
+
+      <!-- Call number (top-right) -->
+      <div style="position: absolute; top: 1.5rem; right: 2rem;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #8B7355; letter-spacing: 0.05em;">
+          TN &middot; 2026
+        </span>
+      </div>
+
+      <!-- Author line -->
+      <div style="margin-bottom: 0.75rem;">
+        <span class="card-heading">THEDE, Adam</span>
+      </div>
+
+      <!-- Tagline -->
+      <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Inter', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8B7355;">
+          Builder of systems, keeper of memory
+        </span>
+      </div>
+
+      <!-- The Arc — narrative paragraph, styled as typewritten card text -->
+      <div class="card-narrative">
+        Fifteen years building things that matter. Started on Wall Street, survived
+        Lehman Brothers, found my way to code. Now I lead engineering teams, build
+        products with AI, and spend my evenings preserving five generations of
+        family memory.
+      </div>
+
+      <!-- Structured entries -->
+      <div class="card-entries">
+        <div class="card-entry">
+          <span class="card-label">LOCATED</span>
+          <span class="card-value">Nashville, Tennessee</span>
+        </div>
+        <div class="card-entry">
+          <span class="card-label">EDUCATION</span>
+          <span class="card-value">CU Boulder (Applied Math) &middot; Harvard (Visiting)</span>
+        </div>
+        <div class="card-entry">
+          <span class="card-label">CURRENTLY</span>
+          <span class="card-value">Thede Technologies, LLC &mdash; AI-augmented engineering</span>
+        </div>
+      </div>
+
+      <!-- Horizontal rule -->
+      <div style="height: 1px; background: #C4B69C; opacity: 0.4; margin: 1.5rem 0;"></div>
+
+      <!-- SEE ALSO — personable fork links -->
+      <div class="card-entry" style="margin-bottom: 0.75rem;">
+        <span class="card-label">SEE ALSO</span>
+      </div>
+      <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <a href="https://thedetech.com" target="_blank" rel="noopener"
+           class="card-link" style="color: #8B6914;">
+          Looking for my business?
+          <span style="display: block; font-size: 0.65rem; color: #8B7355; margin-top: 0.125rem; font-family: 'JetBrains Mono', monospace; font-style: normal;">
+            thedetech.com &rarr;
+          </span>
+        </a>
+        <a href="https://officeofadamthede.com" target="_blank" rel="noopener"
+           class="card-link" style="color: #2c6b5e;">
+          Looking for me?
+          <span style="display: block; font-size: 0.65rem; color: #5a8a7e; margin-top: 0.125rem; font-family: 'JetBrains Mono', monospace; font-style: normal;">
+            officeofadamthede.com &rarr;
+          </span>
+        </a>
+      </div>
+
+      <!-- Stamp / Date -->
+      <div style="position: absolute; bottom: 1.5rem; right: 2rem; text-align: right;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #c44; letter-spacing: 0.05em; opacity: 0.6;">
+          EST. MMVI
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social links below the card -->
+  <div class="mt-8 flex justify-center items-center gap-6" style="animation: cardSlideIn 0.8s ease-out 0.3s both;">
+    <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener" class="text-slate-700 hover:text-slate-400 transition-colors">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="text-slate-700 hover:text-slate-400 transition-colors">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  </div>
+</div>
+
+<style>
+  .catalog-card {
+    position: relative;
+    max-width: 560px;
+    width: 100%;
+    padding: 2rem;
+    padding-bottom: 3.5rem;
+    background: #FAF6EE;
+    border: 2px solid #C4B69C;
+    border-radius: 6px;
+    box-shadow:
+      0 1px 0 #E8E0D0,
+      0 2px 0 #C4B69C,
+      0 4px 12px rgba(0,0,0,0.4);
+    /* Subtle paper texture via gradient noise */
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 28px,
+        rgba(180,170,150,0.08) 28px,
+        rgba(180,170,150,0.08) 29px
+      );
+  }
+
+  .card-heading {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #2c2416;
+    letter-spacing: 0.05em;
+  }
+
+  .card-narrative {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.95rem;
+    color: #3d3425;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+  }
+
+  .card-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .card-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #8B7355;
+  }
+
+  .card-value {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #3d3425;
+    line-height: 1.4;
+  }
+
+  .card-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .card-link:hover {
+    opacity: 0.7;
+  }
+
+  @keyframes cardSlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+{{ end }}

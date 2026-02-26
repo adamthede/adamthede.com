@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Content sources for Hugo */
+@source "../../layouts/**/*.html";
+@source "../../content/**/*.md";
+
+/* Custom theme — shared gold accent with thedetech.com */
+@theme {
+  --color-gold: #D4A574;
+  --color-gold-light: #E8C9A8;
+  --color-gold-dark: #B8895A;
+  --color-teal: #2dd4bf;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Crimson Text', Georgia, serif;
+}
+
+/* Base — dark only */
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #000000;
+    color: #e2e8f0;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-gold) 30%, transparent);
+    color: white;
+  }
+}
+
+/* Smooth scrollbar */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
