@@ -28,7 +28,7 @@ enableRobotsTXT = true
     lineNos = false
 
 [outputs]
-  home = ['HTML']
+  home = ['HTML', 'RSS']
 
 [module]
   [[module.mounts]]
