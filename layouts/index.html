@@ -264,11 +264,14 @@
 </div>
 </div>
 
-<!-- ─── Randomizer ─── -->
+<!-- ─── Variant Selector ─── -->
 <script>
   (function() {
+    // Show only the index card variant.
+    // To re-enable random selection, replace the line below with:
+    //   var pick = Math.floor(Math.random() * variants.length);
     var variants = document.querySelectorAll('.variant');
-    var pick = Math.floor(Math.random() * variants.length);
+    var pick = 1; // 0 = Data Fork, 1 = Index Card, 2 = Terminal
     variants[pick].style.display = '';
   })();
 </script>
