@@ -1,341 +1,1113 @@
-{{ define "main" }}
-<!-- ═══════════════════════════════════════════════════════════════════════
-     RANDOM VARIANT HOMEPAGE
-     All three designs live here. JS picks one on each page load.
-     Individual layouts at /index-card/ and /terminal/ still work for dev.
-     ═══════════════════════════════════════════════════════════════════════ -->
-
-<!-- ─── VARIANT 1: Data-as-Design Fork ─── -->
-<div id="variant-datafork" class="variant" style="display: none;">
-<div class="min-h-screen flex flex-col justify-center px-6 py-16">
-  <div class="max-w-4xl mx-auto w-full">
-
-    <header class="text-center mb-16" style="animation: fadeIn 0.8s ease-out;">
-      <h1 class="text-5xl md:text-7xl font-light tracking-tight text-white mb-4"
-          style="font-family: 'Crimson Text', Georgia, serif;">
-        Adam Thede
-      </h1>
-      <p class="text-sm text-slate-500 uppercase tracking-[0.2em]">
-        Builder of systems, keeper of memory
-      </p>
-      <div style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, #D4A574, transparent); margin: 1.5rem auto;"></div>
-    </header>
-
-    <section class="max-w-2xl mx-auto mb-20 text-center" style="animation: fadeIn 1s ease-out 0.2s both;">
-      <p class="text-slate-400 leading-relaxed">
-        Fifteen years building things that matter. Started on Wall Street, survived Lehman Brothers,
-        found my way to code. Now I lead engineering teams, build products with AI, and spend my
-        evenings preserving five generations of family memory.
-      </p>
-      <p class="text-slate-500 text-sm mt-4">Nashville, TN</p>
-    </section>
-
-    <section class="mb-20" style="animation: fadeIn 1s ease-out 0.4s both;">
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16">
-        <a href="https://thedetech.com" target="_blank" rel="noopener"
-           class="group text-center transition-all">
-          <span class="text-lg md:text-xl font-light text-slate-300 group-hover:text-white transition-colors"
-                style="font-family: 'Crimson Text', Georgia, serif;">
-            Looking for my business?
-          </span>
-          <span class="block mt-2 text-xs uppercase tracking-[0.15em] transition-colors"
-                style="color: #D4A574;">
-            thedetech.com
-            <svg style="width: 10px; height: 10px; display: inline-block; vertical-align: middle; margin-left: 4px; opacity: 0; transition: all 0.2s;" class="group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
-            </svg>
-          </span>
-        </a>
-        <div class="hidden sm:block w-1 h-1 rounded-full" style="background: rgba(212,165,116,0.4);"></div>
-        <a href="https://officeofadamthede.com" target="_blank" rel="noopener"
-           class="group text-center transition-all">
-          <span class="text-lg md:text-xl font-light text-slate-300 group-hover:text-white transition-colors"
-                style="font-family: 'Crimson Text', Georgia, serif;">
-            Looking for me?
-          </span>
-          <span class="block mt-2 text-xs uppercase tracking-[0.15em] transition-colors"
-                style="color: #2dd4bf;">
-            officeofadamthede.com
-            <svg style="width: 10px; height: 10px; display: inline-block; vertical-align: middle; margin-left: 4px; opacity: 0; transition: all 0.2s;" class="group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
-            </svg>
-          </span>
-        </a>
-      </div>
-    </section>
-
-    <footer class="text-center" style="animation: fadeIn 1s ease-out 0.6s both;">
-      <div class="flex justify-center items-center gap-6">
-        <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-300 transition-colors">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-300 transition-colors">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        </a>
-      </div>
-    </footer>
-
-  </div>
-</div>
-</div>
-
-<!-- ─── VARIANT 2: Index Card ─── -->
-<div id="variant-indexcard" class="variant" style="display: none;">
-<div class="min-h-screen flex flex-col justify-center items-center px-6"
-     style="background: #0a0a0a;">
-
-  <div class="card-container" style="animation: cardSlideIn 0.8s ease-out;">
-    <div class="catalog-card">
-      <div style="height: 2px; background: #c44; margin-bottom: 1.5rem;"></div>
-      <div style="position: absolute; top: 1.5rem; right: 2rem;">
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #8B7355; letter-spacing: 0.05em;">
-          TN &middot; 2026
-        </span>
-      </div>
-      <div style="margin-bottom: 0.75rem;">
-        <span class="card-heading">THEDE, Adam</span>
-      </div>
-      <div style="margin-bottom: 1.5rem;">
-        <span style="font-family: 'Inter', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8B7355;">
-          Builder of systems, keeper of memory
-        </span>
-      </div>
-      <div class="card-narrative">
-        Fifteen years building things that matter. Started on Wall Street, survived
-        Lehman Brothers, found my way to code. Now I lead engineering teams, build
-        products with AI, and spend my evenings preserving five generations of
-        family memory.
-      </div>
-      <div class="card-entries">
-        <div class="card-entry">
-          <span class="card-label">LOCATED</span>
-          <span class="card-value">Nashville, Tennessee</span>
-        </div>
-        <div class="card-entry">
-          <span class="card-label">CURRENTLY</span>
-          <span class="card-value">VP of Engineering, Possip</span>
-          <span class="card-value">Thede Technologies &mdash; AI-augmented outcome engineering</span>
-          <span class="card-value">Tractor &amp; Silo &mdash; personal life-tracking platform</span>
-        </div>
-      </div>
-      <div style="height: 1px; background: #C4B69C; opacity: 0.4; margin: 1.5rem 0;"></div>
-      <div class="card-entry" style="margin-bottom: 0.75rem;">
-        <span class="card-label">SEE ALSO</span>
-      </div>
-      <div style="display: flex; gap: 0; flex-wrap: wrap; align-items: stretch;">
-        <a href="https://thedetech.com" target="_blank" rel="noopener"
-           class="card-link" style="color: #8B6914; flex: 1; min-width: 140px; padding-right: 1.5rem;">
-          Looking for my business?
-          <span style="display: block; font-size: 0.65rem; color: #8B7355; margin-top: 0.125rem; font-family: 'JetBrains Mono', monospace; font-style: normal;">
-            thedetech.com &rarr;
-          </span>
-        </a>
-        <div style="width: 1px; background: #C4B69C; opacity: 0.4; margin: 0 1.5rem; align-self: stretch;"></div>
-        <a href="https://officeofadamthede.com" target="_blank" rel="noopener"
-           class="card-link" style="color: #2c6b5e; flex: 1; min-width: 140px;">
-          Looking for me?
-          <span style="display: block; font-size: 0.65rem; color: #5a8a7e; margin-top: 0.125rem; font-family: 'JetBrains Mono', monospace; font-style: normal;">
-            officeofadamthede.com &rarr;
-          </span>
-        </a>
-      </div>
-      <div style="position: absolute; bottom: 1.5rem; right: 2rem; text-align: right;">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #c44; letter-spacing: 0.05em; opacity: 0.6;">
-          EST. MMVI
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mt-8 flex justify-center items-center gap-6" style="animation: cardSlideIn 0.8s ease-out 0.3s both;">
-    <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener" class="text-slate-700 hover:text-slate-400 transition-colors">
-      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-    <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="text-slate-700 hover:text-slate-400 transition-colors">
-      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-    </a>
-  </div>
-</div>
-</div>
-
-<!-- ─── VARIANT 3: Terminal ─── -->
-<div id="variant-terminal" class="variant" style="display: none;">
-<div class="min-h-screen flex flex-col justify-center items-center px-6"
-     style="background: #0c0c0c;">
-
-  <div class="terminal-window" style="animation: termFadeIn 0.6s ease-out;">
-    <div class="terminal-titlebar">
-      <div style="display: flex; gap: 6px;">
-        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57;"></div>
-        <div style="width: 12px; height: 12px; border-radius: 50%; background: #febc2e;"></div>
-        <div style="width: 12px; height: 12px; border-radius: 50%; background: #28c840;"></div>
-      </div>
-      <span style="font-size: 0.7rem; color: #666; font-family: 'JetBrains Mono', monospace;">adamthede.com</span>
-      <div style="width: 52px;"></div>
-    </div>
-
-    <div class="terminal-body" id="terminal">
-      <pre class="terminal-ascii" style="animation: termType 0.5s ease-out 0.3s both;">
- ╔═══════════════════════════════════════╗
- ║  ADAM THEDE                           ║
- ║  Nashville, TN                        ║
- ╚═══════════════════════════════════════╝</pre>
-
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 0.8s both;">
-        <span class="terminal-muted">Builder of systems, keeper of memory.</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1s both;">&nbsp;</div>
-
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.2s both;">
-        <span class="terminal-prompt">$</span>
-        <span class="terminal-cmd">whoami</span>
-      </div>
-      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.4s both;">
-        <span class="terminal-muted">Fifteen years building things that matter. Started on Wall Street,</span>
-      </div>
-      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.5s both;">
-        <span class="terminal-muted">survived Lehman Brothers, found my way to code. Now I lead</span>
-      </div>
-      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.6s both;">
-        <span class="terminal-muted">engineering teams, build products with AI, and spend my evenings</span>
-      </div>
-      <div class="terminal-line terminal-wrap" style="animation: termType 0.4s ease-out 1.7s both;">
-        <span class="terminal-muted">preserving five generations of family memory.</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 1.9s both;">&nbsp;</div>
-
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.1s both;">
-        <span class="terminal-prompt">$</span>
-        <span class="terminal-cmd">status</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.3s both;">
-        <span style="color: #D4A574;">&nbsp;&nbsp;CURRENTLY</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.4s both;">
-        <span class="terminal-muted">&nbsp;&nbsp;├─ VP of Engineering, Possip</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.5s both;">
-        <span class="terminal-muted">&nbsp;&nbsp;├─ Thede Technologies — AI-augmented outcome engineering</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.6s both;">
-        <span class="terminal-muted">&nbsp;&nbsp;└─ Tractor &amp; Silo — personal life-tracking platform</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 2.8s both;">&nbsp;</div>
-
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 3s both;">
-        <span class="terminal-prompt">$</span>
-        <span class="terminal-cmd">links</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.2s both;">
-        <span>&nbsp;&nbsp;</span>
-        <a href="https://thedetech.com" target="_blank" rel="noopener" class="terminal-link terminal-link-gold">
-          work
-        </a>
-        <span class="terminal-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ Looking for my business? thedetech.com</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.4s both;">
-        <span>&nbsp;&nbsp;</span>
-        <a href="https://officeofadamthede.com" target="_blank" rel="noopener" class="terminal-link terminal-link-teal">
-          personal
-        </a>
-        <span class="terminal-muted">&nbsp;→ Looking for me? officeofadamthede.com</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.6s both;">
-        <span>&nbsp;&nbsp;</span>
-        <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="terminal-link terminal-link-white">
-          github
-        </a>
-        <span class="terminal-muted">&nbsp;&nbsp;&nbsp;→ Open source &amp; side projects</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 3.8s both;">
-        <span>&nbsp;&nbsp;</span>
-        <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener" class="terminal-link terminal-link-white">
-          linkedin
-        </a>
-        <span class="terminal-muted">&nbsp;→ Professional profile</span>
-      </div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 4s both;">&nbsp;</div>
-      <div class="terminal-line" style="animation: termType 0.4s ease-out 4.2s both;">
-        <span class="terminal-prompt">$</span>
-        <span class="terminal-cursor"></span>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ─── Variant Selector ─── -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Thede · A Life, Measured in Seconds</title>
+<meta name="description" content="Adam Thede - builder of Tractor & Silo, keeper of memory. A portrait told as a journey through time: from a century of family letters down to a single captured second.">
+<meta property="og:title" content="Adam Thede · A Life, Measured in Seconds">
+<meta property="og:description" content="From a century of family letters down to one captured second - a portrait of a builder, in powers of ten.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Site.BaseURL }}">
+<link rel="canonical" href="{{ .Site.BaseURL }}">
 <script>
-  (function() {
-    // Show only the index card variant.
-    // To re-enable random selection, replace the line below with:
-    //   var pick = Math.floor(Math.random() * variants.length);
-    var variants = document.querySelectorAll('.variant');
-    var pick = 1; // 0 = Data Fork, 1 = Index Card, 2 = Terminal
-    variants[pick].style.display = '';
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('alms-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
   })();
 </script>
-
-<!-- ─── All styles ─── -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%231f2430' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23FF8F3B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  /* Data Fork */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+  :root {
+    --paper: #f4f1ea;
+    --paper-deep: #ece7dc;
+    --ink: #1f2430;
+    --ink-soft: #4a5160;
+    --rule: #c9c2b2;
+    --rule-soft: #ddd6c4;
+    --accent: #FF8F3B;
+    --accent-deep: #d96f1e;
+    --night: #11162b;
+    --veil: rgba(244,241,234,0.9);
+    --chip: rgba(255,255,255,0.5);
+    --serif: 'EB Garamond', Georgia, serif;
+    --hand: 'Caveat', cursive;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  /* the archive at night — stone-900, bone ink, the same chart printed on slate */
+  html[data-theme="dark"] {
+    --paper: #1c1917;
+    --paper-deep: #141110;
+    --ink: #ece7dc;
+    --ink-soft: #a8a094;
+    --rule: #45403a;
+    --rule-soft: #332f29;
+    --accent: #FF8F3B;
+    --accent-deep: #FDAD57;
+    --veil: rgba(28,25,23,0.92);
+    --chip: rgba(255,255,255,0.05);
+  }
+  html[data-theme="dark"] .coda .links a.primary { color: #1c1917; }
+  html[data-theme="dark"] .coda .links a.primary:hover { color: #1c1917; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  /* film grain */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 90;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Index Card */
-  .catalog-card {
+  /* corner registration marks */
+  .reg { position: fixed; width: 22px; height: 22px; z-index: 80; pointer-events: none; opacity: 0.5; }
+  .reg::before, .reg::after { content:''; position: absolute; background: var(--ink); }
+  .reg::before { width: 100%; height: 1px; }
+  .reg::after { width: 1px; height: 100%; }
+  .reg.tl { top: 14px; left: 14px; }
+  .reg.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .reg.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .reg.br { bottom: 14px; right: 14px; transform: scale(-1); }
+
+  .theme-toggle {
+    position: fixed; top: 13px; right: 48px;
+    z-index: 85;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    padding: 0.42rem 0.7rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+  .corner-nav {
+    position: fixed; top: 13px; left: 48px;
+    z-index: 85;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: flex; gap: 0.5rem;
+  }
+  .corner-nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+    padding: 0.42rem 0.7rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .corner-nav a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+  @media (max-width: 880px) {
+    .corner-nav { left: 0.8rem; top: 0.8rem; }
+    .corner-nav a { padding: 0.35rem 0.5rem; font-size: 0.56rem; }
+    .theme-toggle { right: 0.8rem; top: 0.8rem; }
+  }
+
+  /* ====================== TITLE ====================== */
+  .title-card {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 4rem 1.5rem;
     position: relative;
-    max-width: 560px;
-    width: 100%;
-    padding: 2rem;
-    padding-bottom: 3.5rem;
-    background: #FAF6EE;
-    border: 2px solid #C4B69C;
-    border-radius: 6px;
-    box-shadow: 0 1px 0 #E8E0D0, 0 2px 0 #C4B69C, 0 4px 12px rgba(0,0,0,0.4);
-    background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(180,170,150,0.08) 28px, rgba(180,170,150,0.08) 29px);
   }
-  .card-heading { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 1.25rem; font-weight: 500; color: #2c2416; letter-spacing: 0.05em; }
-  .card-narrative { font-family: 'Crimson Text', Georgia, serif; font-size: 0.95rem; color: #3d3425; line-height: 1.6; margin-bottom: 1.5rem; max-width: 480px; }
-  .card-entries { display: flex; flex-direction: column; gap: 0.75rem; }
-  .card-entry { display: flex; flex-direction: column; gap: 0.125rem; }
-  .card-label { font-family: 'Inter', sans-serif; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8B7355; }
-  .card-value { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.8rem; color: #3d3425; line-height: 1.4; }
-  .card-link { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.2s; }
-  .card-link:hover { opacity: 0.7; }
-  @keyframes cardSlideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  .title-card .kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 2.4rem;
+  }
+  .title-card h1 {
+    font-size: clamp(2.6rem, 7vw, 5.4rem);
+    font-weight: 500;
+    line-height: 1.04;
+    max-width: 18ch;
+    letter-spacing: -0.01em;
+  }
+  .title-card h1 em { font-style: italic; color: var(--accent-deep); }
+  .title-card .standfirst {
+    margin-top: 2.4rem;
+    max-width: 54ch;
+    font-size: clamp(1.05rem, 1.9vw, 1.18rem);
+    line-height: 1.68;
+    color: var(--ink-soft);
+  }
+  .title-card .ticker {
+    margin-top: 2.6rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    background: var(--chip);
+    padding: 0.65rem 1.1rem;
+  }
+  .title-card .ticker b { color: var(--accent-deep); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .title-card .credit {
+    margin-top: 2.4rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .title-card .credit b { color: var(--ink); font-weight: 500; }
+  .scroll-cue {
+    position: absolute; bottom: 2.2rem; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono); font-size: 0.68rem;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-soft);
+    animation: bob 2.6s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+  /* ====================== ZOOM ENGINE ====================== */
+  .zoom-track { position: relative; }
+  .zoom-stage {
+    position: sticky; top: 0;
+    height: 100vh;
+    overflow: hidden;
   }
 
-  /* Terminal */
-  .terminal-window { max-width: 680px; width: 100%; border: 1px solid #333; border-radius: 8px; overflow: hidden; background: #1a1a1a; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-  .terminal-titlebar { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; background: #2a2a2a; border-bottom: 1px solid #333; }
-  .terminal-body { padding: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.8; }
-  .terminal-ascii { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; line-height: 1.4; color: #D4A574; margin: 0 0 1rem 0; }
-  .terminal-line { white-space: nowrap; overflow: hidden; }
-  .terminal-wrap { white-space: normal; }
-  .terminal-prompt { color: #D4A574; margin-right: 0.5rem; }
-  .terminal-cmd { color: #e2e8f0; }
-  .terminal-muted { color: #666; }
-  .terminal-link { text-decoration: none; font-weight: 500; transition: all 0.15s; }
-  .terminal-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .terminal-link-gold { color: #D4A574; }
-  .terminal-link-gold:hover { color: #E8C9A8; }
-  .terminal-link-teal { color: #2dd4bf; }
-  .terminal-link-teal:hover { color: #5eead4; }
-  .terminal-link-white { color: #94a3b8; }
-  .terminal-link-white:hover { color: #e2e8f0; }
-  .terminal-cursor { display: inline-block; width: 8px; height: 1.1em; background: #D4A574; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
-  @keyframes termFadeIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
-  @keyframes termType { from { opacity: 0; } to { opacity: 1; } }
-  @media (max-width: 639px) {
-    .terminal-body { font-size: 0.65rem; padding: 1rem; }
-    .terminal-ascii { font-size: 0.55rem; }
-    .terminal-line { white-space: normal; }
+  /* nested zoom rings */
+  .frame-rings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  .frame-rings .ring {
+    position: absolute;
+    border: 1px solid var(--rule);
+    aspect-ratio: 1;
+  }
+
+  /* the instrument meter */
+  .meter {
+    position: absolute;
+    left: clamp(0.9rem, 2.6vw, 2.4rem);
+    top: 50%; transform: translateY(-50%);
+    font-family: var(--mono);
+    z-index: 30;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    max-width: 12.5rem;
+  }
+  .meter .count {
+    font-size: clamp(0.95rem, 1.45vw, 1.22rem);
+    font-weight: 300;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .meter .unit {
+    font-size: 0.6rem; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .meter .power {
+    margin-top: 0.5rem;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    font-weight: 300; line-height: 1;
+    color: var(--ink);
+  }
+  .meter .power sup { font-size: 0.45em; color: var(--accent-deep); font-weight: 500; }
+  .meter .gauge {
+    margin-top: 0.8rem;
+    width: 3px; height: 26vh; max-height: 220px;
+    background: var(--rule);
+    position: relative;
+    border-radius: 2px;
+  }
+  .meter .gauge i {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: 13px; height: 13px;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+  .meter .human-scale {
+    margin-top: 0.7rem;
+    font-size: 0.62rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-deep);
+    line-height: 1.7;
+  }
+
+  /* ====================== SCENES ====================== */
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    padding: 0 1rem;
+  }
+  .scene.active { opacity: 1; pointer-events: auto; }
+  .scene-grid {
+    width: min(1020px, 88vw);
+    margin-left: clamp(0px, 6vw, 110px);
+    display: grid;
+    grid-template-columns: minmax(230px, 350px) 1fr;
+    gap: clamp(1.6rem, 4vw, 3.6rem);
+    align-items: center;
+    transform: translateY(16px);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .scene.active .scene-grid { transform: translateY(0); }
+
+  .scene .illo { width: 100%; }
+  .scene .illo svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .scene .illo .draw { stroke: var(--ink); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .scene .illo .draw.soft { opacity: 0.55; stroke-width: 1.1; }
+  .scene .illo .draw.warm { stroke: var(--accent-deep); }
+  .scene .illo .fill-warm { fill: var(--accent); stroke: none; }
+  .scene .illo .fig-caption {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 0.9rem;
+  }
+
+  .scene .copy {
+    max-width: 56ch;
+    background: var(--veil);
+    box-shadow: 0 0 26px 20px var(--veil);
+    border-radius: 2px;
+  }
+  .scene .epoch {
+    font-family: var(--mono);
+    font-size: 0.66rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 1.2rem;
+  }
+  .scene h2 {
+    font-size: clamp(1.5rem, 3.6vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.14;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.005em;
+  }
+  .scene p {
+    font-size: clamp(1.0rem, 1.55vw, 1.14rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .scene p + p { margin-top: 0.9rem; }
+  .scene p b { color: var(--ink); font-weight: 600; }
+  .scene .artifact {
+    margin-top: 1.4rem;
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    background: var(--chip);
+    padding: 0.5rem 0.95rem;
+  }
+  .scene .artifact span { color: var(--accent-deep); }
+  a.artifact { text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  a.artifact:hover { border-color: var(--accent-deep); background: rgba(255,143,59,0.13); }
+  a.artifact .ext { color: var(--accent-deep); margin-left: 0.4em; }
+  .scene .margin-note {
+    font-family: var(--hand);
+    font-size: 1.3rem;
+    color: #8a7c64;
+    display: block;
+    margin-top: 1rem;
+    transform: rotate(-1.2deg);
+  }
+
+  /* century scene: night-sky inset for the constellation */
+  .sky-inset {
+    background: radial-gradient(ellipse at 50% 110%, #1c2447 0%, var(--night) 70%);
+    border: 1px solid var(--rule);
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
+    padding: 0.6rem;
+  }
+  .sky-inset svg { display: block; }
+  .sky-inset .star-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; fill: rgba(216,201,163,0.85); letter-spacing: 0.12em; text-transform: uppercase; }
+  .sky-inset .star-sub { font-family: 'IBM Plex Mono', monospace; font-size: 6px; fill: rgba(216,201,163,0.5); letter-spacing: 0.08em; }
+  .sky-inset .const-line { stroke: rgba(216,201,163,0.5); stroke-width: 0.7; stroke-dasharray: 3 3; fill: none; }
+  .sky-inset .const-line.future { stroke-dasharray: 1 5; opacity: 0.6; }
+  .sky-inset .spark { fill: var(--accent); filter: drop-shadow(0 0 3px rgba(255,143,59,0.95)); }
+
+  /* pull-back scene */
+  .scene.pullback { text-align: center; }
+  .scene.pullback .copy { max-width: 60ch; margin: 0 auto; }
+  .pullback-inner .copy {
+    background: var(--veil);
+    box-shadow: 0 0 26px 20px var(--veil);
+  }
+  .pullback-inner {
+    width: min(760px, 88vw);
+    margin-left: clamp(0px, 6vw, 110px);
+    text-align: center;
+    transform: translateY(16px);
+    transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .scene.active .pullback-inner { transform: translateY(0); }
+  .scale-echoes {
+    margin: 1.8rem auto 0;
+    display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center;
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .scale-echoes span {
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    background: var(--chip);
+    padding: 0.4rem 0.7rem;
+  }
+  .scale-echoes span b { color: var(--accent-deep); font-weight: 500; }
+  .ces {
+    margin-top: 2rem;
+    font-family: var(--mono);
+    font-size: clamp(0.8rem, 1.7vw, 1rem);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .ces i { color: var(--accent-deep); font-style: normal; }
+
+  /* ====================== CODA ====================== */
+  .coda {
+    min-height: 95vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+  }
+  .coda-inner { max-width: 58ch; }
+  .coda .epoch {
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep); margin-bottom: 1.6rem;
+  }
+  .coda h2 { font-size: clamp(1.9rem, 4.5vw, 3.1rem); font-weight: 500; line-height: 1.16; margin-bottom: 1.6rem; }
+  .coda p { font-size: clamp(1.05rem, 1.9vw, 1.16rem); line-height: 1.75; color: var(--ink-soft); }
+  .coda p + p { margin-top: 1.1rem; }
+  .coda .welcome {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .coda .sig {
+    margin-top: 2.4rem;
+    font-family: var(--hand);
+    font-size: 2.4rem;
+    color: var(--ink);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .coda .sig-sub {
+    font-family: var(--mono); font-size: 0.66rem;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-soft); margin-top: 0.5rem;
+  }
+  .coda .links {
+    margin-top: 2.4rem;
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+  }
+  .coda .links a {
+    color: var(--ink); text-decoration: none;
+    border: 1px solid var(--ink);
+    padding: 0.75rem 1.3rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .coda .links a:hover { background: var(--ink); color: var(--paper); }
+  .coda .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+  .coda .links a.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
+
+  footer {
+    text-align: center;
+    padding: 2.4rem 1rem 3.2rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    line-height: 2.2;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 880px) {
+    .scene-grid {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-left: 0;
+      width: min(560px, 92vw);
+    }
+    .scene .illo { max-width: 180px; margin: 0 auto; }
+    .scene .illo .fig-caption { margin-top: 0.4rem; font-size: 0.52rem; }
+    .scene .copy { text-align: left; padding-bottom: 3.2rem; }
+    .scene h2 { font-size: clamp(1.15rem, 5vw, 1.5rem); margin-bottom: 0.7rem; }
+    .scene p { font-size: 0.92rem; line-height: 1.55; }
+    .scene p + p { margin-top: 0.65rem; }
+    .scene .epoch { margin-bottom: 0.6rem; font-size: 0.58rem; }
+    .scene .artifact { margin-top: 0.8rem; font-size: 0.6rem; padding: 0.4rem 0.7rem; }
+    .scene .margin-note { font-size: 1.1rem; margin-top: 0.7rem; }
+    .pullback-inner { margin-left: 0; }
+    .meter {
+      top: auto; bottom: 0.8rem; left: 0.8rem; right: auto;
+      transform: none;
+      flex-direction: row; align-items: baseline; gap: 0.7rem;
+      max-width: none;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 0.4rem 0.65rem;
+      box-shadow: 0 2px 8px rgba(31,36,48,0.08);
+    }
+    .meter .gauge, .meter .power { display: none; }
+    .meter .count { font-size: 0.85rem; }
+    .meter .unit { font-size: 0.5rem; }
+    .meter .human-scale { margin-top: 0; font-size: 0.55rem; }
+  }
+  @media (max-height: 680px) and (max-width: 880px) {
+    .scene .illo { max-width: 130px; }
+    .scene p { font-size: 0.86rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .scroll-cue { animation: none; }
+    .scene, .scene-grid, .pullback-inner { transition: none; }
   }
 </style>
-{{ end }}
+</head>
+<body>
+
+<i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Switch color theme">☾ night</button>
+
+<nav class="corner-nav" aria-label="Adam's other sites">
+  <a href="{{ .Site.Params.thedetech }}" target="_blank" rel="noopener">business ↗</a>
+  <a href="{{ .Site.Params.officeofadamthede }}" target="_blank" rel="noopener">writing ↗</a>
+</nav>
+
+<!-- ====================== TITLE ====================== -->
+<section class="title-card">
+  <div class="kicker">A portrait of one builder · after the Eames film, 1977</div>
+  <h1>A life, measured in <em>seconds</em></h1>
+  <p class="standfirst">
+    In 1977, Charles and Ray Eames filmed a journey from a picnic blanket to the edge of the
+    universe and back, one power of ten at a time. This is that journey taken through time
+    instead of space - from a century of my family's letters down to a single captured second.
+    I'm Adam Thede. This is my life, measured in seconds.
+  </p>
+  <div class="ticker">You have been here for <b id="hereSeconds">0</b> seconds. Each one is the unit of this film.</div>
+  <div class="credit">Adam Thede · Nashville · <b>Thede Technologies</b></div>
+  <div class="scroll-cue">Scroll to descend ↓</div>
+</section>
+
+<!-- ====================== ZOOM TRACK ====================== -->
+<div class="zoom-track" id="zoomTrack">
+  <div class="zoom-stage">
+
+    <div class="frame-rings" id="frameRings"></div>
+
+    <aside class="meter" aria-hidden="true">
+      <div>
+        <div class="count" id="meterCount">3,155,760,000</div>
+        <div class="unit" id="meterUnit">seconds</div>
+      </div>
+      <div class="power">10<sup id="meterPower">9.5</sup></div>
+      <div class="gauge"><i id="gaugeDot" style="top:0%"></i></div>
+      <div class="human-scale" id="meterHuman">a century</div>
+    </aside>
+
+    <!-- ========== SCENE 1 · A CENTURY ========== -->
+    <section class="scene" data-secs="3155760000" data-power="9.5" data-scale="a century">
+      <div class="scene-grid">
+        <div class="illo">
+          <div class="sky-inset">
+            <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#cfd8ef" opacity="0.7">
+                <circle cx="30" cy="30" r="0.8"/><circle cx="90" cy="18" r="0.6"/><circle cx="150" cy="40" r="0.7"/>
+                <circle cx="230" cy="22" r="0.8"/><circle cx="290" cy="48" r="0.6"/><circle cx="50" cy="120" r="0.6"/>
+                <circle cx="280" cy="120" r="0.7"/><circle cx="40" cy="220" r="0.7"/><circle cx="200" cy="238" r="0.6"/>
+                <circle cx="120" cy="200" r="0.5"/><circle cx="300" cy="200" r="0.6"/><circle cx="170" cy="14" r="0.5"/>
+              </g>
+              <path id="lineagePath" class="const-line" d="M 48 178 L 110 78 L 178 150 L 248 196"/>
+              <path class="const-line future" d="M 248 196 L 296 132"/>
+              <g>
+                <circle cx="48" cy="178" r="3.4" fill="#f3ead6"/>
+                <text class="star-lbl" x="48" y="158" text-anchor="middle">Emil &amp; Ella</text>
+                <text class="star-sub" x="48" y="196" text-anchor="middle">1910</text>
+              </g>
+              <g>
+                <circle cx="110" cy="78" r="2.8" fill="#f3ead6"/>
+                <text class="star-lbl" x="110" y="60" text-anchor="middle">The wartime letters</text>
+                <text class="star-sub" x="110" y="94" text-anchor="middle">1940s</text>
+              </g>
+              <g>
+                <circle cx="178" cy="150" r="3.2" fill="#f3ead6"/>
+                <text class="star-lbl" x="178" y="131" text-anchor="middle">Dad's weekly letters</text>
+                <text class="star-sub" x="178" y="167" text-anchor="middle">still writing</text>
+              </g>
+              <g>
+                <circle cx="248" cy="196" r="4.4" fill="#FF8F3B"/>
+                <text class="star-lbl" x="248" y="176" text-anchor="middle" fill="#FF8F3B">Adam</text>
+                <text class="star-sub" x="248" y="215" text-anchor="middle">now</text>
+              </g>
+              <g opacity="0.85">
+                <circle cx="296" cy="132" r="2" fill="rgba(243,234,214,0.55)"/>
+                <text class="star-sub" x="288" y="116" text-anchor="middle">who comes after</text>
+              </g>
+              <circle class="spark" r="2.2">
+                <animateMotion dur="9s" repeatCount="indefinite" rotate="none">
+                  <mpath href="#lineagePath"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+          <div class="fig-caption">Fig. 1 — four generations, drawn as stars; the light still traveling</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">3,155,760,000 seconds · the inheritance</div>
+          <h2>In 1910, my great-grandparents - Emil and Ella - began writing letters to each other.</h2>
+          <p>They wrote constantly - their courtship, their hopes, their ordinary days - and both
+             sides of the conversation survive: her letters to him, his letters to her. They married.
+             A generation later, letters crossed the Atlantic from a warship. A generation after
+             that, my father began writing a letter to his mother every week - and he is
+             writing them still.</p>
+          <p>I have held this paper in my hands. Paper from 1910. Paper from a warship. Paper
+             from the kitchen table where my father sits on Sunday afternoons. Four generations
+             understood something I inherited before I had words for it: <b>the act of recording
+             a life gives it meaning beyond itself.</b></p>
+          <div class="artifact"><span>ARTIFACT</span> the Emil &amp; Ella letters - now being typeset into a bound book</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 2 · A GENERATION ========== -->
+    <section class="scene" data-secs="1000000000" data-power="9" data-scale="a generation · 32 years">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- film reel -->
+            <circle class="draw" cx="92" cy="74" r="46"/>
+            <circle class="draw soft" cx="92" cy="74" r="14"/>
+            <circle class="draw soft" cx="92" cy="46" r="7"/>
+            <circle class="draw soft" cx="92" cy="102" r="7"/>
+            <circle class="draw soft" cx="64" cy="74" r="7"/>
+            <circle class="draw soft" cx="120" cy="74" r="7"/>
+            <!-- unspooling strip -->
+            <path class="draw" d="M 134 96 C 190 120 170 170 220 186 C 252 196 268 210 270 232"/>
+            <path class="draw" d="M 130 110 C 180 134 158 180 210 198 C 240 208 254 220 256 238"/>
+            <!-- sprocket dots -->
+            <g class="draw soft">
+              <path d="M 152 116 l 3 3"/><path d="M 172 132 l 3 3"/><path d="M 186 152 l 3 3"/>
+              <path d="M 200 172 l 3 3"/><path d="M 222 188 l 3 3"/><path d="M 242 204 l 3 3"/>
+            </g>
+            <!-- a frame on the strip: the lake -->
+            <rect class="draw" x="196" y="38" width="100" height="74"/>
+            <path class="draw soft" d="M 202 86 q 12 -5 24 0 q 12 5 24 0 q 12 -5 24 0 q 8 3 16 0"/>
+            <path class="draw" d="M 226 78 L 240 60 L 254 78 Z"/>
+            <path class="draw soft" d="M 240 60 L 240 50"/>
+            <circle class="draw soft" cx="214" cy="54" r="6"/>
+            <path class="draw warm" d="M 196 38 L 188 30 M 296 38 L 304 30 M 196 112 L 188 120 M 296 112 L 304 120"/>
+          </svg>
+          <div class="fig-caption">Fig. 2 — a hundred reels, five generations · one boat on Maple Lane</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">1,000,000,000 seconds · the becoming</div>
+          <h2>It takes about three billion seconds to live a long life. I spent a billion of them learning to build.</h2>
+          <p>In 2001, helping my grandparents move to assisted living, I stayed behind to sort
+             the closets: tintypes from the 1870s, film reels, VHS tapes, letters tied with ribbon.
+             I became the family's archivist that day - hundreds of tapes, nearly a hundred reels,
+             thousands of photographs digitized over two decades. In one reel, my mother is a girl
+             on a fishing trip at Maple Lane Resort in Minnesota - a lake her grandparents had been
+             coming to for decades - in footage her father shot on 8mm film.</p>
+          <p>In 2012 I tried to build the successor to the letters - a life-capture startup called
+             LifeTagr. It failed; I couldn't build it myself and didn't yet know how to bootstrap
+             a build I couldn't do. <b>So I learned.</b> Code school at 35. A decade-plus shipping
+             production software. Becoming the CTO I couldn't afford to hire.</p>
+          <div class="artifact"><span>LESSON</span> conviction is only worth what you can execute</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 3 · A DECADE ========== -->
+    <section class="scene" data-secs="315576000" data-power="8.5" data-scale="a decade">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- ground -->
+            <path class="draw" d="M 12 218 L 308 218"/>
+            <path class="draw soft" d="M 20 234 q 30 -5 60 0 M 240 234 q 30 -5 60 0"/>
+            <!-- silo -->
+            <rect class="draw" x="140" y="84" width="46" height="134"/>
+            <path class="draw" d="M 140 84 Q 163 56 186 84"/>
+            <path class="draw soft" d="M 140 112 L 186 112 M 140 140 L 186 140 M 140 168 L 186 168 M 140 196 L 186 196"/>
+            <circle class="fill-warm" cx="163" cy="68" r="2.4"/>
+            <!-- barn -->
+            <rect class="draw" x="216" y="160" width="84" height="58"/>
+            <path class="draw" d="M 210 160 L 258 130 L 306 160"/>
+            <rect class="draw soft" x="246" y="184" width="24" height="34"/>
+            <!-- tractor -->
+            <circle class="draw" cx="58" cy="202" r="16"/>
+            <circle class="draw soft" cx="58" cy="202" r="7"/>
+            <circle class="draw" cx="104" cy="208" r="10"/>
+            <path class="draw" d="M 42 186 L 42 168 L 76 168 L 82 186"/>
+            <path class="draw" d="M 76 168 L 76 156 L 98 156 L 104 198"/>
+            <path class="draw soft" d="M 46 156 L 46 144"/>
+            <!-- harvest arcs -->
+            <path class="draw warm" stroke-dasharray="3 6" d="M 112 170 Q 130 110 140 96"/>
+            <path class="draw warm" stroke-dasharray="3 6" d="M 186 100 Q 210 120 232 158"/>
+            <!-- sun -->
+            <circle class="draw" cx="40" cy="48" r="17"/>
+            <path class="draw soft" d="M 40 20 L 40 27 M 40 69 L 40 76 M 12 48 L 19 48 M 61 48 L 68 48"/>
+          </svg>
+          <div class="fig-caption">Fig. 3 — the homestead: the tractor harvests, the silo stores</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">315,576,000 seconds · the build</div>
+          <h2>In 2016 I started building Tractor &amp; Silo - because I needed it to exist.</h2>
+          <p>A container for the digital exhaust of a life: the who, what, when, where, and why of
+             my days. Places, people, photographs, experiences. <b>Your devices fill it. Your
+             thoughts make it yours.</b> I have used it every day for nearly a decade - it has
+             already outlived most of the services that failed me.</p>
+          <p>And they did fail me. Moves, Basis, Narrative, Automatic, Limitless - each one shut
+             down, each time the same ritual: the frantic export, the orphaned folders. That
+             history is why Silo is built the way it is - open exports, no lock-in, paid plainly,
+             <b>permanence over growth</b> - with a written promise that if the worst ever happens,
+             you leave with everything. In April 2026 the iOS companion shipped: fourteen years
+             after LifeTagr, the vision finally exists end-to-end.</p>
+          <a class="artifact" href="https://tractorandsilo.com" target="_blank" rel="noopener"><span>ECOSYSTEM</span> the tractor harvests · the silo stores<span class="ext">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 4 · A MONTH ========== -->
+    <section class="scene" data-secs="2629800" data-power="6.4" data-scale="a month">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- unfolded letter sheet -->
+            <rect class="draw" x="58" y="34" width="204" height="192"/>
+            <path class="draw soft" d="M 58 98 L 262 98"/>
+            <!-- masthead -->
+            <path class="draw" d="M 78 62 L 132 62 M 78 74 L 120 74"/>
+            <path class="draw warm" d="M 188 56 L 242 56 L 242 84 L 188 84 Z"/>
+            <path class="draw warm" d="M 188 56 L 215 72 L 242 56"/>
+            <!-- columns of text -->
+            <g class="draw soft">
+              <path d="M 78 118 L 154 118 M 78 130 L 154 130 M 78 142 L 146 142 M 78 154 L 154 154 M 78 166 L 150 166"/>
+              <path d="M 170 118 L 242 118 M 170 130 L 242 130 M 170 142 L 236 142"/>
+            </g>
+            <!-- photo block -->
+            <rect class="draw" x="170" y="154" width="72" height="50"/>
+            <path class="draw soft" d="M 174 196 L 192 176 L 206 190 L 218 172 L 238 196"/>
+            <circle class="draw soft" cx="226" cy="166" r="5"/>
+            <!-- footer line -->
+            <path class="draw soft" d="M 78 186 L 154 186 M 78 198 L 148 198"/>
+            <!-- thread to a small star (dad's tradition) -->
+            <path class="draw warm" stroke-dasharray="2 5" d="M 262 110 C 292 96 300 70 296 44"/>
+            <path class="draw warm" d="M 296 40 l -4 6 M 296 40 l 5 5"/>
+          </svg>
+          <div class="fig-caption">Fig. 4 — the Big Letter · the thread leads back to my father's</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">2,629,800 seconds · the synthesis</div>
+          <h2>Once a month, the whole system writes a letter.</h2>
+          <p>The Big Letter is a family newsletter synthesized from everything the ecosystem
+             captures - the month's places, projects, and photographs, what had my attention,
+             what the kids said at dinner. Drafted with AI in my own voice, every vignette citing
+             its sources, finished by hand. The first issue shipped in April 2026.</p>
+          <p>My father has been making this exact artifact by hand for decades. <b>The loop from
+             1910 closes every month</b> - digital exhaust becoming a warm, durable thing my
+             family can hold, and my kids will inherit.</p>
+          <div class="artifact"><span>METHOD</span> Capture · Enrich · Synthesize</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 5 · A WEEK ========== -->
+    <section class="scene" data-secs="604800" data-power="5.8" data-scale="a week">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- stack of question cards -->
+            <rect class="draw soft" x="70" y="58" width="180" height="104" transform="rotate(-4 160 110)"/>
+            <rect class="draw soft" x="66" y="52" width="180" height="104" transform="rotate(2 160 104)"/>
+            <rect class="draw" x="64" y="44" width="184" height="108"/>
+            <!-- question mark -->
+            <path class="draw warm" d="M 96 84 q 0 -16 16 -16 q 16 0 16 14 q 0 10 -12 16 q -4 2 -4 8"/>
+            <circle class="fill-warm" cx="112" cy="118" r="2.6"/>
+            <!-- question lines -->
+            <path class="draw soft" d="M 142 76 L 232 76 M 142 92 L 224 92 M 142 108 L 232 108"/>
+            <!-- voice waveform answer -->
+            <g class="draw">
+              <path d="M 76 206 L 76 214"/><path d="M 90 198 L 90 222"/><path d="M 104 188 L 104 232"/>
+              <path d="M 118 196 L 118 224"/><path d="M 132 180 L 132 240"/><path d="M 146 192 L 146 228"/>
+              <path d="M 160 184 L 160 236"/><path d="M 174 198 L 174 222"/><path d="M 188 190 L 188 230"/>
+              <path d="M 202 200 L 202 220"/><path d="M 216 194 L 216 226"/><path d="M 230 204 L 230 216"/>
+            </g>
+            <path class="draw warm" stroke-dasharray="2 5" d="M 156 152 L 156 176"/>
+          </svg>
+          <div class="fig-caption">Fig. 5 — a question asked, a voice answering</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">604,800 seconds · the questions</div>
+          <h2>Some stories don't fall out of the data. You have to ask for them.</h2>
+          <p>Answers2Answers is the asking machine - a family Q&amp;A digest that sends a question
+             on a cadence, gathers answers in writing or in voice, and weaves them into something
+             the whole family reads. It began as a family digest app years ago; I'm rebuilding it
+             now as an audio-first iOS product, with a year-plus of the original family answers
+             preserved and honored inside it.</p>
+          <p>Where the silo captures a life passively, this one draws a life out of the people you
+             love - <b>the interview half of the family record.</b> The letters were never written
+             to be archives either. They were just people answering each other, week after week.</p>
+          <div class="artifact"><span>LINEAGE</span> correspondence, productized - questions on a cadence since 1910</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 6 · A DAY ========== -->
+    <section class="scene" data-secs="86400" data-power="4.9" data-scale="a day">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- sun arc -->
+            <path class="draw warm" stroke-dasharray="4 6" d="M 36 150 Q 160 10 284 150"/>
+            <circle class="draw" cx="160" cy="80" r="12"/>
+            <path class="draw soft" d="M 160 58 L 160 64 M 182 80 L 188 80 M 132 80 L 138 80"/>
+            <!-- horizon + ticks -->
+            <path class="draw" d="M 24 150 L 296 150"/>
+            <g class="draw soft">
+              <path d="M 36 150 L 36 158 M 67 150 L 67 156 M 98 150 L 98 158 M 129 150 L 129 156 M 160 150 L 160 160 M 191 150 L 191 156 M 222 150 L 222 158 M 253 150 L 253 156 M 284 150 L 284 158"/>
+            </g>
+            <!-- phone -->
+            <rect class="draw" x="64" y="182" width="40" height="64" rx="6"/>
+            <path class="draw soft" d="M 78 238 L 90 238"/>
+            <path class="draw warm" stroke-dasharray="2 4" d="M 84 182 Q 84 160 104 152"/>
+            <!-- laptop -->
+            <path class="draw" d="M 196 230 L 206 188 L 270 188 L 260 230 Z"/>
+            <path class="draw" d="M 186 230 L 270 230"/>
+            <path class="draw soft" d="M 214 198 L 256 198 M 212 208 L 250 208 M 210 218 L 246 218"/>
+            <path class="draw warm" stroke-dasharray="2 4" d="M 236 188 Q 232 166 216 154"/>
+          </svg>
+          <div class="fig-caption">Fig. 6 — 86,400 seconds, kept by the phone and the Mac</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">86,400 seconds · a day, kept</div>
+          <h2>86,400 seconds. Most of them used to vanish.</h2>
+          <p>The phone keeps the day's path - Silo iOS tracks places, check-ins, voice memos,
+             photographs, as the day is lived. On the desk, <b>Lens</b> watches the working hours:
+             screen, webcam, focus - then an AI model running entirely on my Mac writes the day's
+             journal. Nothing leaves the machine. The PKM vault does the same for paper - documents
+             ingested and enriched locally, because the most sensitive records should never touch
+             a cloud.</p>
+          <p>That is the local-inference thesis I'm testing in public: the most personal
+             synthesis should happen on hardware you own. The frontier still lives in the cloud -
+             I'll say so plainly - but the journal of your day belongs to you.</p>
+          <a class="artifact" href="https://tractorandsilo.com" target="_blank" rel="noopener"><span>INSTRUMENTS</span> Silo iOS · Lens · PKM Vault<span class="ext">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 7 · A MINUTE ========== -->
+    <section class="scene" data-secs="60" data-power="1.8" data-scale="a minute">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- photograph -->
+            <rect class="draw" x="36" y="44" width="150" height="112"/>
+            <rect class="draw soft" x="44" y="52" width="134" height="84"/>
+            <path class="draw soft" d="M 48 128 L 84 92 L 108 114 L 134 80 L 174 128"/>
+            <circle class="draw soft" cx="150" cy="68" r="7"/>
+            <!-- prose lines materializing beside it -->
+            <g class="draw warm">
+              <path d="M 206 60 L 290 60"/>
+              <path d="M 206 76 L 282 76"/>
+              <path d="M 206 92 L 290 92"/>
+              <path d="M 206 108 L 270 108"/>
+              <path d="M 206 124 L 286 124"/>
+              <path d="M 206 140 L 250 140"/>
+            </g>
+            <path class="draw" d="M 186 100 L 200 100 M 196 96 L 200 100 L 196 104"/>
+            <!-- voice memo below -->
+            <circle class="draw" cx="70" cy="208" r="18"/>
+            <rect class="draw soft" x="64" y="198" width="12" height="14" rx="6"/>
+            <path class="draw soft" d="M 60 208 q 0 10 10 10 q 10 0 10 -10 M 70 218 L 70 226"/>
+            <g class="draw soft">
+              <path d="M 104 204 L 104 216 M 116 198 L 116 222 M 128 206 L 128 214 M 140 200 L 140 220 M 152 208 L 152 212"/>
+            </g>
+          </svg>
+          <div class="fig-caption">Fig. 7 — a photograph, described; a moment, told</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">60 seconds · the enrichment</div>
+          <h2>A minute is enough to make a memory retrievable.</h2>
+          <p>A voice memo at a trailhead. A check-in at a diner. A paragraph written by a local
+             vision model describing a photograph from the family archive - who is in it, what is
+             happening - on the workbench I built for the job: a describer for old photographs, a
+             transcriber for voice and tape, a slideshow engine that turns archives into films for
+             the family's picture frames.</p>
+          <p>This is the middle of the method, where raw capture becomes memory: AI does the
+             cataloging, and I add the part only I know. <b>Metrics describe. Memory
+             means.</b></p>
+          <div class="artifact"><span>WORKBENCH</span> Photo Describer · WhisperKit · Slideshow Generator</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 8 · ONE SECOND ========== -->
+    <section class="scene" data-secs="1" data-power="0" data-scale="one second">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- shutter iris -->
+            <circle class="draw" cx="160" cy="130" r="86"/>
+            <circle class="draw soft" cx="160" cy="130" r="96"/>
+            <g class="draw">
+              <path d="M 160 44 L 196 116"/>
+              <path d="M 234 87 L 174 140"/>
+              <path d="M 246 130 L 168 158"/>
+              <path d="M 203 205 L 152 144"/>
+              <path d="M 117 205 L 138 124"/>
+              <path d="M 74 130 L 152 112"/>
+              <path d="M 86 87 L 160 100"/>
+            </g>
+            <circle class="fill-warm" cx="160" cy="130" r="5"/>
+            <path class="draw warm" d="M 160 18 L 160 28 M 160 232 L 160 242 M 48 130 L 58 130 M 262 130 L 272 130"/>
+          </svg>
+          <div class="fig-caption">Fig. 8 — one second · the shutter</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">1 second · one second</div>
+          <h2>One second. A shutter clicks.</h2>
+          <p>Somewhere in Nashville, a photograph is taken. It will be captured tonight, enriched
+             this week, synthesized into a letter this month, kept in the silo for a lifetime -
+             and inherited, someday, by people who will want to know who I was.</p>
+          <p><b>This is the whole idea, at every scale:</b> a second, a day, a month, a life, a
+             century. Capture it. Enrich it. Synthesize it. Pass it on.</p>
+          <span class="margin-note">"Recording a life lets you live it twice."</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCENE 9 · PULL BACK ========== -->
+    <section class="scene pullback" data-secs="3155760000" data-power="9.5" data-scale="and back out">
+      <div class="pullback-inner">
+        <div class="copy">
+          <div class="epoch">And back out again</div>
+          <h2>The same shape, at every scale.</h2>
+          <p>Pull back from the single second and the pattern repeats all the way up - the day
+             assembles into the week, the week into the month, the month into a life, the life
+             into the record a family keeps for a century.</p>
+          <div class="scale-echoes">
+            <span><b>1</b> a shutter</span>
+            <span><b>60</b> a memo</span>
+            <span><b>86,400</b> a day kept</span>
+            <span><b>604,800</b> a question</span>
+            <span><b>2,629,800</b> a letter</span>
+            <span><b>315,576,000</b> a build</span>
+            <span><b>3,155,760,000</b> an inheritance</span>
+          </div>
+          <div class="ces">Capture <i>·</i> Enrich <i>·</i> Synthesize</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <div style="height: 1150vh;"></div>
+</div>
+
+<!-- ====================== CODA ====================== -->
+<section class="coda">
+  <div class="coda-inner">
+    <div class="epoch">A letter to the future</div>
+    <h2>Letters won't be the medium for my generation. But the impulse is the same.</h2>
+    <p>Capture a life so the people you love can know it. My great-grandparents didn't know their
+       letters would survive a century - they were just writing to each other. I don't know who
+       will read the record of my life. Maybe my kids. Maybe their kids. But keeping it has made
+       me more present in the living of it.</p>
+    <p class="welcome">If you've lost data to a service that shut down, you're welcome here. If
+       you want to document your life for those who come after, you're welcome here. If you're an
+       asker of questions and a seeker of stories - you're welcome here.</p>
+    <div>
+      <span class="sig">Adam Thede</span>
+      <div class="sig-sub">Builder · Thede Technologies · Nashville</div>
+    </div>
+    <div class="links">
+      <a class="primary" href="https://tractorandsilo.com">Explore Tractor &amp; Silo</a>
+      <a href="{{ .Site.Params.thedetech }}">Thede Technologies</a>
+      <a href="{{ .Site.Params.officeofadamthede }}">The Office of Adam Thede</a>
+    </div>
+    <div class="links" style="margin-top: 1rem;">
+      <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  A life, measured in seconds · Thede Technologies, LLC<br>
+  Set after the Eames film "Powers of Ten" (1977) · drawn &amp; written from the family record
+</footer>
+
+<script>
+(function () {
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- theme toggle ---------- */
+  const toggle = document.getElementById('themeToggle');
+  function syncToggle() {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    toggle.textContent = dark ? '☀ day' : '☾ night';
+  }
+  toggle.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('alms-theme', dark ? 'light' : 'dark'); } catch (e) {}
+    syncToggle();
+  });
+  syncToggle();
+
+  /* ---------- title ticker ---------- */
+  const hereEl = document.getElementById('hereSeconds');
+  const t0 = Date.now();
+  setInterval(() => {
+    hereEl.textContent = Math.floor((Date.now() - t0) / 1000).toLocaleString();
+  }, 1000);
+
+  /* ---------- scene engine ---------- */
+  const scenes = Array.from(document.querySelectorAll('.scene'));
+  const track = document.getElementById('zoomTrack');
+  const meterCount = document.getElementById('meterCount');
+  const meterUnit = document.getElementById('meterUnit');
+  const meterPower = document.getElementById('meterPower');
+  const meterHuman = document.getElementById('meterHuman');
+  const gaugeDot = document.getElementById('gaugeDot');
+  const ringsWrap = document.getElementById('frameRings');
+
+  const N = scenes.length;            // 9 (8 content + pullback)
+  const LAST_CONTENT = N - 2;         // index of "one second"
+
+  /* nested rings */
+  const RING_COUNT = 7;
+  const rings = [];
+  for (let i = 0; i < RING_COUNT; i++) {
+    const r = document.createElement('div');
+    r.className = 'ring';
+    ringsWrap.appendChild(r);
+    rings.push(r);
+  }
+
+  /* prepare draw-on paths */
+  const sceneDraws = scenes.map(scene => {
+    const paths = Array.from(scene.querySelectorAll('.illo .draw'));
+    return paths.map(p => {
+      let len = 0;
+      try { len = p.getTotalLength(); } catch (e) { len = 0; }
+      if (len && !REDUCED) {
+        p.style.strokeDasharray = (p.getAttribute('stroke-dasharray')) ? p.style.strokeDasharray : len;
+        if (!p.getAttribute('stroke-dasharray')) {
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+        }
+      }
+      return { p, len, hasOwnDash: !!p.getAttribute('stroke-dasharray') };
+    });
+  });
+
+  function fmt(n) {
+    if (n >= 100) return Math.round(n).toLocaleString('en-US');
+    if (n >= 10) return n.toFixed(0);
+    return n.toFixed(0);
+  }
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+  let lastIdx = -1;
+  function update() {
+    const rect = track.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    const progress = clamp(-rect.top / total, 0, 1);
+    const sceneFloat = progress * (N - 1);
+    const idx = clamp(Math.round(sceneFloat), 0, N - 1);
+
+    if (idx !== lastIdx) {
+      scenes.forEach((s, i) => s.classList.toggle('active', i === idx));
+      lastIdx = idx;
+    }
+
+    /* meter */
+    const lo = Math.floor(sceneFloat), hi = clamp(lo + 1, 0, N - 1);
+    const frac = sceneFloat - lo;
+    const sLo = parseFloat(scenes[lo].dataset.secs);
+    const sHi = parseFloat(scenes[hi].dataset.secs);
+    const secs = Math.pow(10, lerp(Math.log10(sLo), Math.log10(sHi), frac));
+    meterCount.textContent = fmt(secs);
+    meterUnit.textContent = secs < 1.5 ? 'second' : 'seconds';
+    meterPower.textContent = scenes[idx].dataset.power;
+    meterHuman.textContent = scenes[idx].dataset.scale;
+    gaugeDot.style.top = (progress * 92) + '%';
+
+    /* rings: zoom in through content scenes, snap back out on pullback */
+    let zoom;
+    if (sceneFloat <= LAST_CONTENT) {
+      zoom = sceneFloat;
+    } else {
+      const t = (sceneFloat - LAST_CONTENT); // 0..1 across pullback
+      zoom = LAST_CONTENT * (1 - t * t * (3 - 2 * t)); // smoothstep back to 0
+    }
+    rings.forEach((r, i) => {
+      const f = zoom % 1;
+      const level = i - f;
+      const size = Math.pow(1.9, level) * 120;
+      const op = level < 0 ? 0 : Math.max(0, 0.34 - level * 0.05);
+      r.style.width = size + 'px';
+      r.style.opacity = op;
+    });
+
+    /* draw-on for the active scene */
+    if (!REDUCED) {
+      const localT = clamp(sceneFloat - idx + 0.5, 0, 1);
+      const drawP = clamp((localT - 0.08) / 0.37, 0, 1);
+      sceneDraws[idx].forEach(({ p, len, hasOwnDash }, k) => {
+        if (!len || hasOwnDash) return;
+        const stagger = clamp(drawP * 1.35 - (k / Math.max(1, sceneDraws[idx].length)) * 0.35, 0, 1);
+        p.style.strokeDashoffset = len * (1 - stagger);
+      });
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => { update(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>
