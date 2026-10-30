@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Title }} · Adam Thede</title>
+<meta name="description" content="{{ .Description }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }} · Adam Thede">
+<meta property="og:description" content="{{ .Description }}">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="Adam Thede">
+<meta property="og:image" content="{{ .Site.BaseURL }}og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('alms-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Same paper and night tokens as the home page (layouts/index.html). */
+  :root {
+    --paper: #f4f1ea;
+    --paper-deep: #ece7dc;
+    --ink: #1f2430;
+    --ink-soft: #4a5160;
+    --rule: #c9c2b2;
+    --rule-soft: #ddd6c4;
+    --accent: #FF8F3B;
+    --accent-deep: #d96f1e;
+    --chip: rgba(255,255,255,0.5);
+    --serif: 'EB Garamond', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  html[data-theme="dark"] {
+    --paper: #1c1917;
+    --paper-deep: #141110;
+    --ink: #ece7dc;
+    --ink-soft: #a8a094;
+    --rule: #45403a;
+    --rule-soft: #332f29;
+    --accent: #FF8F3B;
+    --accent-deep: #FDAD57;
+    --chip: rgba(255,255,255,0.05);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration-color: var(--accent-deep); text-underline-offset: 0.18em; }
+  a:hover { color: var(--accent-deep); }
+
+  .reg { position: fixed; width: 22px; height: 22px; z-index: 80; pointer-events: none; opacity: 0.5; }
+  .reg::before, .reg::after { content:''; position: absolute; background: var(--ink); }
+  .reg::before { width: 100%; height: 1px; }
+  .reg::after { width: 1px; height: 100%; }
+  .reg.tl { top: 14px; left: 14px; }
+  .reg.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .reg.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .reg.br { bottom: 14px; right: 14px; transform: scale(-1); }
+
+  .theme-toggle, .corner-nav a {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    padding: 0.42rem 0.7rem;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .theme-toggle { position: fixed; top: 13px; right: 48px; z-index: 85; cursor: pointer; }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-soft); }
+  .corner-nav { position: fixed; top: 13px; left: 48px; z-index: 85; }
+  .corner-nav a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+
+  /* ---------- the page ---------- */
+  .resume {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 6.5rem 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0 4.5rem;
+  }
+  @media (min-width: 960px) {
+    .resume { grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
+    .resume-head, .resume-foot { grid-column: 1 / -1; }
+  }
+
+  .resume-head { padding-bottom: 2.6rem; margin-bottom: 2.8rem; border-bottom: 1px solid var(--rule); }
+  .resume-head .kicker {
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep); margin-bottom: 1.4rem;
+  }
+  .resume-head h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.01em; }
+  .resume-head .headline { margin-top: 0.6rem; font-size: clamp(1.25rem, 2.4vw, 1.55rem); font-style: italic; color: var(--ink-soft); }
+  .resume-head .where, .resume-head .profile-links {
+    margin-top: 1.2rem;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+  .resume-head .profile-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .resume-head .profile-links a {
+    color: var(--ink); text-decoration: none;
+    border: 1px solid var(--ink);
+    padding: 0.55rem 1rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .resume-head .profile-links a:hover { background: var(--ink); color: var(--paper); }
+
+  /* section labels: small caps, the home page's epoch style */
+  .resume h2 {
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep);
+    margin: 2.8rem 0 1.2rem;
+  }
+  .resume-main > h2:first-child, .resume-aside > h2:first-child { margin-top: 0; }
+  .resume p, .resume li { font-size: 1.12rem; line-height: 1.62; color: var(--ink-soft); }
+  .resume strong { color: var(--ink); font-weight: 600; }
+  .resume ul { padding-left: 1.15rem; }
+  .resume ul ul { margin-top: 0.3rem; }
+  .resume li + li { margin-top: 0.38rem; }
+  .resume li::marker { color: var(--rule); }
+  .resume ul.plain { list-style: none; padding-left: 0; }
+
+  .role { padding: 1.8rem 0 2rem; border-top: 1px solid var(--rule-soft); }
+  .role:first-of-type { border-top: 0; padding-top: 0; }
+  .role .role-meta {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .role .role-meta .org { color: var(--ink); font-weight: 500; }
+  .role h3 { font-size: clamp(1.45rem, 2.6vw, 1.8rem); font-weight: 500; line-height: 1.2; margin: 0.4rem 0 1rem; }
+  .resume h4 { font-size: 1.2rem; font-weight: 600; color: var(--ink); margin: 1.3rem 0 0.45rem; }
+  .resume h5 { font-size: 1.05rem; font-weight: 500; font-style: italic; color: var(--ink); margin: 0.9rem 0 0.35rem; }
+
+  .resume-aside { padding-top: 0.2rem; }
+  .resume-aside h3 { font-size: 1.3rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+  .resume-aside p { margin-top: 0.8rem; }
+  @media (max-width: 959px) { .resume-aside { margin-top: 1rem; padding-top: 2.4rem; border-top: 1px solid var(--rule); } }
+
+  .resume-foot { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); text-align: center; }
+
+  .site-foot {
+    text-align: center;
+    padding: 2.4rem 1rem 3.2rem;
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .site-foot a { text-decoration: none; }
+
+  @media (max-width: 880px) {
+    .corner-nav { left: 0.8rem; top: 0.8rem; }
+    .corner-nav a, .theme-toggle { padding: 0.35rem 0.5rem; font-size: 0.56rem; }
+    .theme-toggle { right: 0.8rem; top: 0.8rem; }
+    .reg { display: none; }
+    .resume { padding: 4.6rem 1rem 2rem; }
+    .resume p, .resume li { font-size: 1.05rem; }
+  }
+
+  @media print {
+    :root, html[data-theme="dark"] {
+      --paper: #fff; --ink: #000; --ink-soft: #222; --rule: #999; --rule-soft: #ccc; --accent-deep: #000;
+    }
+    .reg, .theme-toggle, .corner-nav, .site-foot { display: none; }
+    .resume { padding: 0; max-width: none; }
+    .resume p, .resume li { font-size: 10.5pt; line-height: 1.4; }
+    .role { break-inside: avoid-page; }
+    .resume-head .profile-links a { border: 0; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Switch color theme">☾ night</button>
+
+<nav class="corner-nav" aria-label="Back to the home page">
+  <a href="/">← adamthede.com</a>
+</nav>
+
+<article class="resume">
+{{ .Content }}
+</article>
+
+<footer class="site-foot">
+  <a href="/">adamthede.com</a>
+</footer>
+
+<script>
+(function () {
+  var toggle = document.getElementById('themeToggle');
+  function syncToggle() {
+    var dark = document.documentElement.dataset.theme === 'dark';
+    toggle.textContent = dark ? '☀ day' : '☾ night';
+  }
+  toggle.addEventListener('click', function () {
+    var dark = document.documentElement.dataset.theme === 'dark';
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('alms-theme', dark ? 'light' : 'dark'); } catch (e) {}
+    syncToggle();
+  });
+  syncToggle();
+})();
+</script>
+</body>
+</html>
