@@ -65,6 +65,16 @@
   th { font-family: var(--mono); font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
   td.num { font-family: var(--mono); color: var(--accent-deep); font-variant-numeric: tabular-nums; }
   pre { font-family: var(--mono); font-size: 0.74rem; line-height: 1.6; color: var(--ink); background: var(--chip); border: 1px solid var(--rule); padding: 1.1rem 1.2rem; overflow-x: auto; max-height: 34rem; }
+  .vt { margin-top: 0.9rem; display: grid; gap: 0.35rem; max-width: 76ch; }
+  .vt div { display: grid; grid-template-columns: 8.4rem 1fr; gap: 0.8rem; }
+  .vt dt { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-deep); padding-top: 0.25rem; }
+  .vt dd { font-size: 1rem; line-height: 1.5; color: var(--ink-soft); }
+  .round { margin-top: 5rem; padding-top: 1.6rem; border-top: 2px solid var(--ink); }
+  .round h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 500; line-height: 1.1; margin-top: 0.6rem; }
+  .round p { margin-top: 0.8rem; max-width: 70ch; font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); }
+  .rec { margin-top: 1rem; padding: 1rem 1.2rem; border-left: 3px solid var(--accent-deep); background: var(--chip); }
+  .rec p { font-size: 1.1rem; line-height: 1.55; color: var(--ink); max-width: 72ch; }
+  .rec p + p { margin-top: 0.5rem; color: var(--ink-soft); }
   footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); text-align: center; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); line-height: 2; }
   @media (max-width: 900px) {
     .wrap { padding: 2.6rem 16px 3rem; }
@@ -73,6 +83,7 @@
     .notes { grid-template-columns: minmax(0, 1fr); }
     .st-head { grid-template-columns: auto 1fr; }
     .st-head .chip { grid-column: 1 / -1; justify-self: start; }
+    .vt div { grid-template-columns: 1fr; gap: 0.1rem; }
   }
 </style>
 </head>
@@ -80,10 +91,14 @@
 <div class="wrap">
   <div class="kicker">Mockup for approval, 2026-11-01</div>
   <h1>One index, three layers.</h1>
-  <p class="lede">adamthede.com links to almost nothing it publishes. This puts every place under the domain, and four elsewhere, in one list. It opens as a drawer from the top of the home page, stands at /index/ as a plain page, and closes the home page as a footer list. Nothing here is built. Pick drawer A or B, or redirect it.</p>
+  <p class="lede">adamthede.com links to almost nothing it publishes. This puts every place under the domain, and four elsewhere, in one list. It opens as a drawer from the top of the home page, stands at /index/ as a plain page, and closes the home page as a footer list. Nothing here is built. Round two, below the first five states, draws the drawer four more ways, each a map of routes from one fork. Pick one drawer, or redirect it.</p>
   <div class="bar">
     <a class="chip primary" href="home-a.html#open">Drawer A, full window</a>
     <a class="chip primary" href="home-b.html#open">Drawer B, full window</a>
+    <a class="chip primary" href="home-c.html#open">C, survey sheet</a>
+    <a class="chip primary" href="home-d.html#open">D, route diagram</a>
+    <a class="chip primary" href="home-e.html#open">E, timetable</a>
+    <a class="chip primary" href="home-f.html#open">F, notebook tree</a>
     <a class="chip" href="index-page.html">The plain page</a>
     <button class="chip" id="themeSwitch" type="button">Show at night</button>
   </div>
@@ -143,6 +158,77 @@
     <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-a.html#at-places" width="390" height="844" loading="lazy" title="The footer list, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
   </div>
 </section>
+  <section class="round" id="round-two">
+    <div class="kicker">Round two: four map variants</div>
+    <h2>The fork first, then the places, then the fan.</h2>
+    <p>Each of the four draws the same 21 places as routes from one fork: open to anyone one way, family the other. Three rules hold in all four, so they compare on form alone. The family gate sits at the fork and carries the same two bars and the same words: the lock, Family, Sign in by email code, and the handwritten line. The email code is asked at the first family door a visitor opens, and every family place is named beyond the gate. Every route to a place is as wide or as long as that record is deep in years, read from a first year added to the data file. And a place whose first year no file states is drawn dotted, with no width claim.</p>
+    <p>In every variant the origin is the page you are on, A life, measured in seconds, which counts from 1910. Point at a place to light its route and read it out. Each desktop capture shows A Viewing Life pointed at, with its family edition lit.</p>
+  </section>
+  
+<section class="st" id="state-6">
+  <div class="st-head">
+    <div class="st-num">06</div>
+    <div><h2>Drawer C: the survey sheet</h2><p>The drawer is a topographic sheet. Contour lines are years, one every ten, and the summit is the day of the survey. The road enters from the bottom margin at 1910, where you stand, and splits at a drawn junction. The family road crosses a dashed boundary at the gate. Each place sits on the contour of its first year, and each road is as wide as the record at its end is deep. The legend in the right margin is a plain list of all 21 and is the nav for anyone who will not read a map. Point at a place and a crosshair runs to the neat line, its own contour lights, and the collar reads it out.</p>
+      <dl class="vt">
+        <div><dt>Leans on</dt><dd>The Ordnance Survey and USGS quadrangle (the shelf's survey map: to scale, always, with the scale stated). Isotype for the two unsurveyed patches.</dd></div>
+        <div><dt>Before a click</dt><dd>The record is a hill, and most of it is high ground: nearly everything began after 1995, and the slopes below are bare except for the letters and the film you are standing in.</dd></div>
+        <div><dt>What it costs</dt><dd>Every place needs a hand-set bearing on the hill. Adding a 22nd place is a drawing decision, not a data entry.</dd></div>
+      </dl></div>
+    <a class="chip" href="home-c.html#open">Open drawer C</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-c.html#open-lit" width="1280" height="800" loading="lazy" title="Drawer C: the survey sheet, desktop"></iframe></div><figcaption>1280 by 800, A Viewing Life pointed at</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-c.html#open" width="390" height="844" loading="lazy" title="Drawer C: the survey sheet, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+<section class="st" id="state-7">
+  <div class="st-head">
+    <div class="st-num">07</div>
+    <div><h2>Drawer D: the route diagram</h2><p>A transit diagram, every line at 0 or 45 degrees. adamthede.com is the interchange, and you are standing in it. Two lines leave at 45 degrees: the open line climbs and fans into Read, Elsewhere and Look at the data, and the family line drops through the fare gate. The data line runs beside the family line, so a record and its family edition are one station drawn across both. Each segment is as heavy as the record at the next station is deep in years, so every line thins as it runs. On a phone the diagram becomes the strip map over a train door: the interchange, the fork, then every station in order, with the line's weight kept.</p>
+      <dl class="vt">
+        <div><dt>Leans on</dt><dd>The 1972 New York subway diagram and the shelf's rule from it: a system, applied everywhere. Minard for the weight of the line.</dd></div>
+        <div><dt>Before a click</dt><dd>Where the fork is, which door is gated, and that three family pages are the same stops as three public records, seen from the other line.</dd></div>
+        <div><dt>What it costs</dt><dd>Station slots are a grid. A new place takes the next slot on its line, but a seventh family page or a fourth pair forces a new row.</dd></div>
+      </dl></div>
+    <a class="chip" href="home-d.html#open">Open drawer D</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-d.html#open-lit" width="1280" height="800" loading="lazy" title="Drawer D: the route diagram, desktop"></iframe></div><figcaption>1280 by 800, A Viewing Life pointed at</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-d.html#open" width="390" height="844" loading="lazy" title="Drawer D: the route diagram, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+<section class="st" id="state-8">
+  <div class="st-head">
+    <div class="st-num">08</div>
+    <div><h2>Drawer E: the graphical timetable</h2><p>A timetable sheet. Years run across, from 1995 to today, and every place is a line that leaves the home line in the year its record begins and arrives at its own row in the year it ends, or today. Open places leave upward, family places leave downward through the gate, which runs along the fork as the same two bars. Rows are set by first year, oldest farthest out, so the lines nest instead of tangling. Ended records stop short with a terminal tick. The film and the letters began before 1995 and enter from off the sheet.</p>
+      <dl class="vt">
+        <div><dt>Leans on</dt><dd>Marey's Paris to Lyon graphical timetable, the method Ibry drew first. The axis starts in 1995 because data.adamthede.com's own axis does, and because 17 of the 19 dated places begin after it. A 1910 axis would crowd them into the last quarter of the sheet.</dd></div>
+        <div><dt>Before a click</dt><dd>How long each record runs, which ones have ended, and that a record and its family edition leave home in the same year, as a V.</dd></div>
+        <div><dt>What it costs</dt><dd>Nothing is placed by hand: every coordinate is a year. It is the closest kin to the coverage map, so it has to stay a nav, with names on the left and no counts in the rows.</dd></div>
+      </dl></div>
+    <a class="chip" href="home-e.html#open">Open drawer E</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-e.html#open-lit" width="1280" height="800" loading="lazy" title="Drawer E: the graphical timetable, desktop"></iframe></div><figcaption>1280 by 800, A Viewing Life pointed at</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-e.html#open" width="390" height="844" loading="lazy" title="Drawer E: the graphical timetable, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+<section class="st" id="state-9">
+  <div class="st-head">
+    <div class="st-num">09</div>
+    <div><h2>Drawer F: the notebook tree</h2><p>A pencil tree on a notebook page, lettered by hand. The root is where you stand, and the trunk splits once at the fork. Each road is a limb and each place is a leaf at the end of a twig. A limb is as thick as the years of record above it, by Leonardo's rule: its cross-section is the sum of its twigs'. Where the two limbs meet, the three records and their family editions are twigs that touch. Point at a leaf and its card opens beside it. The page says nothing else but the date and the words I think.</p>
+      <dl class="vt">
+        <div><dt>Leans on</dt><dd>Darwin's 1837 notebook page with I think written above the first tree, and Leonardo's notebooks for the branching rule. The card is the influences shelf's card.</dd></div>
+        <div><dt>Before a click</dt><dd>That the open limb carries more years than the family limb, and where a public record and its family edition grow from the same moment.</dd></div>
+        <div><dt>What it costs</dt><dd>Hand lettering is slower to read than type, and the tree is the hardest form to keep legible as places are added. The pencil wobble is a filter, so it renders slightly differently in each browser.</dd></div>
+      </dl></div>
+    <a class="chip" href="home-f.html#open">Open drawer F</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-f.html#open-lit" width="1280" height="800" loading="lazy" title="Drawer F: the notebook tree, desktop"></iframe></div><figcaption>1280 by 800, A Viewing Life pointed at</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-f.html#open" width="390" height="844" loading="lazy" title="Drawer F: the notebook tree, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
   <div class="notes">
     <section>
       <h2>What A and B do differently</h2>
@@ -158,13 +244,53 @@
     <section>
       <h2>Decisions for you, with a recommendation each</h2>
       <ol>
-        <li><b>Which drawer.</b> Recommend A. It is an index first and shows everything at once. B is the more striking object, but you have to point at a tile to learn its address.</li>
+        <li><b>Which drawer.</b> Recommend D, from round two, for the reason under Round two compared. Of the first two, A is the calmer index and B the more striking object, but you have to point at a B tile to learn its address.</li>
         <li><b>The plain page's address.</b> Recommend /index/, built from content/places.md with url /index/. A scratch build confirmed it sits beside the home page without a clash.</li>
         <li><b>Phone corner chips.</b> Recommend folding the business chip into the index on phones under 560px, so the trigger fits between résumé and night.</li>
         <li><b>Two letters pages.</b> The family may call both of these "the Big Letter". The labels split them as "The Big Letter" (my monthly letter) and "The letters archive". Recommend keeping them as drafted unless the family uses other names.</li>
         <li><b>The handwritten line.</b> "No code? Ask me to add your email." Recommend keeping it. An email that is not on the Access list never gets a code, so this is the one thing a relative needs to know.</li>
         <li><b>The three family editions.</b> I inferred the pairs from matching titles and sources: the viewing diary and A Viewing Life, the book record and The Reading Life, the article archive and The Week in Reading. Confirm or correct them.</li>
       </ol>
+    </section>
+    <section class="wide">
+      <h2>Round two compared</h2>
+      <table>
+        <thead><tr><th>Variant</th><th>What the shape carries</th><th>Phone</th><th>Risk</th></tr></thead>
+        <tbody><tr><td>C, survey sheet</td><td>First year as height on the hill, depth as road width, the gate as a boundary, unknown years as blank ground</td><td>The whole sheet, small, with numbers keyed to the legend. The legend is the nav</td><td>Busiest of the four. Contours as years is a convention a stranger has to learn, and every place is hand-set</td></tr><tr><td>D, route diagram</td><td>The fork, the gate, depth as line weight, a record and its family edition as one interchange</td><td>Becomes the strip map: every station, its year and address, and the line's weight</td><td>Line weight is the quietest encoding here. A new row of stations is a layout change</td></tr><tr><td>E, graphical timetable</td><td>First year, last year and length of every record, nested by first year, the fork as the home line</td><td>The same sheet with taller rows. Lines get steep but stay readable</td><td>Reads as a chart before it reads as a map, and sits close to the coverage map</td></tr><tr><td>F, notebook tree</td><td>Years of record as limb thickness, the fork as one split, pairs as touching twigs</td><td>The tree turns on its side, root at the top, leaves down the page</td><td>Hand lettering costs legibility, and the tree is the hardest to extend</td></tr></tbody>
+      </table>
+      <div class="rec">
+        <p><b>Recommend D, the route diagram.</b> It draws your own sentence about the territory: a fork, a few places down each path, then a fan. A stranger reads the gate and the shared stations without a legend, and its phone form keeps every station, year and address instead of shrinking the drawing.</p>
+        <p>C is the most ambitious object and the strongest nav for people who will not read a map, because its legend is a plain list. E is the cheapest to keep, since nothing in it is placed by hand. F is the warmest, and the least legible.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Where the first years come from</h2>
+      <ol>
+        <li><b>Two places are drawn as unknown:</b> The anniversary pages and LinkedIn. No file states a first year for either.</li>
+        <li><b>The letters archive starts in 1979, not 1910.</b> letters.adamthede.com holds 47 years of letters, 1979 to 2025, per the reader's own README. The 1910 letters on the home page are a separate book and are not on that site. The film itself is the place that counts from 1910, so it is the origin in every variant.</li>
+        <li><b>What I meant to read starts in 2011.</b> Its row in the data site's manifest has its own span start, 2011.07, so it does not borrow Reading's 2005.</li>
+        <li><b>The influences shelf starts in 2026.</b> Its first year is the day it was built. Its subject runs from about 170 to 2020, which is not a span of this record.</li>
+        <li><b>Elsewhere reads from thedetech.com's own timeline.</b> Thede Technologies from the name's first use, 6 July 2011, and Tractor and Silo from silo's first commit, 22 February 2016. GitHub reads from the account's creation date, 30 June 2013.</li>
+        <li><b>Three records have ended.</b> The B1 Years, One Year of Office and Chicago River Elevations carry an <code>until</code>, and their depth is the years they cover, not the years since they began.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Decided here, with a recommendation each</h2>
+      <ol>
+        <li><b>Depth.</b> A record's depth is its last year, or today, minus its first. Recommend keeping it: an ended record should not look as deep as one still running.</li>
+        <li><b>Width.</b> In C and D a segment is as wide as the record it arrives at, and a shared trunk as wide as the deepest record beyond it. Recommend this over summing years, which would make the trunk wider than the sheet.</li>
+        <li><b>The tree's limbs.</b> F sums years by area instead: a limb's thickness squared is the sum of the years above it. Recommend it for F only, because a tree whose trunk is no thicker than its thickest twig does not read as a tree.</li>
+        <li><b>Road order.</b> Every road runs oldest first, so routes taper as they go. Recommend keeping it as the rule for any built version.</li>
+        <li><b>E's axis.</b> 1995 to today, with the film and the letters entering from off the sheet. Recommend it, for the reason in E's note above.</li>
+        <li><b>The gate in E.</b> The same two bars, laid along the fork, because family lines leave the home line in six different years. Recommend accepting it as the same mark.</li>
+      </ol>
+    </section>
+    <section class="wide">
+      <h2>First year and depth, as drawn</h2>
+      <table>
+        <thead><tr><th>Place</th><th>Since</th><th>Record</th></tr></thead>
+        <tbody><tr><td>A life, measured in seconds</td><td class="num">1910</td><td>since 1910, 117 years</td></tr><tr><td>Résumé</td><td class="num">2002</td><td>since 2002, 25 years</td></tr><tr><td>The influences shelf</td><td class="num">2026.7</td><td>since 2026, under a year</td></tr><tr><td>The coverage map</td><td class="num">1995</td><td>since 1995, 32 years</td></tr><tr><td>A Viewing Life</td><td class="num">1995.5</td><td>since 1995, 31 years</td></tr><tr><td>The Reading Life</td><td class="num">1999.8</td><td>since 1999, 27 years</td></tr><tr><td>The Week in Reading</td><td class="num">2005</td><td>since 2005, 22 years</td></tr><tr><td>What I meant to read</td><td class="num">2011.1</td><td>since 2011, 16 years</td></tr><tr><td>The B1 Years</td><td class="num">2013.7</td><td>2013 to 2015, 1.8 years</td></tr><tr><td>One Year of Office</td><td class="num">2025.3</td><td>2025 to 2026, a year</td></tr><tr><td>Chicago River Elevations</td><td class="num">2026.5</td><td>one day, in 2026</td></tr><tr><td>The Big Letter</td><td class="num">2026.2</td><td>since 2026, under a year</td></tr><tr><td>The letters archive</td><td class="num">1979</td><td>since 1979, 48 years</td></tr><tr><td>The anniversary pages</td><td class="num">?</td><td>first year unknown</td></tr><tr><td>The viewing diary</td><td class="num">1995.5</td><td>since 1995, 31 years</td></tr><tr><td>The book record</td><td class="num">1999.9</td><td>since 1999, 27 years</td></tr><tr><td>The article archive</td><td class="num">2005.1</td><td>since 2005, 22 years</td></tr><tr><td>Thede Technologies</td><td class="num">2011.5</td><td>since 2011, 15 years</td></tr><tr><td>Tractor and Silo</td><td class="num">2016.1</td><td>since 2016, 11 years</td></tr><tr><td>LinkedIn</td><td class="num">?</td><td>first year unknown</td></tr><tr><td>GitHub</td><td class="num">2013.5</td><td>since 2013, 13 years</td></tr></tbody>
+      </table>
     </section>
     <section class="wide">
       <h2>Scope, as decided</h2>
@@ -185,7 +311,9 @@
 # One file feeds three layers: the drawer at the top of the home page,
 # the plain page at /index/, and the list at the foot of the home page.
 # File order is display order, with one exception: drawer variant B draws the
-# family group below its sign-in wall, after the open groups.
+# family group below its sign-in wall, after the open groups. Variants C to F
+# order each road by `since`, oldest first, because that is the order the
+# routes taper in.
 # Counts on the page are computed from this file.
 #
 # groups[]
@@ -201,6 +329,15 @@
 #   id        optional stable key, needed only when another entry points at it
 #   edition_of  family entries only, optional: the id of the public record this
 #               page is the full family edition of (variant B lights the pair)
+#   since     the first year the record covers, as a decimal year in the same
+#             twelfths data.adamthede.com uses (September 2013 is 2013.7). Every
+#             value is read from the source named in its comment, never estimated.
+#             `~` means no file states it, and every variant draws that place as
+#             unknown: a dotted route, with no width claim.
+#   until     only on a record that has ended: its last year, in the same form.
+#             Without it a record is still being kept, and its depth runs to the
+#             build date. Depth in years, (until or today) minus since, is what
+#             variants C to F draw as the width or the length of a route.
 
 groups:
   - id: read
@@ -211,12 +348,15 @@ groups:
       - name: A life, measured in seconds
         line: &quot;The portrait: a century of family letters down to one second.&quot;
         url: https://adamthede.com/
+        since: 1910       # layouts/index.html, the film&#x27;s first scene: &quot;In 1910, my great-grandparents - Emil and Ella - began writing letters&quot;
       - name: Résumé
         line: Experience and qualifications, on one page.
         url: https://adamthede.com/resume/
+        since: 2002       # content/resume.md, the first dated role: Lehman Brothers, 2002 to 2007
       - name: The influences shelf
         line: What I learned to see from, drawn as two bookcases.
         url: https://data.adamthede.com/influences/
+        since: 2026.73    # data-adamthede data/index.yaml, unlisted row influences, built 2026-09-23. Its subject runs from about 170 to 2020, which is not a span of this record
 
   - id: data
     label: Look at the data
@@ -226,30 +366,41 @@ groups:
       - name: The coverage map
         line: Every public record of my life, on one axis of years.
         url: https://data.adamthede.com/
+        since: 1995.0     # data-adamthede site/generate.py, PRACTICE_START: the axis every record is drawn on begins in 1995
       - id: viewing
         name: A Viewing Life
         line: Screenings, from a hand-kept diary to Trakt.
         url: https://data.adamthede.com/viewing/
+        since: 1995.5     # data-adamthede data/index.yaml, viewing span_start
       - id: books
         name: The Reading Life
         line: Books finished, merged from every place I logged them.
         url: https://data.adamthede.com/books/
+        since: 1999.75    # data-adamthede data/index.yaml, books span_start
       - id: reading
         name: The Week in Reading
         line: Articles read, first in Instapaper, then Matter.
         url: https://data.adamthede.com/reading/
+        since: 2005.0     # data-adamthede data/index.yaml, reading span_start
       - name: What I meant to read
         line: Articles saved and never opened.
         url: https://data.adamthede.com/meant-to-read/
+        since: 2011.07    # data-adamthede data/index.yaml, meant-to-read span_start (its own row, not Reading&#x27;s)
       - name: The B1 Years
         line: Two years of physiology from one wrist band.
         url: https://data.adamthede.com/b1/
+        since: 2013.7     # data-adamthede data/index.yaml, b1 span_start
+        until: 2015.55    # same row, span_end
       - name: One Year of Office
         line: A year of readings from a sensor on a shelf.
         url: https://data.adamthede.com/office/
+        since: 2025.27    # data-adamthede data/index.yaml, office span_start
+        until: 2026.31    # same row, span_end
       - name: Chicago River Elevations
         line: The river&#x27;s buildings, drawn to height from one cruise.
         url: https://data.adamthede.com/chicago-river/
+        since: 2026.5     # data-adamthede data/index.yaml, river span_start
+        until: 2026.5     # same row, span_end: one cruise, one day
 
   - id: family
     label: Family
@@ -260,23 +411,29 @@ groups:
       - name: The Big Letter
         line: My monthly family letter, every issue.
         url: https://bigletter.adamthede.com/
+        since: 2026.17    # the Big Letter site&#x27;s own content/issues: the first issue it publishes is March 2026
       - name: The letters archive
         line: The family letters, read by year, person and place.
         url: https://letters.adamthede.com/
+        since: 1979       # the letters reader&#x27;s own README and ROADMAP: 47 years of letters, 1979 to 2025. The 1910 letters on the home page are a separate book and are not on this site
       - name: The anniversary pages
         line: Keepsakes made for a family anniversary.
         url: https://anniversary.adamthede.com/
+        since: ~          # no file states the first year these pages cover
       - name: The viewing diary
         line: The full diary behind A Viewing Life.
         url: https://viewing.adamthede.com/
+        since: 1995.5     # the diary&#x27;s own records_enriched.json: the first entry is 1 July 1995
         edition_of: viewing
       - name: The book record
         line: The full record behind The Reading Life.
         url: https://books.adamthede.com/
+        since: 1999.9     # the book record&#x27;s reading-life/README.md: the hand-kept log opens 26 November 1999
         edition_of: books
       - name: The article archive
         line: The searchable archive behind The Week in Reading.
         url: https://reading.adamthede.com/
+        since: 2005.06    # the archive&#x27;s own 2026-08-12 audit: its honest span opens 24 January 2005
         edition_of: reading
 
   - id: elsewhere
@@ -287,19 +444,23 @@ groups:
       - name: Thede Technologies
         line: My company, its products and the essays.
         url: https://thedetech.com/
+        since: 2011.51    # thedetech data/about.yaml: the name&#x27;s first use, 6 July 2011. The LLC followed on 18 February 2026
       - name: Tractor and Silo
         line: The app I build to keep a life&#x27;s record.
         url: https://tractorandsilo.com/
+        since: 2016.14    # thedetech data/about.yaml: silo&#x27;s first commit, 22 February 2016
       - name: LinkedIn
         line: My professional profile.
         url: https://linkedin.com/in/adamthede
+        since: ~          # no file states when the profile began
       - name: GitHub
         line: My code, where it is public.
         url: https://github.com/adamthede
+        since: 2013.49    # the GitHub API, users/adamthede created_at: 30 June 2013
 </pre>
     </section>
   </div>
-  <footer>Mockup only. Nothing in layouts, content or hugo.toml changes in this pull request<br>Generated from proposed-data-index.yaml in this folder</footer>
+  <footer>Mockup only. Nothing in layouts, content or hugo.toml changes in this pull request<br>Generated from proposed-data-index.yaml in this folder, surveyed 2026-11-01</footer>
 </div>
 <script>
 (function () {
