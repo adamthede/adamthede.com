@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.148.2">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Thede · A Life, Measured in Seconds (index mockup A)</title>
+<meta name="description" content="I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life.">
+<meta property="og:title" content="Adam Thede · A Life, Measured in Seconds">
+<meta property="og:description" content="I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adamthede.com/">
+<link rel="canonical" href="https://adamthede.com/">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('alms-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>
+<link rel="icon" href="https://adamthede.com/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/svg+xml" href="https://adamthede.com/favicon.svg">
+  <link rel="apple-touch-icon" href="https://adamthede.com/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f1ea;
+    --paper-deep: #ece7dc;
+    --ink: #1f2430;
+    --ink-soft: #4a5160;
+    --rule: #c9c2b2;
+    --rule-soft: #ddd6c4;
+    --accent: #FF8F3B;
+    --accent-deep: #d96f1e;
+    --night: #11162b;
+    --veil: rgba(244,241,234,0.9);
+    --chip: rgba(255,255,255,0.5);
+    --serif: 'EB Garamond', Georgia, serif;
+    --hand: 'Caveat', cursive;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+   
+  html[data-theme="dark"] {
+    --paper: #1c1917;
+    --paper-deep: #141110;
+    --ink: #ece7dc;
+    --ink-soft: #a8a094;
+    --rule: #45403a;
+    --rule-soft: #332f29;
+    --accent: #FF8F3B;
+    --accent-deep: #FDAD57;
+    --veil: rgba(28,25,23,0.92);
+    --chip: rgba(255,255,255,0.05);
+  }
+  html[data-theme="dark"] .coda .links a.primary { color: #1c1917; }
+  html[data-theme="dark"] .coda .links a.primary:hover { color: #1c1917; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+   
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 90;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+   
+  .reg { position: fixed; width: 22px; height: 22px; z-index: 80; pointer-events: none; opacity: 0.5; }
+  .reg::before, .reg::after { content:''; position: absolute; background: var(--ink); }
+  .reg::before { width: 100%; height: 1px; }
+  .reg::after { width: 1px; height: 100%; }
+  .reg.tl { top: 14px; left: 14px; }
+  .reg.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .reg.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .reg.br { bottom: 14px; right: 14px; transform: scale(-1); }
+
+  .theme-toggle {
+    position: fixed; top: 13px; right: 48px;
+    z-index: 85;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    padding: 0.42rem 0.7rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+  .corner-nav {
+    position: fixed; top: 13px; left: 48px;
+    z-index: 85;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: flex; gap: 0.5rem;
+  }
+  .corner-nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+    padding: 0.42rem 0.7rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .corner-nav a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+  @media (max-width: 880px) {
+    .corner-nav { left: 0.8rem; top: 0.8rem; }
+    .corner-nav a { padding: 0.35rem 0.5rem; font-size: 0.56rem; }
+    .theme-toggle { right: 0.8rem; top: 0.8rem; }
+  }
+
+   
+  .title-card {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    position: relative;
+  }
+  .title-card .kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 2.4rem;
+  }
+  .title-card h1 {
+    font-size: clamp(2.6rem, 7vw, 5.4rem);
+    font-weight: 500;
+    line-height: 1.04;
+    max-width: 18ch;
+    letter-spacing: -0.01em;
+  }
+  .title-card h1 em { font-style: italic; color: var(--accent-deep); }
+  .title-card .standfirst {
+    margin-top: 2.4rem;
+    max-width: 54ch;
+    font-size: clamp(1.05rem, 1.9vw, 1.18rem);
+    line-height: 1.68;
+    color: var(--ink-soft);
+  }
+  .title-card .ticker {
+    margin-top: 2.6rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    background: var(--chip);
+    padding: 0.65rem 1.1rem;
+  }
+  .title-card .ticker b { color: var(--accent-deep); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .title-card .credit {
+    margin-top: 2.4rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .title-card .credit b { color: var(--ink); font-weight: 500; }
+  .scroll-cue {
+    position: absolute; bottom: 2.2rem; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono); font-size: 0.68rem;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-soft);
+    animation: bob 2.6s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+   
+  .zoom-track { position: relative; }
+  .zoom-stage {
+    position: sticky; top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+   
+  .frame-rings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  .frame-rings .ring {
+    position: absolute;
+    border: 1px solid var(--rule);
+    aspect-ratio: 1;
+  }
+
+   
+  .meter {
+    position: absolute;
+    left: clamp(0.9rem, 2.6vw, 2.4rem);
+    top: 50%; transform: translateY(-50%);
+    font-family: var(--mono);
+    z-index: 30;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    max-width: 12.5rem;
+  }
+  .meter .count {
+    font-size: clamp(0.95rem, 1.45vw, 1.22rem);
+    font-weight: 300;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .meter .unit {
+    font-size: 0.6rem; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .meter .power {
+    margin-top: 0.5rem;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    font-weight: 300; line-height: 1;
+    color: var(--ink);
+  }
+  .meter .power sup { font-size: 0.45em; color: var(--accent-deep); font-weight: 500; }
+  .meter .gauge {
+    margin-top: 0.8rem;
+    width: 3px; height: 26vh; max-height: 220px;
+    background: var(--rule);
+    position: relative;
+    border-radius: 2px;
+  }
+  .meter .gauge i {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: 13px; height: 13px;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+  .meter .human-scale {
+    margin-top: 0.7rem;
+    font-size: 0.62rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-deep);
+    line-height: 1.7;
+  }
+
+   
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    padding: 0 1rem;
+  }
+  .scene.active { opacity: 1; pointer-events: auto; }
+  .scene-grid {
+    width: min(1020px, 88vw);
+    margin-left: clamp(0px, 6vw, 110px);
+    display: grid;
+    grid-template-columns: minmax(230px, 350px) 1fr;
+    gap: clamp(1.6rem, 4vw, 3.6rem);
+    align-items: center;
+    transform: translateY(16px);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .scene.active .scene-grid { transform: translateY(0); }
+
+  .scene .illo { width: 100%; }
+  .scene .illo svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .scene .illo .draw { stroke: var(--ink); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .scene .illo .draw.soft { opacity: 0.55; stroke-width: 1.1; }
+  .scene .illo .draw.warm { stroke: var(--accent-deep); }
+  .scene .illo .fill-warm { fill: var(--accent); stroke: none; }
+  .scene .illo .fig-caption {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 0.9rem;
+  }
+
+  .scene .copy {
+    max-width: 56ch;
+    background: var(--veil);
+    box-shadow: 0 0 26px 20px var(--veil);
+    border-radius: 2px;
+  }
+  .scene .epoch {
+    font-family: var(--mono);
+    font-size: 0.66rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 1.2rem;
+  }
+  .scene h2 {
+    font-size: clamp(1.5rem, 3.6vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.14;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.005em;
+  }
+  .scene p {
+    font-size: clamp(1.0rem, 1.55vw, 1.14rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .scene p + p { margin-top: 0.9rem; }
+  .scene p b { color: var(--ink); font-weight: 600; }
+  .scene .artifact {
+    margin-top: 1.4rem;
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    background: var(--chip);
+    padding: 0.5rem 0.95rem;
+  }
+  .scene .artifact span { color: var(--accent-deep); }
+  a.artifact { text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  a.artifact:hover { border-color: var(--accent-deep); background: rgba(255,143,59,0.13); }
+  a.artifact .ext { color: var(--accent-deep); margin-left: 0.4em; }
+  .scene .margin-note {
+    font-family: var(--hand);
+    font-size: 1.3rem;
+    color: #8a7c64;
+    display: block;
+    margin-top: 1rem;
+    transform: rotate(-1.2deg);
+  }
+
+   
+  .sky-inset {
+    background: radial-gradient(ellipse at 50% 110%, #1c2447 0%, var(--night) 70%);
+    border: 1px solid var(--rule);
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
+    padding: 0.6rem;
+  }
+  .sky-inset svg { display: block; }
+  .sky-inset .star-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; fill: rgba(216,201,163,0.85); letter-spacing: 0.12em; text-transform: uppercase; }
+  .sky-inset .star-sub { font-family: 'IBM Plex Mono', monospace; font-size: 6px; fill: rgba(216,201,163,0.5); letter-spacing: 0.08em; }
+  .sky-inset .const-line { stroke: rgba(216,201,163,0.5); stroke-width: 0.7; stroke-dasharray: 3 3; fill: none; }
+  .sky-inset .const-line.future { stroke-dasharray: 1 5; opacity: 0.6; }
+  .sky-inset .spark { fill: var(--accent); filter: drop-shadow(0 0 3px rgba(255,143,59,0.95)); }
+
+   
+  .scene.pullback { text-align: center; }
+  .scene.pullback .copy { max-width: 60ch; margin: 0 auto; }
+  .pullback-inner .copy {
+    background: var(--veil);
+    box-shadow: 0 0 26px 20px var(--veil);
+  }
+  .pullback-inner {
+    width: min(760px, 88vw);
+    margin-left: clamp(0px, 6vw, 110px);
+    text-align: center;
+    transform: translateY(16px);
+    transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .scene.active .pullback-inner { transform: translateY(0); }
+  .scale-echoes {
+    margin: 1.8rem auto 0;
+    display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center;
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .scale-echoes span {
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    background: var(--chip);
+    padding: 0.4rem 0.7rem;
+  }
+  .scale-echoes span b { color: var(--accent-deep); font-weight: 500; }
+  .ces {
+    margin-top: 2rem;
+    font-family: var(--mono);
+    font-size: clamp(0.8rem, 1.7vw, 1rem);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .ces i { color: var(--accent-deep); font-style: normal; }
+
+   
+  .coda {
+    min-height: 95vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+  }
+  .coda-inner { max-width: 58ch; }
+  .coda .epoch {
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep); margin-bottom: 1.6rem;
+  }
+  .coda h2 { font-size: clamp(1.9rem, 4.5vw, 3.1rem); font-weight: 500; line-height: 1.16; margin-bottom: 1.6rem; }
+  .coda p { font-size: clamp(1.05rem, 1.9vw, 1.16rem); line-height: 1.75; color: var(--ink-soft); }
+  .coda p + p { margin-top: 1.1rem; }
+  .coda .welcome {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .coda .sig {
+    margin-top: 2.4rem;
+    font-family: var(--hand);
+    font-size: 2.4rem;
+    color: var(--ink);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .coda .sig-sub {
+    font-family: var(--mono); font-size: 0.66rem;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-soft); margin-top: 0.5rem;
+  }
+   
+  .coda .sig-line {
+    margin: 1.1rem auto 0; max-width: 46ch;
+    font-size: clamp(0.98rem, 1.6vw, 1.06rem); line-height: 1.6;
+    color: var(--ink);
+  }
+  .coda .links {
+    margin-top: 2.4rem;
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+  }
+  .coda .links a {
+    color: var(--ink); text-decoration: none;
+    border: 1px solid var(--ink);
+    padding: 0.75rem 1.3rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .coda .links a:hover { background: var(--ink); color: var(--paper); }
+  .coda .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+  .coda .links a.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
+
+  footer {
+    text-align: center;
+    padding: 2.4rem 1rem 3.2rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    line-height: 2.2;
+  }
+
+   
+  @media (max-width: 880px) {
+    .scene-grid {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-left: 0;
+      width: min(560px, 92vw);
+    }
+    .scene .illo { max-width: 180px; margin: 0 auto; }
+    .scene .illo .fig-caption { margin-top: 0.4rem; font-size: 0.52rem; }
+    .scene .copy { text-align: left; padding-bottom: 3.2rem; }
+    .scene h2 { font-size: clamp(1.15rem, 5vw, 1.5rem); margin-bottom: 0.7rem; }
+    .scene p { font-size: 0.92rem; line-height: 1.55; }
+    .scene p + p { margin-top: 0.65rem; }
+    .scene .epoch { margin-bottom: 0.6rem; font-size: 0.58rem; }
+    .scene .artifact { margin-top: 0.8rem; font-size: 0.6rem; padding: 0.4rem 0.7rem; }
+    .scene .margin-note { font-size: 1.1rem; margin-top: 0.7rem; }
+    .pullback-inner { margin-left: 0; }
+    .meter {
+      top: auto; bottom: 0.8rem; left: 0.8rem; right: auto;
+      transform: none;
+      flex-direction: row; align-items: baseline; gap: 0.7rem;
+      max-width: none;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 0.4rem 0.65rem;
+      box-shadow: 0 2px 8px rgba(31,36,48,0.08);
+    }
+    .meter .gauge, .meter .power { display: none; }
+    .meter .count { font-size: 0.85rem; }
+    .meter .unit { font-size: 0.5rem; }
+    .meter .human-scale { margin-top: 0; font-size: 0.55rem; }
+  }
+  @media (max-height: 680px) and (max-width: 880px) {
+    .scene .illo { max-width: 130px; }
+    .scene p { font-size: 0.86rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .scroll-cue { animation: none; }
+    .scene, .scene-grid, .pullback-inner { transition: none; }
+  }
+
+  /* ====================== INDEX: trigger, scrim, drawer (mockup) ====================== */
+  .ix-trigger {
+    position: fixed; top: 13px; left: 50%; transform: translateX(-50%);
+    z-index: 89;
+    display: inline-flex; align-items: baseline; gap: 0.6em;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    background: var(--paper);
+    border: 1px solid var(--ink-soft);
+    padding: 0.42rem 0.8rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .ix-trigger:hover, .ix-trigger[aria-expanded="true"] { border-color: var(--accent-deep); color: var(--accent-deep); }
+  .ix-trigger-count { color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .ix-trigger-arrow { color: var(--ink-soft); }
+  .ix-trigger[aria-expanded="true"] .ix-trigger-count { display: none; }
+  .ix-trigger:focus-visible, .ix-drawer a:focus-visible, .ixf a:focus-visible {
+    outline: 2px solid var(--accent-deep); outline-offset: 3px;
+  }
+  noscript .ix-trigger-link { display: inline-flex; }
+  html.ix-locked { overflow: hidden; }
+
+  .ix-scrim {
+    position: fixed; inset: 0; z-index: 87;
+    background: color-mix(in srgb, var(--paper-deep) 74%, transparent);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .ix-scrim[data-open="true"] { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+
+  .ix-drawer {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 88;
+    max-height: 100vh; max-height: 100dvh;
+    overflow-y: auto; overscroll-behavior: contain;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 28px 60px -28px rgba(31,36,48,0.35);
+    transform: translateY(-101%);
+    visibility: hidden;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.55s;
+  }
+  .ix-drawer[data-open="true"] {
+    transform: none; visibility: visible;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+  }
+  .ix-drawer:focus { outline: none; }
+  .ix-inner { max-width: 1240px; margin: 0 auto; padding: 3.9rem 3rem 1.4rem; }
+
+  .ix-head {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: baseline;
+    gap: 0.4rem 2rem;
+    padding-bottom: 1.1rem; margin-bottom: 1.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ix-kicker {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  .ix-head h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.005em; }
+  .ix-counts {
+    display: flex; gap: 1.1rem; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ix-counts b { color: var(--accent-deep); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  /* group heads: the home page's epoch label, with a count */
+  .ix-gh {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink);
+    padding-bottom: 0.45rem;
+    position: relative;
+  }
+  .ix-gh::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--ink-soft); opacity: 0.6;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+  }
+  .ix-drawer[data-open="true"] .ix-gh::after { transform: scaleX(1); }
+  .ix-n { color: var(--accent-deep); font-variant-numeric: tabular-nums; letter-spacing: 0.1em; }
+  .ix-note {
+    display: flex; align-items: center; gap: 0.45em;
+    margin-top: 0.5rem;
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  .ix-lock { width: 0.78em; height: 0.92em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; vertical-align: -0.08em; }
+  .ix-hand {
+    font-family: var(--hand); font-size: 1.25rem; line-height: 1.2;
+    color: #8a7c64; transform: rotate(-1.2deg);
+    margin-top: 0.45rem; break-after: avoid;
+  }
+  html[data-theme="dark"] .ix-hand { color: #b5a78c; }
+
+  .ix-list { list-style: none; }
+  .ix-e, .ix-t { display: block; color: inherit; text-decoration: none; }
+  .ix-name { display: block; font-size: 1.1rem; font-weight: 500; line-height: 1.25; color: var(--ink); transition: color 0.2s; }
+  .ix-line { display: block; margin-top: 0.15rem; font-size: 0.95rem; line-height: 1.4; color: var(--ink-soft); }
+  .ix-host {
+    display: flex; align-items: center; gap: 0.4em; flex-wrap: wrap;
+    margin-top: 0.3rem;
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em;
+    color: var(--ink-soft);
+  }
+  .ix-host span { overflow-wrap: break-word; }
+  .ix-ext { color: var(--accent-deep); }
+  .ix-here {
+    display: inline-block; margin-left: 0.5em;
+    font-family: var(--mono); font-size: 0.52rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  .ix-e:hover .ix-name, .ix-t:hover .ix-name { color: var(--accent-deep); }
+
+  .ix-jump { display: none; }
+  .ix-gh { scroll-margin-top: 4rem; }
+  .ix-foot {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    margin-top: 1.2rem; padding-top: 0.9rem;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ix-foot a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-deep); text-underline-offset: 0.3em; }
+  .ix-foot a:hover { color: var(--accent-deep); }
+
+  /* ====================== INDEX, FOOTER LIST ====================== */
+  .ixf { border-top: 1px solid var(--rule); padding: 3.2rem 1.5rem 2.6rem; }
+  .ixf-inner { max-width: 1100px; margin: 0 auto; }
+  .ixf-title {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep); text-align: center; margin-bottom: 2rem;
+  }
+  .ixf-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
+  .ixf h3 {
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 0.45rem; margin-bottom: 0.7rem;
+  }
+  .ixf h3 span { color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .ixf-note { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); margin: -0.2rem 0 0.6rem; }
+  .ixf ul { list-style: none; }
+  .ixf li + li { margin-top: 0.38rem; }
+  .ixf li a {
+    display: inline-flex; align-items: baseline; gap: 0.4em;
+    font-size: 1.02rem; line-height: 1.3; color: var(--ink); text-decoration: none;
+  }
+  .ixf li a:hover { color: var(--accent-deep); }
+  .ixf li a .ix-lock { color: var(--ink-soft); }
+  .ixf .ix-ext { font-family: var(--mono); font-size: 0.62rem; }
+  .ixf-more {
+    margin-top: 2rem; text-align: center;
+    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .ixf-more a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-deep); text-underline-offset: 0.3em; }
+
+  /* the mockup's own label, not part of the design */
+  .mock-tag {
+    position: fixed; right: 14px; bottom: 44px; z-index: 86;
+    font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); background: var(--paper); border: 1px dashed var(--ink-soft);
+    padding: 0.35rem 0.55rem;
+  }
+  .mock-tag a { color: var(--accent-deep); }
+  .in-frame .mock-tag { display: none; }
+
+  @media (max-width: 880px) {
+    .ix-trigger { top: 0.8rem; font-size: 0.56rem; padding: 0.35rem 0.6rem; }
+    .ixf-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  /* phone: the two corner chips are inside the index, so only the résumé chip stays */
+  @media (max-width: 560px) {
+    .corner-nav a:first-child { display: none; }
+  }
+  @media (max-width: 720px) {
+    .ix-drawer { bottom: 0; max-height: none; height: 100vh; height: 100dvh; border-bottom: 0; }
+    /* a paper band under the Close chip, so the sheet scrolls behind it cleanly */
+    .ix-drawer::before { content: ''; display: block; position: sticky; top: 0; z-index: 4; height: 3.2rem; margin-bottom: -3.2rem; background: var(--paper); }
+    .ix-inner { padding: 3.6rem 16px 1.4rem; }
+    .ix-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .ix-jump a { color: var(--ink); text-decoration: none; border: 1px solid var(--rule); background: var(--chip); padding: 0.45rem 0.6rem; }
+    .ix-jump a[href="#ix-g-family"] { border-color: var(--accent-deep); color: var(--accent-deep); }
+    .mock-tag { bottom: 76px; }
+    .ix-head { grid-template-columns: 1fr; gap: 0.5rem; }
+    .ixf { padding: 2.6rem 16px 2rem; }
+    .ixf-cols { gap: 1.6rem 1.2rem; }
+  }
+  @media (max-width: 400px) {
+    .ixf-cols { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ix-drawer, .ix-drawer[data-open="true"], .ix-scrim, .ix-scrim[data-open="true"] { transition: none; }
+    .ix-gh::after { transform: none; transition: none; }
+    .ix-trigger, .ix-name, .ix-t { transition: none; }
+  }
+
+  /* ---------- variant A: the contents page. Groups flow in columns like a printed index ---------- */
+  .ix-a .ix-body { columns: 4 230px; column-gap: 2.6rem; column-rule: 1px solid var(--rule-soft); }
+  .ix-a .ix-group { break-inside: auto; margin-bottom: 1.5rem; }
+  .ix-a .ix-group:last-child { margin-bottom: 0; }
+  .ix-a .ix-gh { break-after: avoid; }
+  .ix-a .ix-note { break-after: avoid; }
+  .ix-a .ix-list { margin-top: 0.8rem; }
+  .ix-a .ix-list li { break-inside: avoid; padding-bottom: 0.85rem; }
+  /* family is the group a relative opens the drawer for, so it never splits across columns */
+  .ix-a .ix-g-family { break-inside: avoid; }
+  @media (max-width: 720px) {
+    .ix-a .ix-body { columns: 1; column-rule: 0; }
+    .ix-a .ix-group { margin-bottom: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Switch color theme">☾ night</button>
+
+<nav class="corner-nav" aria-label="Business and résumé">
+  <a href="https://thedetech.com" target="_blank" rel="noopener">business ↗</a>
+  <a href="https://adamthede.com/resume/">résumé</a>
+</nav>
+<!-- ====================== INDEX (mockup, variant A) ====================== -->
+<button class="ix-trigger" id="ixTrigger" type="button" aria-expanded="false" aria-controls="ixDrawer" aria-label="Index, 21 places"><span class="ix-trigger-label">Index</span><span class="ix-trigger-count" aria-hidden="true">21</span><span class="ix-trigger-arrow" aria-hidden="true">↓</span></button>
+<noscript><style>#ixTrigger { display: none; }</style><a class="ix-trigger ix-trigger-link" href="index-page.html">Index <span class="ix-trigger-count">21</span></a></noscript>
+<div class="ix-scrim" id="ixScrim" data-open="false"></div>
+<div class="ix-drawer ix-a" id="ixDrawer" role="dialog" aria-modal="true" aria-labelledby="ixTitle" data-open="false" tabindex="-1">
+  <div class="ix-inner">
+    <header class="ix-head">
+      <div class="ix-kicker">Index</div>
+      <h2 id="ixTitle">Everywhere you can go from here.</h2>
+      <p class="ix-counts"><span><b>21</b> places</span><span><b>15</b> open to anyone</span><span><b>6</b> for family</span></p>
+      <nav class="ix-jump" aria-label="Jump to a group"><a href="#ix-g-read">Read</a><a href="#ix-g-data">Look at the data</a><a href="#ix-g-family">Family</a><a href="#ix-g-elsewhere">Elsewhere</a></nav>
+    </header>
+    <div class="ix-body"><section class="ix-group ix-g-read" aria-labelledby="ix-g-read"><h3 class="ix-gh" id="ix-g-read"><span>Read</span><span class="ix-n">03</span></h3><ul class="ix-list"><li><a class="ix-e" href="https://adamthede.com/" aria-current="page"><span class="ix-name">A life, measured in seconds</span><span class="ix-line">The portrait: a century of family letters down to one second.</span><span class="ix-host"><span>adamthede.<wbr>com</span><span class="ix-here">you are here</span></span></a></li><li><a class="ix-e" href="https://adamthede.com/resume/"><span class="ix-name">Résumé</span><span class="ix-line">Experience and qualifications, on one page.</span><span class="ix-host"><span>adamthede.<wbr>com/<wbr>resume</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/influences/"><span class="ix-name">The influences shelf</span><span class="ix-line">What I learned to see from, drawn as two bookcases.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>influences</span></span></a></li></ul></section><section class="ix-group ix-g-data" aria-labelledby="ix-g-data"><h3 class="ix-gh" id="ix-g-data"><span>Look at the data</span><span class="ix-n">08</span></h3><ul class="ix-list"><li><a class="ix-e" href="https://data.adamthede.com/"><span class="ix-name">The coverage map</span><span class="ix-line">Every public record of my life, on one axis of years.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/viewing/"><span class="ix-name">A Viewing Life</span><span class="ix-line">Screenings, from a hand-kept diary to Trakt.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>viewing</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/books/"><span class="ix-name">The Reading Life</span><span class="ix-line">Books finished, merged from every place I logged them.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>books</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/reading/"><span class="ix-name">The Week in Reading</span><span class="ix-line">Articles read, first in Instapaper, then Matter.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>reading</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/meant-to-read/"><span class="ix-name">What I meant to read</span><span class="ix-line">Articles saved and never opened.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>meant-to-read</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/b1/"><span class="ix-name">The B1 Years</span><span class="ix-line">Two years of physiology from one wrist band.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>b1</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/office/"><span class="ix-name">One Year of Office</span><span class="ix-line">A year of readings from a sensor on a shelf.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>office</span></span></a></li><li><a class="ix-e" href="https://data.adamthede.com/chicago-river/"><span class="ix-name">Chicago River Elevations</span><span class="ix-line">The river&#x27;s buildings, drawn to height from one cruise.</span><span class="ix-host"><span>data.<wbr>adamthede.<wbr>com/<wbr>chicago-river</span></span></a></li></ul></section><section class="ix-group ix-g-family" aria-labelledby="ix-g-family"><h3 class="ix-gh" id="ix-g-family"><span>Family</span><span class="ix-n">06</span></h3><p class="ix-note" id="ix-note-family"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>Sign in by email code</span></p><p class="ix-hand">No code? Ask me to add your email.</p><ul class="ix-list"><li><a class="ix-e" href="https://bigletter.adamthede.com/" aria-describedby="ix-note-family"><span class="ix-name">The Big Letter</span><span class="ix-line">My monthly family letter, every issue.</span><span class="ix-host"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>bigletter.<wbr>adamthede.<wbr>com</span></span></a></li><li><a class="ix-e" href="https://letters.adamthede.com/" aria-describedby="ix-note-family"><span class="ix-name">The letters archive</span><span class="ix-line">The family letters, read by year, person and place.</span><span class="ix-host"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>letters.<wbr>adamthede.<wbr>com</span></span></a></li><li><a class="ix-e" href="https://anniversary.adamthede.com/" aria-describedby="ix-note-family"><span class="ix-name">The anniversary pages</span><span class="ix-line">Keepsakes made for a family anniversary.</span><span class="ix-host"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>anniversary.<wbr>adamthede.<wbr>com</span></span></a></li><li><a class="ix-e" href="https://viewing.adamthede.com/" aria-describedby="ix-note-family"><span class="ix-name">The viewing diary</span><span class="ix-line">The full diary behind A Viewing Life.</span><span class="ix-host"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>viewing.<wbr>adamthede.<wbr>com</span></span></a></li><li><a class="ix-e" href="https://books.adamthede.com/" aria-describedby="ix-note-family"><span class="ix-name">The book record</span><span class="ix-line">The full record behind The Reading Life.</span><span class="ix-host"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>books.<wbr>adamthede.<wbr>com</span></span></a></li><li><a class="ix-e" href="https://reading.adamthede.com/" aria-describedby="ix-note-family"><span class="ix-name">The article archive</span><span class="ix-line">The searchable archive behind The Week in Reading.</span><span class="ix-host"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>reading.<wbr>adamthede.<wbr>com</span></span></a></li></ul></section><section class="ix-group ix-g-elsewhere" aria-labelledby="ix-g-elsewhere"><h3 class="ix-gh" id="ix-g-elsewhere"><span>Elsewhere</span><span class="ix-n">04</span></h3><ul class="ix-list"><li><a class="ix-e" href="https://thedetech.com/" target="_blank" rel="noopener"><span class="ix-name">Thede Technologies</span><span class="ix-line">My company, its products and the essays.</span><span class="ix-host"><span>thedetech.<wbr>com</span><span class="ix-ext" aria-hidden="true"> ↗</span></span></a></li><li><a class="ix-e" href="https://tractorandsilo.com/" target="_blank" rel="noopener"><span class="ix-name">Tractor and Silo</span><span class="ix-line">The app I build to keep a life&#x27;s record.</span><span class="ix-host"><span>tractorandsilo.<wbr>com</span><span class="ix-ext" aria-hidden="true"> ↗</span></span></a></li><li><a class="ix-e" href="https://linkedin.com/in/adamthede" target="_blank" rel="noopener"><span class="ix-name">LinkedIn</span><span class="ix-line">My professional profile.</span><span class="ix-host"><span>linkedin.<wbr>com/<wbr>in/<wbr>adamthede</span><span class="ix-ext" aria-hidden="true"> ↗</span></span></a></li><li><a class="ix-e" href="https://github.com/adamthede" target="_blank" rel="noopener"><span class="ix-name">GitHub</span><span class="ix-line">My code, where it is public.</span><span class="ix-host"><span>github.<wbr>com/<wbr>adamthede</span><span class="ix-ext" aria-hidden="true"> ↗</span></span></a></li></ul></section></div>
+    <footer class="ix-foot"><a href="index-page.html">The same list as a page, at adamthede.com/index/</a><span class="ix-keys">Esc closes</span></footer>
+  </div>
+</div>
+
+
+
+<section class="title-card">
+  <div class="kicker">A portrait of one builder · after the Eames film, 1977</div>
+  <h1>A life, measured in <em>seconds</em></h1>
+  <p class="standfirst">
+    In 1977, Charles and Ray Eames filmed a journey from a picnic blanket to the edge of the
+    universe and back, one power of ten at a time. This is that journey taken through time
+    instead of space - from a century of my family's letters down to a single captured second.
+    I'm Adam Thede. This is my life, measured in seconds.
+  </p>
+  <div class="ticker">You have been here for <b id="hereSeconds">0</b> seconds. Each one is the unit of this film.</div>
+  <div class="credit">Adam Thede · Nashville · <b>Thede Technologies</b></div>
+  <div class="scroll-cue">Scroll to descend ↓</div>
+</section>
+
+
+<div class="zoom-track" id="zoomTrack">
+  <div class="zoom-stage">
+
+    <div class="frame-rings" id="frameRings"></div>
+
+    <aside class="meter" aria-hidden="true">
+      <div>
+        <div class="count" id="meterCount">3,155,760,000</div>
+        <div class="unit" id="meterUnit">seconds</div>
+      </div>
+      <div class="power">10<sup id="meterPower">9.5</sup></div>
+      <div class="gauge"><i id="gaugeDot" style="top:0%"></i></div>
+      <div class="human-scale" id="meterHuman">a century</div>
+    </aside>
+
+    
+    <section class="scene" data-secs="3155760000" data-power="9.5" data-scale="a century">
+      <div class="scene-grid">
+        <div class="illo">
+          <div class="sky-inset">
+            <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#cfd8ef" opacity="0.7">
+                <circle cx="30" cy="30" r="0.8"/><circle cx="90" cy="18" r="0.6"/><circle cx="150" cy="40" r="0.7"/>
+                <circle cx="230" cy="22" r="0.8"/><circle cx="290" cy="48" r="0.6"/><circle cx="50" cy="120" r="0.6"/>
+                <circle cx="280" cy="120" r="0.7"/><circle cx="40" cy="220" r="0.7"/><circle cx="200" cy="238" r="0.6"/>
+                <circle cx="120" cy="200" r="0.5"/><circle cx="300" cy="200" r="0.6"/><circle cx="170" cy="14" r="0.5"/>
+              </g>
+              <path id="lineagePath" class="const-line" d="M 48 178 L 110 78 L 178 150 L 248 196"/>
+              <path class="const-line future" d="M 248 196 L 296 132"/>
+              <g>
+                <circle cx="48" cy="178" r="3.4" fill="#f3ead6"/>
+                <text class="star-lbl" x="48" y="158" text-anchor="middle">Emil &amp; Ella</text>
+                <text class="star-sub" x="48" y="196" text-anchor="middle">1910</text>
+              </g>
+              <g>
+                <circle cx="110" cy="78" r="2.8" fill="#f3ead6"/>
+                <text class="star-lbl" x="110" y="60" text-anchor="middle">The wartime letters</text>
+                <text class="star-sub" x="110" y="94" text-anchor="middle">1940s</text>
+              </g>
+              <g>
+                <circle cx="178" cy="150" r="3.2" fill="#f3ead6"/>
+                <text class="star-lbl" x="178" y="131" text-anchor="middle">Dad's weekly letters</text>
+                <text class="star-sub" x="178" y="167" text-anchor="middle">still writing</text>
+              </g>
+              <g>
+                <circle cx="248" cy="196" r="4.4" fill="#FF8F3B"/>
+                <text class="star-lbl" x="248" y="176" text-anchor="middle" fill="#FF8F3B">Adam</text>
+                <text class="star-sub" x="248" y="215" text-anchor="middle">now</text>
+              </g>
+              <g opacity="0.85">
+                <circle cx="296" cy="132" r="2" fill="rgba(243,234,214,0.55)"/>
+                <text class="star-sub" x="288" y="116" text-anchor="middle">who comes after</text>
+              </g>
+              <circle class="spark" r="2.2">
+                <animateMotion dur="9s" repeatCount="indefinite" rotate="none">
+                  <mpath href="#lineagePath"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+          <div class="fig-caption">Fig. 1 — four generations, drawn as stars; the light still traveling</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">3,155,760,000 seconds · the inheritance</div>
+          <h2>In 1910, my great-grandparents - Emil and Ella - began writing letters to each other.</h2>
+          <p>They wrote constantly - their courtship, their hopes, their ordinary days - and both
+             sides of the conversation survive: her letters to him, his letters to her. They married.
+             A generation later, letters crossed the Atlantic from a warship. A generation after
+             that, my father began writing a letter to his mother every week - and he is
+             writing them still.</p>
+          <p>I have held this paper in my hands. Paper from 1910. Paper from a warship. Paper
+             from the kitchen table where my father sits on Sunday afternoons. Four generations
+             understood something I inherited before I had words for it: <b>the act of recording
+             a life gives it meaning beyond itself.</b></p>
+          <div class="artifact"><span>ARTIFACT</span> the Emil &amp; Ella letters - now being typeset into a bound book</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="1000000000" data-power="9" data-scale="a generation · 32 years">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <circle class="draw" cx="92" cy="74" r="46"/>
+            <circle class="draw soft" cx="92" cy="74" r="14"/>
+            <circle class="draw soft" cx="92" cy="46" r="7"/>
+            <circle class="draw soft" cx="92" cy="102" r="7"/>
+            <circle class="draw soft" cx="64" cy="74" r="7"/>
+            <circle class="draw soft" cx="120" cy="74" r="7"/>
+            
+            <path class="draw" d="M 134 96 C 190 120 170 170 220 186 C 252 196 268 210 270 232"/>
+            <path class="draw" d="M 130 110 C 180 134 158 180 210 198 C 240 208 254 220 256 238"/>
+            
+            <g class="draw soft">
+              <path d="M 152 116 l 3 3"/><path d="M 172 132 l 3 3"/><path d="M 186 152 l 3 3"/>
+              <path d="M 200 172 l 3 3"/><path d="M 222 188 l 3 3"/><path d="M 242 204 l 3 3"/>
+            </g>
+            
+            <rect class="draw" x="196" y="38" width="100" height="74"/>
+            <path class="draw soft" d="M 202 86 q 12 -5 24 0 q 12 5 24 0 q 12 -5 24 0 q 8 3 16 0"/>
+            <path class="draw" d="M 226 78 L 240 60 L 254 78 Z"/>
+            <path class="draw soft" d="M 240 60 L 240 50"/>
+            <circle class="draw soft" cx="214" cy="54" r="6"/>
+            <path class="draw warm" d="M 196 38 L 188 30 M 296 38 L 304 30 M 196 112 L 188 120 M 296 112 L 304 120"/>
+          </svg>
+          <div class="fig-caption">Fig. 2 — a hundred reels, five generations · one boat on Maple Lane</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">1,000,000,000 seconds · the becoming</div>
+          <h2>It takes about three billion seconds to live a long life. I spent a billion of them learning to build.</h2>
+          <p>In 2001, helping my grandparents move to assisted living, I stayed behind to sort
+             the closets: tintypes from the 1870s, film reels, VHS tapes, letters tied with ribbon.
+             I became the family's archivist that day - hundreds of tapes, nearly a hundred reels,
+             thousands of photographs digitized over two decades. In one reel, my mother is a girl
+             on a fishing trip at Maple Lane Resort in Minnesota - a lake her grandparents had been
+             coming to for decades - in footage her father shot on 8mm film.</p>
+          <p>In 2012 I tried to build the successor to the letters - a life-capture startup called
+             LifeTagr. It failed; I couldn't build it myself and didn't yet know how to bootstrap
+             a build I couldn't do. <b>So I learned.</b> Code school at 35. A decade-plus shipping
+             production software. Becoming the CTO I couldn't afford to hire.</p>
+          <div class="artifact"><span>LESSON</span> conviction is only worth what you can execute</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="315576000" data-power="8.5" data-scale="a decade">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <path class="draw" d="M 12 218 L 308 218"/>
+            <path class="draw soft" d="M 20 234 q 30 -5 60 0 M 240 234 q 30 -5 60 0"/>
+            
+            <rect class="draw" x="140" y="84" width="46" height="134"/>
+            <path class="draw" d="M 140 84 Q 163 56 186 84"/>
+            <path class="draw soft" d="M 140 112 L 186 112 M 140 140 L 186 140 M 140 168 L 186 168 M 140 196 L 186 196"/>
+            <circle class="fill-warm" cx="163" cy="68" r="2.4"/>
+            
+            <rect class="draw" x="216" y="160" width="84" height="58"/>
+            <path class="draw" d="M 210 160 L 258 130 L 306 160"/>
+            <rect class="draw soft" x="246" y="184" width="24" height="34"/>
+            
+            <circle class="draw" cx="58" cy="202" r="16"/>
+            <circle class="draw soft" cx="58" cy="202" r="7"/>
+            <circle class="draw" cx="104" cy="208" r="10"/>
+            <path class="draw" d="M 42 186 L 42 168 L 76 168 L 82 186"/>
+            <path class="draw" d="M 76 168 L 76 156 L 98 156 L 104 198"/>
+            <path class="draw soft" d="M 46 156 L 46 144"/>
+            
+            <path class="draw warm" stroke-dasharray="3 6" d="M 112 170 Q 130 110 140 96"/>
+            <path class="draw warm" stroke-dasharray="3 6" d="M 186 100 Q 210 120 232 158"/>
+            
+            <circle class="draw" cx="40" cy="48" r="17"/>
+            <path class="draw soft" d="M 40 20 L 40 27 M 40 69 L 40 76 M 12 48 L 19 48 M 61 48 L 68 48"/>
+          </svg>
+          <div class="fig-caption">Fig. 3 — the homestead: the tractor harvests, the silo stores</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">315,576,000 seconds · the build</div>
+          <h2>In 2016 I started building Tractor &amp; Silo - because I needed it to exist.</h2>
+          <p>A container for the digital exhaust of a life: the who, what, when, where, and why of
+             my days. Places, people, photographs, experiences. <b>Your devices fill it. Your
+             thoughts make it yours.</b> I have used it every day for nearly a decade - it has
+             already outlived most of the services that failed me.</p>
+          <p>And they did fail me. Moves, Basis, Narrative, Automatic, Limitless - each one shut
+             down, each time the same ritual: the frantic export, the orphaned folders. That
+             history is why Silo is built the way it is - open exports, no lock-in, paid plainly,
+             <b>permanence over growth</b> - with a written promise that if the worst ever happens,
+             you leave with everything. In April 2026 the iOS companion shipped: fourteen years
+             after LifeTagr, the vision finally exists end-to-end.</p>
+          <a class="artifact" href="https://tractorandsilo.com" target="_blank" rel="noopener"><span>ECOSYSTEM</span> the tractor harvests · the silo stores<span class="ext">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="2629800" data-power="6.4" data-scale="a month">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect class="draw" x="58" y="34" width="204" height="192"/>
+            <path class="draw soft" d="M 58 98 L 262 98"/>
+            
+            <path class="draw" d="M 78 62 L 132 62 M 78 74 L 120 74"/>
+            <path class="draw warm" d="M 188 56 L 242 56 L 242 84 L 188 84 Z"/>
+            <path class="draw warm" d="M 188 56 L 215 72 L 242 56"/>
+            
+            <g class="draw soft">
+              <path d="M 78 118 L 154 118 M 78 130 L 154 130 M 78 142 L 146 142 M 78 154 L 154 154 M 78 166 L 150 166"/>
+              <path d="M 170 118 L 242 118 M 170 130 L 242 130 M 170 142 L 236 142"/>
+            </g>
+            
+            <rect class="draw" x="170" y="154" width="72" height="50"/>
+            <path class="draw soft" d="M 174 196 L 192 176 L 206 190 L 218 172 L 238 196"/>
+            <circle class="draw soft" cx="226" cy="166" r="5"/>
+            
+            <path class="draw soft" d="M 78 186 L 154 186 M 78 198 L 148 198"/>
+            
+            <path class="draw warm" stroke-dasharray="2 5" d="M 262 110 C 292 96 300 70 296 44"/>
+            <path class="draw warm" d="M 296 40 l -4 6 M 296 40 l 5 5"/>
+          </svg>
+          <div class="fig-caption">Fig. 4 — the Big Letter · the thread leads back to my father's</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">2,629,800 seconds · the synthesis</div>
+          <h2>Once a month, the whole system writes a letter.</h2>
+          <p>The Big Letter is a family newsletter synthesized from everything the ecosystem
+             captures - the month's places, projects, and photographs, what had my attention,
+             what the kids said at dinner. Drafted with AI in my own voice, every vignette citing
+             its sources, finished by hand. The first issue shipped in April 2026.</p>
+          <p>My father has been making this exact artifact by hand for decades. <b>The loop from
+             1910 closes every month</b> - digital exhaust becoming a warm, durable thing my
+             family can hold, and my kids will inherit.</p>
+          <div class="artifact"><span>METHOD</span> Capture · Enrich · Synthesize</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="604800" data-power="5.8" data-scale="a week">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect class="draw soft" x="70" y="58" width="180" height="104" transform="rotate(-4 160 110)"/>
+            <rect class="draw soft" x="66" y="52" width="180" height="104" transform="rotate(2 160 104)"/>
+            <rect class="draw" x="64" y="44" width="184" height="108"/>
+            
+            <path class="draw warm" d="M 96 84 q 0 -16 16 -16 q 16 0 16 14 q 0 10 -12 16 q -4 2 -4 8"/>
+            <circle class="fill-warm" cx="112" cy="118" r="2.6"/>
+            
+            <path class="draw soft" d="M 142 76 L 232 76 M 142 92 L 224 92 M 142 108 L 232 108"/>
+            
+            <g class="draw">
+              <path d="M 76 206 L 76 214"/><path d="M 90 198 L 90 222"/><path d="M 104 188 L 104 232"/>
+              <path d="M 118 196 L 118 224"/><path d="M 132 180 L 132 240"/><path d="M 146 192 L 146 228"/>
+              <path d="M 160 184 L 160 236"/><path d="M 174 198 L 174 222"/><path d="M 188 190 L 188 230"/>
+              <path d="M 202 200 L 202 220"/><path d="M 216 194 L 216 226"/><path d="M 230 204 L 230 216"/>
+            </g>
+            <path class="draw warm" stroke-dasharray="2 5" d="M 156 152 L 156 176"/>
+          </svg>
+          <div class="fig-caption">Fig. 5 — a question asked, a voice answering</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">604,800 seconds · the questions</div>
+          <h2>Some stories don't fall out of the data. You have to ask for them.</h2>
+          <p>Answers2Answers is the asking machine - a family Q&amp;A digest that sends a question
+             on a cadence, gathers answers in writing or in voice, and weaves them into something
+             the whole family reads. It began as a family digest app years ago; I'm rebuilding it
+             now as an audio-first iOS product, with a year-plus of the original family answers
+             preserved and honored inside it.</p>
+          <p>Where the silo captures a life passively, this one draws a life out of the people you
+             love - <b>the interview half of the family record.</b> The letters were never written
+             to be archives either. They were just people answering each other, week after week.</p>
+          <div class="artifact"><span>LINEAGE</span> correspondence, productized - questions on a cadence since 1910</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="86400" data-power="4.9" data-scale="a day">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <path class="draw warm" stroke-dasharray="4 6" d="M 36 150 Q 160 10 284 150"/>
+            <circle class="draw" cx="160" cy="80" r="12"/>
+            <path class="draw soft" d="M 160 58 L 160 64 M 182 80 L 188 80 M 132 80 L 138 80"/>
+            
+            <path class="draw" d="M 24 150 L 296 150"/>
+            <g class="draw soft">
+              <path d="M 36 150 L 36 158 M 67 150 L 67 156 M 98 150 L 98 158 M 129 150 L 129 156 M 160 150 L 160 160 M 191 150 L 191 156 M 222 150 L 222 158 M 253 150 L 253 156 M 284 150 L 284 158"/>
+            </g>
+            
+            <rect class="draw" x="64" y="182" width="40" height="64" rx="6"/>
+            <path class="draw soft" d="M 78 238 L 90 238"/>
+            <path class="draw warm" stroke-dasharray="2 4" d="M 84 182 Q 84 160 104 152"/>
+            
+            <path class="draw" d="M 196 230 L 206 188 L 270 188 L 260 230 Z"/>
+            <path class="draw" d="M 186 230 L 270 230"/>
+            <path class="draw soft" d="M 214 198 L 256 198 M 212 208 L 250 208 M 210 218 L 246 218"/>
+            <path class="draw warm" stroke-dasharray="2 4" d="M 236 188 Q 232 166 216 154"/>
+          </svg>
+          <div class="fig-caption">Fig. 6 — 86,400 seconds, kept by the phone and the Mac</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">86,400 seconds · a day, kept</div>
+          <h2>86,400 seconds. Most of them used to vanish.</h2>
+          <p>The phone keeps the day's path - Silo iOS tracks places, check-ins, voice memos,
+             photographs, as the day is lived. On the desk, <b>Lens</b> watches the working hours:
+             screen, webcam, focus - then an AI model running entirely on my Mac writes the day's
+             journal. Nothing leaves the machine. The PKM vault does the same for paper - documents
+             ingested and enriched locally, because the most sensitive records should never touch
+             a cloud.</p>
+          <p>That is the local-inference thesis I'm testing in public: the most personal
+             synthesis should happen on hardware you own. The frontier still lives in the cloud -
+             I'll say so plainly - but the journal of your day belongs to you.</p>
+          <a class="artifact" href="https://tractorandsilo.com" target="_blank" rel="noopener"><span>INSTRUMENTS</span> Silo iOS · Lens · PKM Vault<span class="ext">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="60" data-power="1.8" data-scale="a minute">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect class="draw" x="36" y="44" width="150" height="112"/>
+            <rect class="draw soft" x="44" y="52" width="134" height="84"/>
+            <path class="draw soft" d="M 48 128 L 84 92 L 108 114 L 134 80 L 174 128"/>
+            <circle class="draw soft" cx="150" cy="68" r="7"/>
+            
+            <g class="draw warm">
+              <path d="M 206 60 L 290 60"/>
+              <path d="M 206 76 L 282 76"/>
+              <path d="M 206 92 L 290 92"/>
+              <path d="M 206 108 L 270 108"/>
+              <path d="M 206 124 L 286 124"/>
+              <path d="M 206 140 L 250 140"/>
+            </g>
+            <path class="draw" d="M 186 100 L 200 100 M 196 96 L 200 100 L 196 104"/>
+            
+            <circle class="draw" cx="70" cy="208" r="18"/>
+            <rect class="draw soft" x="64" y="198" width="12" height="14" rx="6"/>
+            <path class="draw soft" d="M 60 208 q 0 10 10 10 q 10 0 10 -10 M 70 218 L 70 226"/>
+            <g class="draw soft">
+              <path d="M 104 204 L 104 216 M 116 198 L 116 222 M 128 206 L 128 214 M 140 200 L 140 220 M 152 208 L 152 212"/>
+            </g>
+          </svg>
+          <div class="fig-caption">Fig. 7 — a photograph, described; a moment, told</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">60 seconds · the enrichment</div>
+          <h2>A minute is enough to make a memory retrievable.</h2>
+          <p>A voice memo at a trailhead. A check-in at a diner. A paragraph written by a local
+             vision model describing a photograph from the family archive - who is in it, what is
+             happening - on the workbench I built for the job: a describer for old photographs, a
+             transcriber for voice and tape, a slideshow engine that turns archives into films for
+             the family's picture frames.</p>
+          <p>This is the middle of the method, where raw capture becomes memory: AI does the
+             cataloging, and I add the part only I know. <b>Metrics describe. Memory
+             means.</b></p>
+          <div class="artifact"><span>WORKBENCH</span> Photo Describer · WhisperKit · Slideshow Generator</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="1" data-power="0" data-scale="one second">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <circle class="draw" cx="160" cy="130" r="86"/>
+            <circle class="draw soft" cx="160" cy="130" r="96"/>
+            <g class="draw">
+              <path d="M 160 44 L 196 116"/>
+              <path d="M 234 87 L 174 140"/>
+              <path d="M 246 130 L 168 158"/>
+              <path d="M 203 205 L 152 144"/>
+              <path d="M 117 205 L 138 124"/>
+              <path d="M 74 130 L 152 112"/>
+              <path d="M 86 87 L 160 100"/>
+            </g>
+            <circle class="fill-warm" cx="160" cy="130" r="5"/>
+            <path class="draw warm" d="M 160 18 L 160 28 M 160 232 L 160 242 M 48 130 L 58 130 M 262 130 L 272 130"/>
+          </svg>
+          <div class="fig-caption">Fig. 8 — one second · the shutter</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">1 second · one second</div>
+          <h2>One second. A shutter clicks.</h2>
+          <p>Somewhere in Nashville, a photograph is taken. It will be captured tonight, enriched
+             this week, synthesized into a letter this month, kept in the silo for a lifetime -
+             and inherited, someday, by people who will want to know who I was.</p>
+          <p><b>This is the whole idea, at every scale:</b> a second, a day, a month, a life, a
+             century. Capture it. Enrich it. Synthesize it. Pass it on.</p>
+          <span class="margin-note">"Recording a life lets you live it twice."</span>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene pullback" data-secs="3155760000" data-power="9.5" data-scale="and back out">
+      <div class="pullback-inner">
+        <div class="copy">
+          <div class="epoch">And back out again</div>
+          <h2>The same shape, at every scale.</h2>
+          <p>Pull back from the single second and the pattern repeats all the way up - the day
+             assembles into the week, the week into the month, the month into a life, the life
+             into the record a family keeps for a century.</p>
+          <div class="scale-echoes">
+            <span><b>1</b> a shutter</span>
+            <span><b>60</b> a memo</span>
+            <span><b>86,400</b> a day kept</span>
+            <span><b>604,800</b> a question</span>
+            <span><b>2,629,800</b> a letter</span>
+            <span><b>315,576,000</b> a build</span>
+            <span><b>3,155,760,000</b> an inheritance</span>
+          </div>
+          <div class="ces">Capture <i>·</i> Enrich <i>·</i> Synthesize</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <div style="height: 1150vh;"></div>
+</div>
+
+
+<section class="coda">
+  <div class="coda-inner">
+    <div class="epoch">A letter to the future</div>
+    <h2>Letters won't be the medium for my generation. But the impulse is the same.</h2>
+    <p>Capture a life so the people you love can know it. My great-grandparents didn't know their
+       letters would survive a century - they were just writing to each other. I don't know who
+       will read the record of my life. Maybe my kids. Maybe their kids. But keeping it has made
+       me more present in the living of it.</p>
+    <p class="welcome">If you've lost data to a service that shut down, you're welcome here. If
+       you want to document your life for those who come after, you're welcome here. If you're an
+       asker of questions and a seeker of stories - you're welcome here.</p>
+    <div>
+      <span class="sig">Adam Thede</span>
+      <div class="sig-sub">Builder · Thede Technologies · Nashville</div>
+      <p class="sig-line">I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life.</p>
+    </div>
+    <div class="links">
+      <a class="primary" href="https://tractorandsilo.com">Explore Tractor &amp; Silo</a>
+      <a href="https://thedetech.com">Thede Technologies</a>
+    </div>
+    <div class="links" style="margin-top: 1rem;">
+      <a href="https://linkedin.com/in/adamthede" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/adamthede" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================== INDEX, FOOTER LIST (mockup) ====================== -->
+<nav class="ixf" id="places" aria-labelledby="ixfTitle">
+  <div class="ixf-inner">
+    <div class="ixf-title" id="ixfTitle">The index</div>
+    <div class="ixf-cols"><div class="ixf-col"><h3>Read <span>03</span></h3><ul><li><a href="https://adamthede.com/" aria-current="page"><span>A life, measured in seconds</span></a></li><li><a href="https://adamthede.com/resume/"><span>Résumé</span></a></li><li><a href="https://data.adamthede.com/influences/"><span>The influences shelf</span></a></li></ul></div><div class="ixf-col"><h3>Look at the data <span>08</span></h3><ul><li><a href="https://data.adamthede.com/"><span>The coverage map</span></a></li><li><a href="https://data.adamthede.com/viewing/"><span>A Viewing Life</span></a></li><li><a href="https://data.adamthede.com/books/"><span>The Reading Life</span></a></li><li><a href="https://data.adamthede.com/reading/"><span>The Week in Reading</span></a></li><li><a href="https://data.adamthede.com/meant-to-read/"><span>What I meant to read</span></a></li><li><a href="https://data.adamthede.com/b1/"><span>The B1 Years</span></a></li><li><a href="https://data.adamthede.com/office/"><span>One Year of Office</span></a></li><li><a href="https://data.adamthede.com/chicago-river/"><span>Chicago River Elevations</span></a></li></ul></div><div class="ixf-col"><h3>Family <span>06</span></h3><p class="ixf-note" id="ix-note-family-f">Sign in by email code</p><ul><li><a href="https://bigletter.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The Big Letter</span></a></li><li><a href="https://letters.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The letters archive</span></a></li><li><a href="https://anniversary.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The anniversary pages</span></a></li><li><a href="https://viewing.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The viewing diary</span></a></li><li><a href="https://books.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The book record</span></a></li><li><a href="https://reading.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The article archive</span></a></li></ul></div><div class="ixf-col"><h3>Elsewhere <span>04</span></h3><ul><li><a href="https://thedetech.com/" target="_blank" rel="noopener"><span>Thede Technologies</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li><li><a href="https://tractorandsilo.com/" target="_blank" rel="noopener"><span>Tractor and Silo</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li><li><a href="https://linkedin.com/in/adamthede" target="_blank" rel="noopener"><span>LinkedIn</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li><li><a href="https://github.com/adamthede" target="_blank" rel="noopener"><span>GitHub</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li></ul></div></div>
+    <p class="ixf-more"><a href="index-page.html">Every place with a line about it, on one page</a></p>
+  </div>
+</nav>
+
+<footer>
+  A life, measured in seconds · Thede Technologies, LLC<br>
+  Set after the Eames film "Powers of Ten" (1977) · drawn &amp; written from the family record
+</footer>
+
+<script>
+(function () {
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+   
+  const toggle = document.getElementById('themeToggle');
+  function syncToggle() {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    toggle.textContent = dark ? '☀ day' : '☾ night';
+  }
+  toggle.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('alms-theme', dark ? 'light' : 'dark'); } catch (e) {}
+    syncToggle();
+  });
+  syncToggle();
+
+   
+  const hereEl = document.getElementById('hereSeconds');
+  const t0 = Date.now();
+  setInterval(() => {
+    hereEl.textContent = Math.floor((Date.now() - t0) / 1000).toLocaleString();
+  }, 1000);
+
+   
+  const scenes = Array.from(document.querySelectorAll('.scene'));
+  const track = document.getElementById('zoomTrack');
+  const meterCount = document.getElementById('meterCount');
+  const meterUnit = document.getElementById('meterUnit');
+  const meterPower = document.getElementById('meterPower');
+  const meterHuman = document.getElementById('meterHuman');
+  const gaugeDot = document.getElementById('gaugeDot');
+  const ringsWrap = document.getElementById('frameRings');
+
+  const N = scenes.length;            
+  const LAST_CONTENT = N - 2;         
+
+   
+  const RING_COUNT = 7;
+  const rings = [];
+  for (let i = 0; i < RING_COUNT; i++) {
+    const r = document.createElement('div');
+    r.className = 'ring';
+    ringsWrap.appendChild(r);
+    rings.push(r);
+  }
+
+   
+  const sceneDraws = scenes.map(scene => {
+    const paths = Array.from(scene.querySelectorAll('.illo .draw'));
+    return paths.map(p => {
+      let len = 0;
+      try { len = p.getTotalLength(); } catch (e) { len = 0; }
+      if (len && !REDUCED) {
+        p.style.strokeDasharray = (p.getAttribute('stroke-dasharray')) ? p.style.strokeDasharray : len;
+        if (!p.getAttribute('stroke-dasharray')) {
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+        }
+      }
+      return { p, len, hasOwnDash: !!p.getAttribute('stroke-dasharray') };
+    });
+  });
+
+  function fmt(n) {
+    if (n >= 100) return Math.round(n).toLocaleString('en-US');
+    if (n >= 10) return n.toFixed(0);
+    return n.toFixed(0);
+  }
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+  let lastIdx = -1;
+  function update() {
+    const rect = track.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    const progress = clamp(-rect.top / total, 0, 1);
+    const sceneFloat = progress * (N - 1);
+    const idx = clamp(Math.round(sceneFloat), 0, N - 1);
+
+    if (idx !== lastIdx) {
+      scenes.forEach((s, i) => s.classList.toggle('active', i === idx));
+      lastIdx = idx;
+    }
+
+     
+    const lo = Math.floor(sceneFloat), hi = clamp(lo + 1, 0, N - 1);
+    const frac = sceneFloat - lo;
+    const sLo = parseFloat(scenes[lo].dataset.secs);
+    const sHi = parseFloat(scenes[hi].dataset.secs);
+    const secs = Math.pow(10, lerp(Math.log10(sLo), Math.log10(sHi), frac));
+    meterCount.textContent = fmt(secs);
+    meterUnit.textContent = secs < 1.5 ? 'second' : 'seconds';
+    meterPower.textContent = scenes[idx].dataset.power;
+    meterHuman.textContent = scenes[idx].dataset.scale;
+    gaugeDot.style.top = (progress * 92) + '%';
+
+     
+    let zoom;
+    if (sceneFloat <= LAST_CONTENT) {
+      zoom = sceneFloat;
+    } else {
+      const t = (sceneFloat - LAST_CONTENT); 
+      zoom = LAST_CONTENT * (1 - t * t * (3 - 2 * t)); 
+    }
+    rings.forEach((r, i) => {
+      const f = zoom % 1;
+      const level = i - f;
+      const size = Math.pow(1.9, level) * 120;
+      const op = level < 0 ? 0 : Math.max(0, 0.34 - level * 0.05);
+      r.style.width = size + 'px';
+      r.style.opacity = op;
+    });
+
+     
+    if (!REDUCED) {
+      const localT = clamp(sceneFloat - idx + 0.5, 0, 1);
+      const drawP = clamp((localT - 0.08) / 0.37, 0, 1);
+      sceneDraws[idx].forEach(({ p, len, hasOwnDash }, k) => {
+        if (!len || hasOwnDash) return;
+        const stagger = clamp(drawP * 1.35 - (k / Math.max(1, sceneDraws[idx].length)) * 0.35, 0, 1);
+        p.style.strokeDashoffset = len * (1 - stagger);
+      });
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => { update(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+<div class="mock-tag">Mockup, drawer A <a href="home-b.html">see B</a> <a href="index.html">board</a></div>
+
+<script>
+/* ====================== INDEX drawer (mockup) ====================== */
+(function () {
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var IN_FRAME = window.self !== window.top;
+  if (IN_FRAME) document.documentElement.classList.add('in-frame');
+  var trigger = document.getElementById('ixTrigger');
+  var drawer = document.getElementById('ixDrawer');
+  var scrim = document.getElementById('ixScrim');
+  var label = trigger.querySelector('.ix-trigger-label');
+  var arrow = trigger.querySelector('.ix-trigger-arrow');
+  var lastFocus = null;
+  var TRIGGER_NAME = trigger.getAttribute('aria-label');
+  var FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function isOpen() { return drawer.dataset.open === 'true'; }
+  function focusables() {
+    var inside = Array.prototype.slice.call(drawer.querySelectorAll(FOCUSABLE)).filter(function (el) {
+      return el.getClientRects().length > 0;   /* skip links hidden at this width */
+    });
+    return [trigger].concat(inside);
+  }
+  /* everything else on the page goes inert while the drawer is open */
+  function setInert(on) {
+    Array.prototype.forEach.call(document.body.children, function (el) {
+      if (el === drawer || el === trigger || el === scrim || el.tagName === 'SCRIPT') return;
+      if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+  }
+  function open(opts) {
+    opts = opts || {};
+    if (isOpen()) return;
+    lastFocus = document.activeElement;
+    drawer.dataset.open = 'true';
+    scrim.dataset.open = 'true';
+    trigger.setAttribute('aria-expanded', 'true');
+    label.textContent = 'Close';
+    arrow.textContent = '↑';
+    trigger.setAttribute('aria-label', 'Close index');
+    document.documentElement.classList.add('ix-locked');
+    setInert(true);
+    drawer.scrollTop = 0;
+    if (opts.focus !== false) drawer.focus({ preventScroll: true });
+  }
+  function close() {
+    if (!isOpen()) return;
+    drawer.dataset.open = 'false';
+    scrim.dataset.open = 'false';
+    trigger.setAttribute('aria-expanded', 'false');
+    label.textContent = 'Index';
+    arrow.textContent = '↓';
+    trigger.setAttribute('aria-label', TRIGGER_NAME);
+    document.documentElement.classList.remove('ix-locked');
+    setInert(false);
+    var back = (lastFocus && lastFocus !== document.body && document.contains(lastFocus)) ? lastFocus : trigger;
+    back.focus({ preventScroll: true });
+  }
+  trigger.addEventListener('click', function () { isOpen() ? close() : open(); });
+  scrim.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key !== 'Tab') return;
+    var f = focusables(), first = f[0], last = f[f.length - 1], a = document.activeElement;
+    var inside = a === trigger || drawer.contains(a);
+    if (!inside) { e.preventDefault(); first.focus(); return; }
+    if (e.shiftKey && (a === first || a === drawer)) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && a === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* mockup only: #open shows the open state without moving focus */
+  if (location.hash === '#open') open({ focus: !IN_FRAME });
+  /* mockup only: #at-places scrolls this window to the footer list without moving a parent page */
+  if (location.hash === '#at-places') {
+    var pl = document.getElementById('places');
+    window.scrollTo({ top: pl.getBoundingClientRect().top + window.scrollY - 300, behavior: 'instant' });
+  }
+  window.ixDrawer = { open: open, close: close };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index drawer mockup</title>
+<link rel="icon" type="image/svg+xml" href="https://adamthede.com/favicon.svg">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('alms-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f1ea; --paper-deep: #ece7dc; --ink: #1f2430; --ink-soft: #4a5160;
+    --rule: #c9c2b2; --rule-soft: #ddd6c4; --accent: #FF8F3B; --accent-deep: #d96f1e;
+    --chip: rgba(255,255,255,0.5);
+    --serif: 'EB Garamond', Georgia, serif; --mono: 'IBM Plex Mono', monospace;
+  }
+  html[data-theme="dark"] {
+    --paper: #1c1917; --paper-deep: #141110; --ink: #ece7dc; --ink-soft: #a8a094;
+    --rule: #45403a; --rule-soft: #332f29; --accent-deep: #FDAD57; --chip: rgba(255,255,255,0.05);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--serif); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-deep); outline-offset: 3px; }
+  .wrap { max-width: 1360px; margin: 0 auto; padding: 4rem 2.4rem 4rem; }
+  .kicker { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-deep); }
+  h1 { margin-top: 1.1rem; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.01em; }
+  .lede { margin-top: 1.1rem; max-width: 60ch; font-size: 1.15rem; line-height: 1.6; color: var(--ink-soft); }
+  .bar { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  .chip {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none; background: var(--chip); border: 1px solid var(--rule);
+    padding: 0.5rem 0.75rem; cursor: pointer; white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--accent-deep); color: var(--accent-deep); }
+  .chip.primary { border-color: var(--ink-soft); }
+  .st { margin-top: 3.6rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+  .st-head { display: grid; grid-template-columns: auto 1fr auto; gap: 1.4rem; align-items: start; }
+  .st-num { font-family: var(--mono); font-weight: 300; font-size: 2.2rem; line-height: 1; color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .st h2 { font-size: 1.6rem; font-weight: 500; line-height: 1.15; }
+  .st p { margin-top: 0.4rem; max-width: 70ch; font-size: 1.05rem; line-height: 1.55; color: var(--ink-soft); }
+  .frames { margin-top: 1.4rem; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.6rem; align-items: start; }
+  .fr { min-width: 0; }
+  .fr-box { position: relative; overflow: hidden; border: 1px solid var(--rule); background: var(--paper-deep); }
+  .fr-box iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; background: var(--paper); }
+  figcaption { margin-top: 0.45rem; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+  .notes { margin-top: 4rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.6rem 3.2rem; }
+  .notes h2 { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-deep); padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); margin-bottom: 1rem; }
+  .notes ol, .notes ul { padding-left: 1.2rem; }
+  .notes li { font-size: 1.05rem; line-height: 1.55; color: var(--ink-soft); }
+  .notes li + li { margin-top: 0.55rem; }
+  .notes li b { color: var(--ink); font-weight: 600; }
+  .notes .wide { grid-column: 1 / -1; }
+  table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+  th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.8rem 0.5rem 0; border-bottom: 1px solid var(--rule-soft); color: var(--ink-soft); line-height: 1.45; }
+  th { font-family: var(--mono); font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+  td.num { font-family: var(--mono); color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  pre { font-family: var(--mono); font-size: 0.74rem; line-height: 1.6; color: var(--ink); background: var(--chip); border: 1px solid var(--rule); padding: 1.1rem 1.2rem; overflow-x: auto; max-height: 34rem; }
+  footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); text-align: center; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); line-height: 2; }
+  @media (max-width: 900px) {
+    .wrap { padding: 2.6rem 16px 3rem; }
+    .frames { grid-template-columns: minmax(0, 1fr); }
+    .fr-phone { max-width: 300px; }
+    .notes { grid-template-columns: minmax(0, 1fr); }
+    .st-head { grid-template-columns: auto 1fr; }
+    .st-head .chip { grid-column: 1 / -1; justify-self: start; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Mockup for approval, 2026-11-01</div>
+  <h1>One index, three layers.</h1>
+  <p class="lede">adamthede.com links to almost nothing it publishes. This puts every place under the domain, and four elsewhere, in one list. It opens as a drawer from the top of the home page, stands at /index/ as a plain page, and closes the home page as a footer list. Nothing here is built. Pick drawer A or B, or redirect it.</p>
+  <div class="bar">
+    <a class="chip primary" href="home-a.html#open">Drawer A, full window</a>
+    <a class="chip primary" href="home-b.html#open">Drawer B, full window</a>
+    <a class="chip" href="index-page.html">The plain page</a>
+    <button class="chip" id="themeSwitch" type="button">Show at night</button>
+  </div>
+  
+<section class="st" id="state-1">
+  <div class="st-head">
+    <div class="st-num">01</div>
+    <div><h2>Closed: the trigger on the real home page</h2><p>One button at the top center of the window, set like the page's own corner chips, with the count of places beside it. It stays put while the film scrolls. On a phone the business chip folds into the index and the résumé chip stays.</p></div>
+    <a class="chip" href="home-a.html">Open the home page</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-a.html" width="1280" height="800" loading="lazy" title="Closed: the trigger on the real home page, desktop"></iframe></div><figcaption>1280 by 800</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-a.html" width="390" height="844" loading="lazy" title="Closed: the trigger on the real home page, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+<section class="st" id="state-2">
+  <div class="st-head">
+    <div class="st-num">02</div>
+    <div><h2>Drawer A: the contents page</h2><p>Every name, line and address at once, in four columns like a printed index. Family stays whole in one column, with the lock and the sign-in line under its head. Try Tab, Shift-Tab and Escape in the full window.</p></div>
+    <a class="chip" href="home-a.html#open">Open drawer A</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-a.html#open" width="1280" height="800" loading="lazy" title="Drawer A: the contents page, desktop"></iframe></div><figcaption>1280 by 800</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-a.html#open" width="390" height="844" loading="lazy" title="Drawer A: the contents page, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+<section class="st" id="state-3">
+  <div class="st-head">
+    <div class="st-num">03</div>
+    <div><h2>Drawer B: the map</h2><p>The same 21 places as one repeated tile in one grid. The family pages sit below a drawn double rule, the sign-in wall. Point at a tile and the strip at the bottom reads out its address and who can open it. A public record and its family edition light up together, joined through the wall.</p></div>
+    <a class="chip" href="home-b.html#open-pair">Open drawer B</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-b.html#open-pair" width="1280" height="800" loading="lazy" title="Drawer B: the map, desktop"></iframe></div><figcaption>1280 by 800</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-b.html#open" width="390" height="844" loading="lazy" title="Drawer B: the map, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+<section class="st" id="state-4">
+  <div class="st-head">
+    <div class="st-num">04</div>
+    <div><h2>The plain page at /index/</h2><p>The same list as a page that needs no JavaScript and that a search engine can read. Set as a printed book's contents page, and the colophon says so. On a phone the leaders drop and the address sits under the name.</p></div>
+    <a class="chip" href="index-page.html">Open the plain page</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="index-page.html" width="1280" height="800" loading="lazy" title="The plain page at /index/, desktop"></iframe></div><figcaption>1280 by 800</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="index-page.html" width="390" height="844" loading="lazy" title="The plain page at /index/, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+<section class="st" id="state-5">
+  <div class="st-head">
+    <div class="st-num">05</div>
+    <div><h2>The footer list</h2><p>The same list at the foot of the home page, names only, between the signature and the colophon. The office link is gone from the coda above it.</p></div>
+    <a class="chip" href="home-a.html#at-places">Open at the footer</a>
+  </div>
+  <div class="frames">
+    <figure class="fr fr-desk"><div class="fr-box" data-w="1280" data-h="800"><iframe src="home-a.html#at-places" width="1280" height="800" loading="lazy" title="The footer list, desktop"></iframe></div><figcaption>1280 by 800</figcaption></figure>
+    <figure class="fr fr-phone"><div class="fr-box" data-w="390" data-h="844"><iframe src="home-a.html#at-places" width="390" height="844" loading="lazy" title="The footer list, phone"></iframe></div><figcaption>390 by 844, phone</figcaption></figure>
+  </div>
+</section>
+  <div class="notes">
+    <section>
+      <h2>What A and B do differently</h2>
+      <ol>
+        <li><b>A is a printed index.</b> Four groups run down columns, and every name, line and address shows at once with nothing to point at.</li>
+        <li><b>B is a map.</b> Every place is the same tile in one grid, and the group names sit in the grid as labels.</li>
+        <li><b>B draws the sign-in wall.</b> A double rule runs the full width, open places sit above it and family pages below. In A the family group carries the same lock and line in its own column.</li>
+        <li><b>B has a readout.</b> A strip on the drawer's bottom edge, the home page's meter idiom, shows the full address of the tile you point at, who can open it and where it opens.</li>
+        <li><b>B pairs records with family editions.</b> Point at A Viewing Life and its family edition lights up, joined by a dashed line through the wall. Two more pairs work the same way. A says this in each family entry's line instead.</li>
+        <li><b>A is cheaper and calmer.</b> It fits a 1280 by 800 window with a short scroll and needs no script beyond open and close. B needs about 60 more lines of script, and on a desktop its addresses show only in the readout.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Decisions for you, with a recommendation each</h2>
+      <ol>
+        <li><b>Which drawer.</b> Recommend A. It is an index first and shows everything at once. B is the more striking object, but you have to point at a tile to learn its address.</li>
+        <li><b>The plain page's address.</b> Recommend /index/, built from content/places.md with url /index/. A scratch build confirmed it sits beside the home page without a clash.</li>
+        <li><b>Phone corner chips.</b> Recommend folding the business chip into the index on phones under 560px, so the trigger fits between résumé and night.</li>
+        <li><b>Two letters pages.</b> The family may call both of these "the Big Letter". The labels split them as "The Big Letter" (my monthly letter) and "The letters archive". Recommend keeping them as drafted unless the family uses other names.</li>
+        <li><b>The handwritten line.</b> "No code? Ask me to add your email." Recommend keeping it. An email that is not on the Access list never gets a code, so this is the one thing a relative needs to know.</li>
+        <li><b>The three family editions.</b> I inferred the pairs from matching titles and sources: the viewing diary and A Viewing Life, the book record and The Reading Life, the article archive and The Week in Reading. Confirm or correct them.</li>
+      </ol>
+    </section>
+    <section class="wide">
+      <h2>Scope, as decided</h2>
+      <table>
+        <thead><tr><th>Group</th><th>Count</th><th>Who can open it</th><th>Entries</th></tr></thead>
+        <tbody><tr><td>Read</td><td class="num">3</td><td>anyone</td><td>A life, measured in seconds, Résumé, The influences shelf</td></tr><tr><td>Look at the data</td><td class="num">8</td><td>anyone</td><td>The coverage map, A Viewing Life, The Reading Life, The Week in Reading, What I meant to read, The B1 Years, One Year of Office, Chicago River Elevations</td></tr><tr><td>Family</td><td class="num">6</td><td>family, sign in by email code</td><td>The Big Letter, The letters archive, The anniversary pages, The viewing diary, The book record, The article archive</td></tr><tr><td>Elsewhere</td><td class="num">4</td><td>anyone</td><td>Thede Technologies, Tractor and Silo, LinkedIn, GitHub</td></tr></tbody>
+      </table>
+      <ul style="margin-top:1.2rem">
+        <li><b>Left off on purpose:</b> money and household, every thedetech.com host (command, inbox, daybook), and the officeofadamthede.com link, which loops home and is removed from the coda here.</li>
+        <li><b>Also left off:</b> the /index-card/ and /terminal/ comparison pages, and answers2answers.com, which is public but outside the decided scope.</li>
+      </ul>
+    </section>
+    <section class="wide">
+      <h2>The data file, proposed as data/index.yaml</h2>
+      <pre># Proposed shape for data/index.yaml on adamthede.com (mockup, 2026-11-01).
+# Not read by the site yet. The mockup pages in this folder were generated from it.
+#
+# One file feeds three layers: the drawer at the top of the home page,
+# the plain page at /index/, and the list at the foot of the home page.
+# File order is display order. Counts on the page are computed from this file.
+#
+# groups[]
+#   id        stable key, used for anchors (/index/#family)
+#   label     the heading a reader sees, named for what the reader wants
+#   access    public | family. A family group renders the lock mark and the note
+#   note      one line under the heading, optional
+#   opens     here | new-tab. Elsewhere opens a new tab and carries the arrow
+# entries[]
+#   name      what the place is called
+#   line      one plain line that says what the page is, never what is in it
+#   url       the full address
+#   id        optional stable key, needed only when another entry points at it
+#   edition_of  family entries only, optional: the id of the public record this
+#               page is the full family edition of (variant B lights the pair)
+
+groups:
+  - id: read
+    label: Read
+    access: public
+    opens: here
+    entries:
+      - name: A life, measured in seconds
+        line: &quot;The portrait: a century of family letters down to one second.&quot;
+        url: https://adamthede.com/
+      - name: Résumé
+        line: Experience and qualifications, on one page.
+        url: https://adamthede.com/resume/
+      - name: The influences shelf
+        line: What I learned to see from, drawn as two bookcases.
+        url: https://data.adamthede.com/influences/
+
+  - id: data
+    label: Look at the data
+    access: public
+    opens: here
+    entries:
+      - name: The coverage map
+        line: Every public record of my life, on one axis of years.
+        url: https://data.adamthede.com/
+      - id: viewing
+        name: A Viewing Life
+        line: Screenings, from a hand-kept diary to Trakt.
+        url: https://data.adamthede.com/viewing/
+      - id: books
+        name: The Reading Life
+        line: Books finished, merged from every place I logged them.
+        url: https://data.adamthede.com/books/
+      - id: reading
+        name: The Week in Reading
+        line: Articles read, first in Instapaper, then Matter.
+        url: https://data.adamthede.com/reading/
+      - name: What I meant to read
+        line: Articles saved and never opened.
+        url: https://data.adamthede.com/meant-to-read/
+      - name: The B1 Years
+        line: Two years of physiology from one wrist band.
+        url: https://data.adamthede.com/b1/
+      - name: One Year of Office
+        line: A year of readings from a sensor on a shelf.
+        url: https://data.adamthede.com/office/
+      - name: Chicago River Elevations
+        line: The river&#x27;s buildings, drawn to height from one cruise.
+        url: https://data.adamthede.com/chicago-river/
+
+  - id: family
+    label: Family
+    access: family
+    note: Sign in by email code
+    opens: here
+    entries:
+      - name: The Big Letter
+        line: My monthly family letter, every issue.
+        url: https://bigletter.adamthede.com/
+      - name: The letters archive
+        line: The family letters, read by year, person and place.
+        url: https://letters.adamthede.com/
+      - name: The anniversary pages
+        line: Keepsakes made for a family anniversary.
+        url: https://anniversary.adamthede.com/
+      - name: The viewing diary
+        line: The full diary behind A Viewing Life.
+        url: https://viewing.adamthede.com/
+        edition_of: viewing
+      - name: The book record
+        line: The full record behind The Reading Life.
+        url: https://books.adamthede.com/
+        edition_of: books
+      - name: The article archive
+        line: The searchable archive behind The Week in Reading.
+        url: https://reading.adamthede.com/
+        edition_of: reading
+
+  - id: elsewhere
+    label: Elsewhere
+    access: public
+    opens: new-tab
+    entries:
+      - name: Thede Technologies
+        line: My company, its products and the essays.
+        url: https://thedetech.com/
+      - name: Tractor and Silo
+        line: The app I build to keep a life&#x27;s record.
+        url: https://tractorandsilo.com/
+      - name: LinkedIn
+        line: My professional profile.
+        url: https://linkedin.com/in/adamthede
+      - name: GitHub
+        line: My code, where it is public.
+        url: https://github.com/adamthede
+</pre>
+    </section>
+  </div>
+  <footer>Mockup only. Nothing in layouts, content or hugo.toml changes in this pull request<br>Generated from proposed-data-index.yaml in this folder</footer>
+</div>
+<script>
+(function () {
+  /* scale each frame to its column */
+  function fit() {
+    document.querySelectorAll('.fr-box').forEach(function (box) {
+      var w = +box.dataset.w, h = +box.dataset.h;
+      var s = box.clientWidth / w;
+      box.style.height = Math.round(h * s) + 'px';
+      box.querySelector('iframe').style.transform = 'scale(' + s + ')';
+    });
+  }
+  window.addEventListener('resize', fit);
+  fit();
+  /* day and night for every frame: the pages read the same saved theme as the live site */
+  var btn = document.getElementById('themeSwitch');
+  function label() { btn.textContent = document.documentElement.dataset.theme === 'dark' ? 'Show by day' : 'Show at night'; }
+  btn.addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('alms-theme', next); } catch (e) {}
+    document.querySelectorAll('iframe').forEach(function (f) { var src = f.getAttribute('src'); f.setAttribute('src', 'about:blank'); f.setAttribute('src', src); });
+    label();
+  });
+  label();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+# Proposed shape for data/index.yaml on adamthede.com (mockup, 2026-11-01).
+# Not read by the site yet. The mockup pages in this folder were generated from it.
+#
+# One file feeds three layers: the drawer at the top of the home page,
+# the plain page at /index/, and the list at the foot of the home page.
+# File order is display order. Counts on the page are computed from this file.
+#
+# groups[]
+#   id        stable key, used for anchors (/index/#family)
+#   label     the heading a reader sees, named for what the reader wants
+#   access    public | family. A family group renders the lock mark and the note
+#   note      one line under the heading, optional
+#   opens     here | new-tab. Elsewhere opens a new tab and carries the arrow
+# entries[]
+#   name      what the place is called
+#   line      one plain line that says what the page is, never what is in it
+#   url       the full address
+#   id        optional stable key, needed only when another entry points at it
+#   edition_of  family entries only, optional: the id of the public record this
+#               page is the full family edition of (variant B lights the pair)
+
+groups:
+  - id: read
+    label: Read
+    access: public
+    opens: here
+    entries:
+      - name: A life, measured in seconds
+        line: "The portrait: a century of family letters down to one second."
+        url: https://adamthede.com/
+      - name: Résumé
+        line: Experience and qualifications, on one page.
+        url: https://adamthede.com/resume/
+      - name: The influences shelf
+        line: What I learned to see from, drawn as two bookcases.
+        url: https://data.adamthede.com/influences/
+
+  - id: data
+    label: Look at the data
+    access: public
+    opens: here
+    entries:
+      - name: The coverage map
+        line: Every public record of my life, on one axis of years.
+        url: https://data.adamthede.com/
+      - id: viewing
+        name: A Viewing Life
+        line: Screenings, from a hand-kept diary to Trakt.
+        url: https://data.adamthede.com/viewing/
+      - id: books
+        name: The Reading Life
+        line: Books finished, merged from every place I logged them.
+        url: https://data.adamthede.com/books/
+      - id: reading
+        name: The Week in Reading
+        line: Articles read, first in Instapaper, then Matter.
+        url: https://data.adamthede.com/reading/
+      - name: What I meant to read
+        line: Articles saved and never opened.
+        url: https://data.adamthede.com/meant-to-read/
+      - name: The B1 Years
+        line: Two years of physiology from one wrist band.
+        url: https://data.adamthede.com/b1/
+      - name: One Year of Office
+        line: A year of readings from a sensor on a shelf.
+        url: https://data.adamthede.com/office/
+      - name: Chicago River Elevations
+        line: The river's buildings, drawn to height from one cruise.
+        url: https://data.adamthede.com/chicago-river/
+
+  - id: family
+    label: Family
+    access: family
+    note: Sign in by email code
+    opens: here
+    entries:
+      - name: The Big Letter
+        line: My monthly family letter, every issue.
+        url: https://bigletter.adamthede.com/
+      - name: The letters archive
+        line: The family letters, read by year, person and place.
+        url: https://letters.adamthede.com/
+      - name: The anniversary pages
+        line: Keepsakes made for a family anniversary.
+        url: https://anniversary.adamthede.com/
+      - name: The viewing diary
+        line: The full diary behind A Viewing Life.
+        url: https://viewing.adamthede.com/
+        edition_of: viewing
+      - name: The book record
+        line: The full record behind The Reading Life.
+        url: https://books.adamthede.com/
+        edition_of: books
+      - name: The article archive
+        line: The searchable archive behind The Week in Reading.
+        url: https://reading.adamthede.com/
+        edition_of: reading
+
+  - id: elsewhere
+    label: Elsewhere
+    access: public
+    opens: new-tab
+    entries:
+      - name: Thede Technologies
+        line: My company, its products and the essays.
+        url: https://thedetech.com/
+      - name: Tractor and Silo
+        line: The app I build to keep a life's record.
+        url: https://tractorandsilo.com/
+      - name: LinkedIn
+        line: My professional profile.
+        url: https://linkedin.com/in/adamthede
+      - name: GitHub
+        line: My code, where it is public.
+        url: https://github.com/adamthede
