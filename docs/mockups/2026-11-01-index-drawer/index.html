@@ -329,9 +329,11 @@
 #   id        optional stable key, needed only when another entry points at it
 #   edition_of  family entries only, optional: the id of the public record this
 #               page is the full family edition of (variant B lights the pair)
-#   since     the first year the record covers, as a decimal year in the same
-#             twelfths data.adamthede.com uses (September 2013 is 2013.7). Every
-#             value is read from the source named in its comment, never estimated.
+#   since     the first year the record covers, as a decimal year. Values copied
+#             from data.adamthede.com keep its twelfths (September 2013 is 2013.7).
+#             Values read from a dated source are that day&#x27;s fraction of its year
+#             (6 July 2011 is 2011.51). Every value is read from the source named
+#             in its comment, never estimated.
 #             `~` means no file states it, and every variant draws that place as
 #             unknown: a dotted route, with no width claim.
 #   until     only on a record that has ended: its last year, in the same form.
@@ -415,11 +417,11 @@ groups:
       - name: The letters archive
         line: The family letters, read by year, person and place.
         url: https://letters.adamthede.com/
-        since: 1979       # the letters reader&#x27;s own README and ROADMAP: 47 years of letters, 1979 to 2025. The 1910 letters on the home page are a separate book and are not on this site
+        since: 1979       # the letters reader&#x27;s own README and ROADMAP: 47 years of letters, 1979 to 2025. The 1910 letters on the home page are a separate book and are not on this site. No until: the letter is annual and still written, so its depth runs to today
       - name: The anniversary pages
         line: Keepsakes made for a family anniversary.
         url: https://anniversary.adamthede.com/
-        since: ~          # no file states the first year these pages cover
+        since: ~          # the hub&#x27;s own README says it gathers keepsakes mined from the letters corpus for a family anniversary in 2026, but not which years its pages cover, so the span stays unknown
       - name: The viewing diary
         line: The full diary behind A Viewing Life.
         url: https://viewing.adamthede.com/
