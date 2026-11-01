@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.148.2">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Thede · A Life, Measured in Seconds (index mockup F)</title>
+<meta name="description" content="I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life.">
+<meta property="og:title" content="Adam Thede · A Life, Measured in Seconds">
+<meta property="og:description" content="I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adamthede.com/">
+<link rel="canonical" href="https://adamthede.com/">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('alms-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>
+<link rel="icon" href="https://adamthede.com/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/svg+xml" href="https://adamthede.com/favicon.svg">
+  <link rel="apple-touch-icon" href="https://adamthede.com/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f1ea;
+    --paper-deep: #ece7dc;
+    --ink: #1f2430;
+    --ink-soft: #4a5160;
+    --rule: #c9c2b2;
+    --rule-soft: #ddd6c4;
+    --accent: #FF8F3B;
+    --accent-deep: #d96f1e;
+    --night: #11162b;
+    --veil: rgba(244,241,234,0.9);
+    --chip: rgba(255,255,255,0.5);
+    --serif: 'EB Garamond', Georgia, serif;
+    --hand: 'Caveat', cursive;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+   
+  html[data-theme="dark"] {
+    --paper: #1c1917;
+    --paper-deep: #141110;
+    --ink: #ece7dc;
+    --ink-soft: #a8a094;
+    --rule: #45403a;
+    --rule-soft: #332f29;
+    --accent: #FF8F3B;
+    --accent-deep: #FDAD57;
+    --veil: rgba(28,25,23,0.92);
+    --chip: rgba(255,255,255,0.05);
+  }
+  html[data-theme="dark"] .coda .links a.primary { color: #1c1917; }
+  html[data-theme="dark"] .coda .links a.primary:hover { color: #1c1917; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+   
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 90;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+   
+  .reg { position: fixed; width: 22px; height: 22px; z-index: 80; pointer-events: none; opacity: 0.5; }
+  .reg::before, .reg::after { content:''; position: absolute; background: var(--ink); }
+  .reg::before { width: 100%; height: 1px; }
+  .reg::after { width: 1px; height: 100%; }
+  .reg.tl { top: 14px; left: 14px; }
+  .reg.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .reg.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .reg.br { bottom: 14px; right: 14px; transform: scale(-1); }
+
+  .theme-toggle {
+    position: fixed; top: 13px; right: 48px;
+    z-index: 85;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    padding: 0.42rem 0.7rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+  .corner-nav {
+    position: fixed; top: 13px; left: 48px;
+    z-index: 85;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: flex; gap: 0.5rem;
+  }
+  .corner-nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+    padding: 0.42rem 0.7rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .corner-nav a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+  @media (max-width: 880px) {
+    .corner-nav { left: 0.8rem; top: 0.8rem; }
+    .corner-nav a { padding: 0.35rem 0.5rem; font-size: 0.56rem; }
+    .theme-toggle { right: 0.8rem; top: 0.8rem; }
+  }
+
+   
+  .title-card {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    position: relative;
+  }
+  .title-card .kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 2.4rem;
+  }
+  .title-card h1 {
+    font-size: clamp(2.6rem, 7vw, 5.4rem);
+    font-weight: 500;
+    line-height: 1.04;
+    max-width: 18ch;
+    letter-spacing: -0.01em;
+  }
+  .title-card h1 em { font-style: italic; color: var(--accent-deep); }
+  .title-card .standfirst {
+    margin-top: 2.4rem;
+    max-width: 54ch;
+    font-size: clamp(1.05rem, 1.9vw, 1.18rem);
+    line-height: 1.68;
+    color: var(--ink-soft);
+  }
+  .title-card .ticker {
+    margin-top: 2.6rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    background: var(--chip);
+    padding: 0.65rem 1.1rem;
+  }
+  .title-card .ticker b { color: var(--accent-deep); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .title-card .credit {
+    margin-top: 2.4rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .title-card .credit b { color: var(--ink); font-weight: 500; }
+  .scroll-cue {
+    position: absolute; bottom: 2.2rem; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono); font-size: 0.68rem;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-soft);
+    animation: bob 2.6s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+   
+  .zoom-track { position: relative; }
+  .zoom-stage {
+    position: sticky; top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+   
+  .frame-rings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  .frame-rings .ring {
+    position: absolute;
+    border: 1px solid var(--rule);
+    aspect-ratio: 1;
+  }
+
+   
+  .meter {
+    position: absolute;
+    left: clamp(0.9rem, 2.6vw, 2.4rem);
+    top: 50%; transform: translateY(-50%);
+    font-family: var(--mono);
+    z-index: 30;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    max-width: 12.5rem;
+  }
+  .meter .count {
+    font-size: clamp(0.95rem, 1.45vw, 1.22rem);
+    font-weight: 300;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .meter .unit {
+    font-size: 0.6rem; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .meter .power {
+    margin-top: 0.5rem;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    font-weight: 300; line-height: 1;
+    color: var(--ink);
+  }
+  .meter .power sup { font-size: 0.45em; color: var(--accent-deep); font-weight: 500; }
+  .meter .gauge {
+    margin-top: 0.8rem;
+    width: 3px; height: 26vh; max-height: 220px;
+    background: var(--rule);
+    position: relative;
+    border-radius: 2px;
+  }
+  .meter .gauge i {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: 13px; height: 13px;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+  .meter .human-scale {
+    margin-top: 0.7rem;
+    font-size: 0.62rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-deep);
+    line-height: 1.7;
+  }
+
+   
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    padding: 0 1rem;
+  }
+  .scene.active { opacity: 1; pointer-events: auto; }
+  .scene-grid {
+    width: min(1020px, 88vw);
+    margin-left: clamp(0px, 6vw, 110px);
+    display: grid;
+    grid-template-columns: minmax(230px, 350px) 1fr;
+    gap: clamp(1.6rem, 4vw, 3.6rem);
+    align-items: center;
+    transform: translateY(16px);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .scene.active .scene-grid { transform: translateY(0); }
+
+  .scene .illo { width: 100%; }
+  .scene .illo svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .scene .illo .draw { stroke: var(--ink); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .scene .illo .draw.soft { opacity: 0.55; stroke-width: 1.1; }
+  .scene .illo .draw.warm { stroke: var(--accent-deep); }
+  .scene .illo .fill-warm { fill: var(--accent); stroke: none; }
+  .scene .illo .fig-caption {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 0.9rem;
+  }
+
+  .scene .copy {
+    max-width: 56ch;
+    background: var(--veil);
+    box-shadow: 0 0 26px 20px var(--veil);
+    border-radius: 2px;
+  }
+  .scene .epoch {
+    font-family: var(--mono);
+    font-size: 0.66rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 1.2rem;
+  }
+  .scene h2 {
+    font-size: clamp(1.5rem, 3.6vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.14;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.005em;
+  }
+  .scene p {
+    font-size: clamp(1.0rem, 1.55vw, 1.14rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .scene p + p { margin-top: 0.9rem; }
+  .scene p b { color: var(--ink); font-weight: 600; }
+  .scene .artifact {
+    margin-top: 1.4rem;
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    background: var(--chip);
+    padding: 0.5rem 0.95rem;
+  }
+  .scene .artifact span { color: var(--accent-deep); }
+  a.artifact { text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  a.artifact:hover { border-color: var(--accent-deep); background: rgba(255,143,59,0.13); }
+  a.artifact .ext { color: var(--accent-deep); margin-left: 0.4em; }
+  .scene .margin-note {
+    font-family: var(--hand);
+    font-size: 1.3rem;
+    color: #8a7c64;
+    display: block;
+    margin-top: 1rem;
+    transform: rotate(-1.2deg);
+  }
+
+   
+  .sky-inset {
+    background: radial-gradient(ellipse at 50% 110%, #1c2447 0%, var(--night) 70%);
+    border: 1px solid var(--rule);
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
+    padding: 0.6rem;
+  }
+  .sky-inset svg { display: block; }
+  .sky-inset .star-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; fill: rgba(216,201,163,0.85); letter-spacing: 0.12em; text-transform: uppercase; }
+  .sky-inset .star-sub { font-family: 'IBM Plex Mono', monospace; font-size: 6px; fill: rgba(216,201,163,0.5); letter-spacing: 0.08em; }
+  .sky-inset .const-line { stroke: rgba(216,201,163,0.5); stroke-width: 0.7; stroke-dasharray: 3 3; fill: none; }
+  .sky-inset .const-line.future { stroke-dasharray: 1 5; opacity: 0.6; }
+  .sky-inset .spark { fill: var(--accent); filter: drop-shadow(0 0 3px rgba(255,143,59,0.95)); }
+
+   
+  .scene.pullback { text-align: center; }
+  .scene.pullback .copy { max-width: 60ch; margin: 0 auto; }
+  .pullback-inner .copy {
+    background: var(--veil);
+    box-shadow: 0 0 26px 20px var(--veil);
+  }
+  .pullback-inner {
+    width: min(760px, 88vw);
+    margin-left: clamp(0px, 6vw, 110px);
+    text-align: center;
+    transform: translateY(16px);
+    transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .scene.active .pullback-inner { transform: translateY(0); }
+  .scale-echoes {
+    margin: 1.8rem auto 0;
+    display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center;
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .scale-echoes span {
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    background: var(--chip);
+    padding: 0.4rem 0.7rem;
+  }
+  .scale-echoes span b { color: var(--accent-deep); font-weight: 500; }
+  .ces {
+    margin-top: 2rem;
+    font-family: var(--mono);
+    font-size: clamp(0.8rem, 1.7vw, 1rem);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .ces i { color: var(--accent-deep); font-style: normal; }
+
+   
+  .coda {
+    min-height: 95vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+  }
+  .coda-inner { max-width: 58ch; }
+  .coda .epoch {
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep); margin-bottom: 1.6rem;
+  }
+  .coda h2 { font-size: clamp(1.9rem, 4.5vw, 3.1rem); font-weight: 500; line-height: 1.16; margin-bottom: 1.6rem; }
+  .coda p { font-size: clamp(1.05rem, 1.9vw, 1.16rem); line-height: 1.75; color: var(--ink-soft); }
+  .coda p + p { margin-top: 1.1rem; }
+  .coda .welcome {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .coda .sig {
+    margin-top: 2.4rem;
+    font-family: var(--hand);
+    font-size: 2.4rem;
+    color: var(--ink);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .coda .sig-sub {
+    font-family: var(--mono); font-size: 0.66rem;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-soft); margin-top: 0.5rem;
+  }
+   
+  .coda .sig-line {
+    margin: 1.1rem auto 0; max-width: 46ch;
+    font-size: clamp(0.98rem, 1.6vw, 1.06rem); line-height: 1.6;
+    color: var(--ink);
+  }
+  .coda .links {
+    margin-top: 2.4rem;
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+  }
+  .coda .links a {
+    color: var(--ink); text-decoration: none;
+    border: 1px solid var(--ink);
+    padding: 0.75rem 1.3rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .coda .links a:hover { background: var(--ink); color: var(--paper); }
+  .coda .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+  .coda .links a.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
+
+  footer {
+    text-align: center;
+    padding: 2.4rem 1rem 3.2rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    line-height: 2.2;
+  }
+
+   
+  @media (max-width: 880px) {
+    .scene-grid {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-left: 0;
+      width: min(560px, 92vw);
+    }
+    .scene .illo { max-width: 180px; margin: 0 auto; }
+    .scene .illo .fig-caption { margin-top: 0.4rem; font-size: 0.52rem; }
+    .scene .copy { text-align: left; padding-bottom: 3.2rem; }
+    .scene h2 { font-size: clamp(1.15rem, 5vw, 1.5rem); margin-bottom: 0.7rem; }
+    .scene p { font-size: 0.92rem; line-height: 1.55; }
+    .scene p + p { margin-top: 0.65rem; }
+    .scene .epoch { margin-bottom: 0.6rem; font-size: 0.58rem; }
+    .scene .artifact { margin-top: 0.8rem; font-size: 0.6rem; padding: 0.4rem 0.7rem; }
+    .scene .margin-note { font-size: 1.1rem; margin-top: 0.7rem; }
+    .pullback-inner { margin-left: 0; }
+    .meter {
+      top: auto; bottom: 0.8rem; left: 0.8rem; right: auto;
+      transform: none;
+      flex-direction: row; align-items: baseline; gap: 0.7rem;
+      max-width: none;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 0.4rem 0.65rem;
+      box-shadow: 0 2px 8px rgba(31,36,48,0.08);
+    }
+    .meter .gauge, .meter .power { display: none; }
+    .meter .count { font-size: 0.85rem; }
+    .meter .unit { font-size: 0.5rem; }
+    .meter .human-scale { margin-top: 0; font-size: 0.55rem; }
+  }
+  @media (max-height: 680px) and (max-width: 880px) {
+    .scene .illo { max-width: 130px; }
+    .scene p { font-size: 0.86rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .scroll-cue { animation: none; }
+    .scene, .scene-grid, .pullback-inner { transition: none; }
+  }
+
+  /* ====================== INDEX: trigger, scrim, drawer (mockup) ====================== */
+  .ix-trigger {
+    position: fixed; top: 13px; left: 50%; transform: translateX(-50%);
+    z-index: 89;
+    display: inline-flex; align-items: baseline; gap: 0.6em;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    background: var(--paper);
+    border: 1px solid var(--ink-soft);
+    padding: 0.42rem 0.8rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .ix-trigger:hover, .ix-trigger[aria-expanded="true"] { border-color: var(--accent-deep); color: var(--accent-deep); }
+  .ix-trigger-count { color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .ix-trigger-arrow { color: var(--ink-soft); }
+  .ix-trigger[aria-expanded="true"] .ix-trigger-count { display: none; }
+  .ix-trigger:focus-visible, .ix-drawer a:focus-visible, .ixf a:focus-visible {
+    outline: 2px solid var(--accent-deep); outline-offset: 3px;
+  }
+  noscript .ix-trigger-link { display: inline-flex; }
+  html.ix-locked { overflow: hidden; }
+
+  .ix-scrim {
+    position: fixed; inset: 0; z-index: 87;
+    background: color-mix(in srgb, var(--paper-deep) 74%, transparent);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .ix-scrim[data-open="true"] { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+
+  .ix-drawer {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 88;
+    max-height: 100vh; max-height: 100dvh;
+    overflow-y: auto; overscroll-behavior: contain;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    transform: translateY(-101%);
+    visibility: hidden;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.55s;
+  }
+  .ix-drawer[data-open="true"] {
+    transform: none; visibility: visible;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+  }
+  .ix-drawer:focus { outline: none; }
+  .ix-inner { max-width: 1240px; margin: 0 auto; padding: 3.9rem 3rem 1.4rem; }
+
+  .ix-head {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: baseline;
+    gap: 0.4rem 2rem;
+    padding-bottom: 1.1rem; margin-bottom: 1.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ix-kicker {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  .ix-head h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.005em; }
+  .ix-counts {
+    display: flex; gap: 1.1rem; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ix-counts b { color: var(--accent-deep); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  /* group heads: the home page's epoch label, with a count */
+  .ix-gh {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink);
+    padding-bottom: 0.45rem;
+    position: relative;
+  }
+  .ix-gh::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--ink-soft); opacity: 0.6;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+  }
+  .ix-drawer[data-open="true"] .ix-gh::after { transform: scaleX(1); }
+  .ix-n { color: var(--accent-deep); font-variant-numeric: tabular-nums; letter-spacing: 0.1em; }
+  .ix-note {
+    display: flex; align-items: center; gap: 0.45em;
+    margin-top: 0.5rem;
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .ix-note .ix-lock { color: var(--accent-deep); }
+  .ix-lock { width: 0.78em; height: 0.92em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; vertical-align: -0.08em; }
+  .ix-hand {
+    font-family: var(--hand); font-size: 1.25rem; line-height: 1.2;
+    color: #6f6350; transform: rotate(-1.2deg);
+    margin-top: 0.45rem; break-after: avoid;
+  }
+  html[data-theme="dark"] .ix-hand { color: #b5a78c; }
+
+  .ix-list { list-style: none; }
+  .ix-e, .ix-t { display: block; color: inherit; text-decoration: none; }
+  .ix-name { display: block; font-size: 1.1rem; font-weight: 500; line-height: 1.25; color: var(--ink); transition: color 0.2s; }
+  .ix-line { display: block; margin-top: 0.15rem; font-size: 0.95rem; line-height: 1.4; color: var(--ink-soft); }
+  .ix-host {
+    display: flex; align-items: center; gap: 0.4em; flex-wrap: wrap;
+    margin-top: 0.3rem;
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em;
+    color: var(--ink-soft);
+  }
+  .ix-host span { overflow-wrap: break-word; }
+  .ix-ext { color: var(--accent-deep); }
+  .ix-here {
+    display: inline-block; margin-left: 0.5em;
+    font-family: var(--mono); font-size: 0.52rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  .ix-e:hover .ix-name, .ix-t:hover .ix-name { color: var(--accent-deep); }
+
+  .ix-jump { display: none; }
+  .ix-gh { scroll-margin-top: 4rem; }
+  .ix-gh:focus { outline: none; }
+  .ix-foot {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    margin-top: 1.2rem; padding-top: 0.9rem;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ix-foot a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-deep); text-underline-offset: 0.3em; }
+  .ix-foot a:hover { color: var(--accent-deep); }
+
+  /* ====================== INDEX, FOOTER LIST ====================== */
+  .ixf { border-top: 1px solid var(--rule); padding: 3.2rem 1.5rem 2.6rem; }
+  .ixf-inner { max-width: 1100px; margin: 0 auto; }
+  .ixf-title {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep); text-align: center; margin-bottom: 2rem;
+  }
+  .ixf-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
+  .ixf h3 {
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 0.45rem; margin-bottom: 0.7rem;
+  }
+  .ixf h3 span { color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .ixf-note { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); margin: -0.2rem 0 0.6rem; }
+  .ixf ul { list-style: none; }
+  .ixf li + li { margin-top: 0.38rem; }
+  .ixf li a {
+    display: inline-flex; align-items: baseline; gap: 0.4em;
+    font-size: 1.02rem; line-height: 1.3; color: var(--ink); text-decoration: none;
+  }
+  .ixf li a:hover { color: var(--accent-deep); }
+  .ixf li a .ix-lock { color: var(--ink-soft); }
+  .ixf .ix-ext { font-family: var(--mono); font-size: 0.62rem; }
+  .ixf-more {
+    margin-top: 2rem; text-align: center;
+    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .ixf-more a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-deep); text-underline-offset: 0.3em; }
+
+  /* the mockup's own label, not part of the design */
+  .mock-tag {
+    position: fixed; right: 14px; bottom: 44px; z-index: 86;
+    font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); background: var(--paper); border: 1px dashed var(--ink-soft);
+    padding: 0.35rem 0.55rem;
+  }
+  .mock-tag a { color: var(--accent-deep); }
+  .in-frame .mock-tag { display: none; }
+
+  @media (max-width: 880px) {
+    .ix-trigger { top: 0.8rem; font-size: 0.56rem; padding: 0.35rem 0.6rem; }
+    .ixf-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  /* phone: the two corner chips are inside the index, so only the résumé chip stays */
+  @media (max-width: 560px) {
+    .corner-nav a:first-child { display: none; }
+  }
+  @media (max-width: 720px) {
+    .ix-drawer { bottom: 0; max-height: none; height: 100vh; height: 100dvh; border-bottom: 0; }
+    /* a paper band under the Close chip, so the sheet scrolls behind it cleanly */
+    .ix-drawer::before { content: ''; display: block; position: sticky; top: 0; z-index: 4; height: 3.2rem; margin-bottom: -3.2rem; background: var(--paper); }
+    .ix-inner { padding: 3.6rem 16px 1.4rem; }
+    .ix-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .ix-jump a { color: var(--ink); text-decoration: none; border: 1px solid var(--rule); background: var(--chip); padding: 0.45rem 0.6rem; }
+    .ix-jump a[href="#ix-g-family"] { border-color: var(--accent-deep); color: var(--accent-deep); }
+    .mock-tag { bottom: 76px; }
+    .ix-head { grid-template-columns: 1fr; gap: 0.5rem; }
+    .ixf { padding: 2.6rem 16px 2rem; }
+    .ixf-cols { gap: 1.6rem 1.2rem; }
+  }
+  @media (max-width: 400px) {
+    .ixf-cols { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ix-drawer, .ix-drawer[data-open="true"], .ix-scrim, .ix-scrim[data-open="true"] { transition: none; }
+    .ix-gh::after { transform: none; transition: none; }
+    .ix-trigger, .ix-name, .ix-t { transition: none; }
+  }
+
+  /* ---------- map variants: shared ---------- */
+  .ix-map .ix-head { margin-bottom: 0.9rem; padding-bottom: 0.8rem; }
+  .ix-map .ix-jump { display: none; }
+  /* the gate, the same mark and words in every map variant */
+  .gate .gate-cut { fill: var(--paper); stroke: none; }
+  .gate line { stroke: var(--ink); stroke-width: 1.6; }
+  .ix-gate { z-index: 3; background: var(--paper); padding: 0.3rem 0.5rem 0.25rem 0.45rem; border-left: 2px solid var(--ink); line-height: 1.2; white-space: nowrap; }
+  .ix-gate-head { display: flex; align-items: baseline; gap: 0.45em; font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink); }
+  .ix-gate-head .ix-lock { color: var(--accent-deep); align-self: center; }
+  .ix-gate .ix-note { margin-top: 0.15rem; }
+  .ix-gate .ix-hand { margin-top: 0.1rem; font-size: 1.12rem; }
+  /* the readout strip, the home page's meter idiom */
+  .ixr { min-height: 4.4rem; padding: 0.7rem 0.2rem 0.4rem; font-family: var(--mono); }
+  .ixr-default { display: flex; align-items: baseline; gap: 1.8rem; flex-wrap: wrap; }
+  .ixr-big { display: inline-flex; align-items: baseline; gap: 0.5rem; }
+  .ixr-big b { font-size: 1.7rem; font-weight: 300; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .ixr-big span { font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+  .ixr-fam b { color: var(--accent-deep); }
+  .ixr-hint { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--ink-soft); }
+  .ixr-live { display: none; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; }
+  .ixr.is-live .ixr-default { display: none; }
+  .ixr.is-live .ixr-live { display: grid; }
+  .ixr-host { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--accent-deep); overflow-wrap: anywhere; }
+  .ixr-name { margin-top: 0.25rem; font-family: var(--serif); font-size: 1.4rem; font-weight: 500; line-height: 1.1; color: var(--ink); }
+  .ixr-line { font-family: var(--serif); font-size: 1rem; line-height: 1.4; color: var(--ink-soft); padding-top: 0.1rem; }
+  .ixr-facts div { display: grid; grid-template-columns: 6.6rem 1fr; gap: 0.5rem; padding: 0.12rem 0; }
+  .ixr-facts dt { font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); padding-top: 0.08rem; }
+  .ixr-facts dd { font-size: 0.66rem; letter-spacing: 0.03em; color: var(--ink); overflow-wrap: anywhere; }
+  .ixr-pairrow { display: none !important; }
+  .ixr.has-pair .ixr-pairrow { display: grid !important; }
+  .ixr-pair { color: var(--accent-deep) !important; }
+  .ix-map .ix-foot { margin-top: 0.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .ixm * { transition: none !important; }
+  }
+
+  /* ---------- variant F: the notebook tree ---------- */
+  .ixn-page { position: relative; line-height: 0; }
+  .ixn-phone { display: none; }
+  .ixn-tree { width: 100%; height: auto; display: block; overflow: visible; }
+  .ixn-tw { fill: none; stroke: #4d4f56; stroke-linecap: round; opacity: 0.92; transition: stroke 0.2s; }
+  html[data-theme="dark"] .ixn-tw { stroke: #bdb5a8; }
+  .ixn-tw.unk { stroke-width: 1.3; stroke-dasharray: 1.2 4; }
+  .ixn-tw2 { fill: none; stroke: var(--paper); stroke-linecap: round; opacity: 0.32; pointer-events: none; }
+  .ixn-tw.is-on, .ixn-tw.is-pair { stroke: var(--accent-deep); opacity: 1; }
+  .ixn-knot { fill: var(--paper); stroke: #4d4f56; stroke-width: 1.2; }
+  html[data-theme="dark"] .ixn-knot { stroke: #bdb5a8; }
+  .ixn-leaf { fill: var(--paper); stroke: #4d4f56; stroke-width: 1.1; }
+  html[data-theme="dark"] .ixn-leaf { stroke: #bdb5a8; }
+  .ixn-root { fill: #4d4f56; }
+  html[data-theme="dark"] .ixn-root { fill: #bdb5a8; }
+  .ixn-name { font-family: var(--hand); font-size: 18.5px; fill: #3b3d44; }
+  html[data-theme="dark"] .ixn-name { fill: #d6cfc2; }
+  .ixn-name.big { font-size: 22px; font-weight: 600; }
+  .ixn-yr { font-size: 14px; fill: #7a7468; }
+  html[data-theme="dark"] .ixn-yr { fill: #9d9588; }
+  .ixn-yah { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; fill: var(--accent-deep); }
+  .ixn-date { font-family: var(--hand); font-size: 19px; fill: #6f6350; }
+  .ixn-think { font-family: var(--hand); font-size: 38px; font-weight: 600; fill: #4d4f56; }
+  html[data-theme="dark"] .ixn-date { fill: #b5a78c; }
+  html[data-theme="dark"] .ixn-think { fill: #d6cfc2; }
+  .ixn-lf { cursor: pointer; }
+  .ixn-lf:focus { outline: none; }
+  .ixn-lf:hover .ixn-name, .ixn-lf.is-on .ixn-name, .ixn-lf.is-pair .ixn-name, .ixn-lf:focus-visible .ixn-name { fill: var(--accent-deep); }
+  .ixn-lf:focus-visible .ixn-name { text-decoration: underline; }
+  .ixn-lf.is-on .ixn-leaf, .ixn-lf.is-pair .ixn-leaf, .ixn-lf:focus-visible .ixn-leaf { stroke: var(--accent-deep); fill: rgba(255,143,59,0.25); }
+  .ixn-gate { position: absolute; }
+  /* the card, opened beside the leaf the way the influences shelf opens its cards */
+  .ixn-card { position: absolute; right: 0; width: 290px; min-height: 0; padding: 0.9rem 1rem 0.8rem; background: var(--paper); border: 1px solid var(--ink-soft); line-height: normal; opacity: 0; visibility: hidden; transition: opacity 0.15s; z-index: 4; }
+  .ixn-card.is-live { opacity: 1; visibility: visible; }
+  .ixn-card.is-live .ixr-live { display: block; }
+  .ixn-kick { font-size: 0.58rem; letter-spacing: 0.08em; }
+  .ixn-card .ixr-name { font-size: 1.5rem; margin-top: 0.3rem; }
+  .ixn-card .ixr-line { margin-top: 0.35rem; font-style: italic; }
+  .ixn-card .ixr-facts { margin-top: 0.55rem; border-top: 1px solid var(--rule); padding-top: 0.45rem; }
+  .ixn-card .ixr-facts div { display: grid; grid-template-columns: 5.4rem 1fr; }
+  @media (max-width: 720px) {
+    .ixn-desk { display: none; }
+    .ixn-phone { display: block; }
+    .ixn-gate { white-space: normal; max-width: 72%; }
+  }
+</style>
+</head>
+<body>
+
+<i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Switch color theme">☾ night</button>
+
+<nav class="corner-nav" aria-label="Business and résumé">
+  <a href="https://thedetech.com" target="_blank" rel="noopener">business ↗</a>
+  <a href="https://adamthede.com/resume/">résumé</a>
+</nav>
+<!-- ====================== INDEX (mockup, variant F) ====================== -->
+<button class="ix-trigger" id="ixTrigger" type="button" aria-expanded="false" aria-controls="ixDrawer" aria-label="Index, 21 places"><span class="ix-trigger-label">Index</span><span class="ix-trigger-count" aria-hidden="true">21</span><span class="ix-trigger-arrow" aria-hidden="true">↓</span></button>
+<noscript><style>#ixTrigger { display: none; }</style><a class="ix-trigger ix-trigger-link" href="index-page.html">Index <span class="ix-trigger-count">21</span></a></noscript>
+<div class="ix-scrim" id="ixScrim" data-open="false"></div>
+<div class="ix-drawer ix-f ix-map" id="ixDrawer" role="dialog" aria-labelledby="ixTitle" data-open="false" tabindex="-1">
+  <div class="ix-inner">
+    <header class="ix-head">
+      <div class="ix-kicker">Index</div>
+      <h2 id="ixTitle">Everywhere you can go from here.</h2>
+      <p class="ix-counts"><span><b>21</b> places</span><span><b>15</b> open to anyone</span><span><b>6</b> for family</span></p>
+      <nav class="ix-jump" aria-label="Jump to a group"><a href="#ix-g-read">Read</a><a href="#ix-g-data">Look at the data</a><a href="#ix-g-family">Family</a><a href="#ix-g-elsewhere">Elsewhere</a></nav>
+    </header>
+    <div class="ix-body ixm ixn" id="ixMap" data-lit="p04"><div class="ixn-page ixn-desk"><svg class="ixn-tree" viewBox="0 0 1144 479.3" role="group" aria-label="A tree of every place"><g class="ixn-wood"><path class="ixn-tw " data-via="p17 p20 p18 p19 p01 p02 p03 p07 p08 p09 p10 p04 p05 p06 p14 p15 p16 p12 p11 p13" d="M40 309.6 C95 308.8 95 311 150 309.6" style="stroke-width:20.1"/><path class="ixn-tw2" d="M40.7 309 C95.6 309.5 95.6 309.1 150.5 310.3" style="stroke-width:9.1"/><path class="ixn-tw " data-via="p17 p20 p18 p19 p01 p02 p03 p07 p08 p09 p10 p04 p05 p06" d="M150 309.6 C206 311 206 179.5 262 180.8" style="stroke-width:15.6"/><path class="ixn-tw2" d="M150.7 309 C206.6 307.8 206.6 183.4 262.5 181.5" style="stroke-width:7"/><path class="ixn-tw fam" data-via="p14 p15 p16 p12 p11 p13" d="M150 309.6 C240 308.4 240 402.3 330 401.6" style="stroke-width:12.7"/><path class="ixn-tw2" d="M150.7 309 C240.6 311 240.6 400.1 330.5 402.3" style="stroke-width:5.7"/><path class="ixn-tw " data-via="p17 p20 p18 p19" d="M262 180.8 C327 182.7 327 77.3 392 79.4" style="stroke-width:7"/><path class="ixn-tw2" d="M262.7 180.2 C327.6 179.3 327.6 81.7 392.5 80.1" style="stroke-width:3.2"/><path class="ixn-tw " data-via="p01 p02" d="M262 180.8 C341 178.6 341 149 420 147.2" style="stroke-width:5.6"/><path class="ixn-tw2" d="M262.7 180.2 C341.6 181.7 341.6 146 420.5 147.9" style="stroke-width:2.5"/><path class="ixn-tw " data-via="p03 p07 p08 p09 p10 p04 p05 p06" d="M262 180.8 C351 182.5 351 263.3 440 264.3" style="stroke-width:12.8"/><path class="ixn-tw2" d="M262.7 180.2 C351.6 178.2 351.6 266.8 440.5 265" style="stroke-width:5.8"/><path class="ixn-tw " data-via="p17" d="M392 79.4 C450.7 78.4 450.7 50.3 509.5 50" style="stroke-width:4.4"/><path class="ixn-tw2" d="M392.7 78.8 C451.3 80.6 451.3 49.6 510 50.7" style="stroke-width:2"/><path class="ixn-tw " data-via="p20" d="M392 79.4 C442.9 79.7 442.9 69.6 493.9 69.6" style="stroke-width:4.1"/><path class="ixn-tw2" d="M392.7 78.8 C443.5 77.7 443.5 70.5 494.4 70.3" style="stroke-width:1.8"/><path class="ixn-tw " data-via="p18" d="M392 79.4 C443.2 79.4 443.2 89.4 494.5 89.2" style="stroke-width:3.7"/><path class="ixn-tw2" d="M392.7 78.8 C443.8 79 443.8 90.4 495 89.9" style="stroke-width:1.6"/><path class="ixn-tw unk " data-via="p19" d="M392 79.4 C450.8 79.6 450.8 108 509.7 108.8"/><path class="ixn-tw " data-via="p01" d="M420 147.2 C474.6 146.4 474.6 139 529.2 137.4" style="stroke-width:5.6"/><path class="ixn-tw2" d="M420.7 146.6 C475.2 145.9 475.2 138.5 529.7 138.1" style="stroke-width:2.5"/><path class="ixn-tw " data-via="p02" d="M420 147.2 C470.4 148.8 470.4 155.1 520.8 157" style="stroke-width:0.9"/><path class="ixn-tw2" d="M420.7 146.6 C471 147 471 158 521.3 157.7" style="stroke-width:0.6"/><path class="ixn-tw " data-via="p03" d="M440 264.3 C503.3 262.4 503.3 187.4 566.7 185.6" style="stroke-width:6.3"/><path class="ixn-tw2" d="M440.7 263.7 C503.9 264 503.9 185.5 567.2 186.3" style="stroke-width:2.8"/><path class="ixn-tw " data-via="p07" d="M440 264.3 C502.4 266.1 502.4 204.1 564.9 205.2" style="stroke-width:4.4"/><path class="ixn-tw2" d="M440.7 263.7 C503 262.9 503 206.9 565.4 205.9" style="stroke-width:2"/><path class="ixn-tw " data-via="p08" d="M440 264.3 C495.1 263.2 495.1 225 550.2 224.8" style="stroke-width:1.5"/><path class="ixn-tw2" d="M440.7 263.7 C495.7 264.7 495.7 225 550.7 225.5" style="stroke-width:0.7"/><path class="ixn-tw " data-via="p09" d="M440 264.3 C500.7 264.6 500.7 244.9 561.5 244.4" style="stroke-width:1.1"/><path class="ixn-tw2" d="M440.7 263.7 C501.3 263.2 501.3 244.8 562 245.1" style="stroke-width:0.6"/><path class="ixn-tw " data-via="p10" d="M440 264.3 C504.4 264.8 504.4 263.3 568.9 264" style="stroke-width:0.9"/><path class="ixn-tw2" d="M440.7 263.7 C505 263.4 505 265.9 569.4 264.7" style="stroke-width:0.6"/><path class="ixn-tw " data-via="p04" d="M440 264.3 C529 263.6 529 302.4 618 302" style="stroke-width:6.3"/><path class="ixn-tw2" d="M440.7 263.7 C529.6 264.9 529.6 301 618.5 302.7" style="stroke-width:2.8"/><path class="ixn-tw" data-via="p04" d="M618 302 L626 292.6" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p14" d="M330 401.6 C474 401.9 474 302.3 618 302" style="stroke-width:6.3"/><path class="ixn-tw2" d="M330.7 401 C474.6 399.3 474.6 304.4 618.5 302.7" style="stroke-width:2.8"/><path class="ixn-tw fam" data-via="p14" d="M618 302 L626 311.4" style="stroke-width:0.9"/><path class="ixn-tw " data-via="p05" d="M440 264.3 C529 264.6 529 338.8 618 339.6" style="stroke-width:5.8"/><path class="ixn-tw2" d="M440.7 263.7 C529.6 265.4 529.6 339.2 618.5 340.3" style="stroke-width:2.6"/><path class="ixn-tw" data-via="p05" d="M618 339.6 L626 330.2" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p15" d="M330 401.6 C474 400.7 474 340.6 618 339.6" style="stroke-width:5.8"/><path class="ixn-tw2" d="M330.7 401 C474.6 399.8 474.6 340.8 618.5 340.3" style="stroke-width:2.6"/><path class="ixn-tw fam" data-via="p15" d="M618 339.6 L626 349" style="stroke-width:0.9"/><path class="ixn-tw " data-via="p06" d="M440 264.3 C529 265.3 529 376.7 618 377.3" style="stroke-width:5.2"/><path class="ixn-tw2" d="M440.7 263.7 C529.6 264.2 529.6 378 618.5 378" style="stroke-width:2.4"/><path class="ixn-tw" data-via="p06" d="M618 377.3 L626 367.9" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p16" d="M330 401.6 C474 401 474 377 618 377.3" style="stroke-width:5.2"/><path class="ixn-tw2" d="M330.7 401 C474.6 401 474.6 377.9 618.5 378" style="stroke-width:2.4"/><path class="ixn-tw fam" data-via="p16" d="M618 377.3 L626 386.7" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p12" d="M330 401.6 C456.7 401.3 456.7 415.7 583.5 414.5" style="stroke-width:7.7"/><path class="ixn-tw2" d="M330.7 401 C457.3 400.9 457.3 414.7 584 415.2" style="stroke-width:3.5"/><path class="ixn-tw fam" data-via="p11" d="M330 401.6 C450 402.7 450 432.4 570 434.1" style="stroke-width:0.9"/><path class="ixn-tw2" d="M330.7 401 C450.6 400.5 450.6 436.1 570.5 434.8" style="stroke-width:0.6"/><path class="ixn-tw unk fam" data-via="p13" d="M330 401.6 C456.5 399.9 456.5 455.4 583 453.7"/></g><circle class="ixn-knot" cx="618" cy="302" r="2.2"/><circle class="ixn-knot" cx="618" cy="339.6" r="2.2"/><circle class="ixn-knot" cx="618" cy="377.3" r="2.2"/><g class="gate" transform="translate(189.6 320.7)"><g transform="rotate(20)"><rect class="gate-cut" x="-6" y="-13" width="12" height="26"/><line x1="-3.2" y1="-13" x2="-3.2" y2="13"/><line x1="3.2" y1="-13" x2="3.2" y2="13"/></g></g><a class="ixn-lf here" href="https://adamthede.com/" aria-current="page" data-k="p00" data-name="A life, measured in seconds" data-line="The portrait: a century of family letters down to one second." data-host="adamthede.com" data-who="anyone" data-opens="this tab" data-rec="since 1910, 117 years" aria-label="A life, measured in seconds. The portrait: a century of family letters down to one second. Since 1910, 117 years. You are here." data-ly="309.6"><circle class="ixn-root" cx="40" cy="309.63999999999993" r="5"/><text class="ixn-name big" x="34" y="273.63999999999993">A life, measured in seconds</text><text class="ixn-yah" x="34" y="289.63999999999993">you are here, 1910</text></a><a class="ixn-lf" href="https://thedetech.com/" target="_blank" rel="noopener" data-k="p17" data-name="Thede Technologies" data-line="My company, its products and the essays." data-host="thedetech.com" data-who="anyone" data-opens="a new tab" data-rec="since 2011, 15 years" aria-label="Thede Technologies. My company, its products and the essays. Since 2011, 15 years. Opens a new tab." data-ly="50"><path class="ixn-leaf" d="M509.5 50 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="525.5" y="55">Thede Technologies ↗<tspan class="ixn-yr" dx="7">2011</tspan></text></a><a class="ixn-lf" href="https://github.com/adamthede" target="_blank" rel="noopener" data-k="p20" data-name="GitHub" data-line="My code, where it is public." data-host="github.com/adamthede" data-who="anyone" data-opens="a new tab" data-rec="since 2013, 13 years" aria-label="GitHub. My code, where it is public. Since 2013, 13 years. Opens a new tab." data-ly="69.6"><path class="ixn-leaf" d="M493.9 69.6 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="509.9" y="74.6">GitHub ↗<tspan class="ixn-yr" dx="7">2013</tspan></text></a><a class="ixn-lf" href="https://tractorandsilo.com/" target="_blank" rel="noopener" data-k="p18" data-name="Tractor and Silo" data-line="The app I build to keep a life&#x27;s record." data-host="tractorandsilo.com" data-who="anyone" data-opens="a new tab" data-rec="since 2016, 11 years" aria-label="Tractor and Silo. The app I build to keep a life&#x27;s record. Since 2016, 11 years. Opens a new tab." data-ly="89.2"><path class="ixn-leaf" d="M494.5 89.2 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="510.5" y="94.2">Tractor and Silo ↗<tspan class="ixn-yr" dx="7">2016</tspan></text></a><a class="ixn-lf" href="https://linkedin.com/in/adamthede" target="_blank" rel="noopener" data-k="p19" data-name="LinkedIn" data-line="My professional profile." data-host="linkedin.com/in/adamthede" data-who="anyone" data-opens="a new tab" data-rec="first year unknown" aria-label="LinkedIn. My professional profile. First year unknown. Opens a new tab." data-ly="108.8"><path class="ixn-leaf" d="M509.7 108.8 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="525.7" y="113.8">LinkedIn ↗<tspan class="ixn-yr" dx="7">?</tspan></text></a><a class="ixn-lf" href="https://adamthede.com/resume/" data-k="p01" data-name="Résumé" data-line="Experience and qualifications, on one page." data-host="adamthede.com/resume" data-who="anyone" data-opens="this tab" data-rec="since 2002, 25 years" aria-label="Résumé. Experience and qualifications, on one page. Since 2002, 25 years." data-ly="137.4"><path class="ixn-leaf" d="M529.2 137.4 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="545.2" y="142.4">Résumé<tspan class="ixn-yr" dx="7">2002</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/influences/" data-k="p02" data-name="The influences shelf" data-line="What I learned to see from, drawn as two bookcases." data-host="data.adamthede.com/influences" data-who="anyone" data-opens="this tab" data-rec="since 2026, under a year" aria-label="The influences shelf. What I learned to see from, drawn as two bookcases. Since 2026, under a year." data-ly="157"><path class="ixn-leaf" d="M520.8 157 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="536.8" y="162">The influences shelf<tspan class="ixn-yr" dx="7">2026</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/" data-k="p03" data-name="The coverage map" data-line="Every public record of my life, on one axis of years." data-host="data.adamthede.com" data-who="anyone" data-opens="this tab" data-rec="since 1995, 32 years" aria-label="The coverage map. Every public record of my life, on one axis of years. Since 1995, 32 years." data-ly="185.6"><path class="ixn-leaf" d="M566.7 185.6 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="582.7" y="190.6">The coverage map<tspan class="ixn-yr" dx="7">1995</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/meant-to-read/" data-k="p07" data-name="What I meant to read" data-line="Articles saved and never opened." data-host="data.adamthede.com/meant-to-read" data-who="anyone" data-opens="this tab" data-rec="since 2011, 16 years" aria-label="What I meant to read. Articles saved and never opened. Since 2011, 16 years." data-ly="205.2"><path class="ixn-leaf" d="M564.9 205.2 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="580.9" y="210.2">What I meant to read<tspan class="ixn-yr" dx="7">2011</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/b1/" data-k="p08" data-name="The B1 Years" data-line="Two years of physiology from one wrist band." data-host="data.adamthede.com/b1" data-who="anyone" data-opens="this tab" data-rec="2013 to 2015, 1.8 years" aria-label="The B1 Years. Two years of physiology from one wrist band. 2013 to 2015, 1.8 years." data-ly="224.8"><path class="ixn-leaf" d="M550.2 224.8 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="566.2" y="229.8">The B1 Years<tspan class="ixn-yr" dx="7">2013</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/office/" data-k="p09" data-name="One Year of Office" data-line="A year of readings from a sensor on a shelf." data-host="data.adamthede.com/office" data-who="anyone" data-opens="this tab" data-rec="2025 to 2026, a year" aria-label="One Year of Office. A year of readings from a sensor on a shelf. 2025 to 2026, a year." data-ly="244.4"><path class="ixn-leaf" d="M561.5 244.4 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="577.5" y="249.4">One Year of Office<tspan class="ixn-yr" dx="7">2025</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/chicago-river/" data-k="p10" data-name="Chicago River Elevations" data-line="The river&#x27;s buildings, drawn to height from one cruise." data-host="data.adamthede.com/chicago-river" data-who="anyone" data-opens="this tab" data-rec="one day, in 2026" aria-label="Chicago River Elevations. The river&#x27;s buildings, drawn to height from one cruise. One day, in 2026." data-ly="264"><path class="ixn-leaf" d="M568.9 264 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="584.9" y="269">Chicago River Elevations<tspan class="ixn-yr" dx="7">2026</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/viewing/" data-k="p04" data-name="A Viewing Life" data-line="Screenings, from a hand-kept diary to Trakt." data-host="data.adamthede.com/viewing" data-who="anyone" data-opens="this tab" data-rec="since 1995, 31 years" data-pair="p14" data-pair-rel="family edition" data-pair-name="The viewing diary, viewing.adamthede.com" aria-label="A Viewing Life. Screenings, from a hand-kept diary to Trakt. Since 1995, 31 years." data-ly="292.6"><path class="ixn-leaf" d="M626 292.6 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="642" y="297.6">A Viewing Life<tspan class="ixn-yr" dx="7">1995</tspan></text></a><a class="ixn-lf fam" href="https://viewing.adamthede.com/" aria-describedby="ix-note-family" data-k="p14" data-name="The viewing diary" data-line="The full diary behind A Viewing Life." data-host="viewing.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 1995, 31 years" data-pair="p04" data-pair-rel="public edition" data-pair-name="A Viewing Life, data.adamthede.com/viewing" aria-label="The viewing diary. The full diary behind A Viewing Life. Since 1995, 31 years. Family, sign in by email code." data-ly="311.4"><path class="ixn-leaf" d="M626 311.4 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="642" y="316.4">The viewing diary<tspan class="ixn-yr" dx="7">1995</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/books/" data-k="p05" data-name="The Reading Life" data-line="Books finished, merged from every place I logged them." data-host="data.adamthede.com/books" data-who="anyone" data-opens="this tab" data-rec="since 1999, 27 years" data-pair="p15" data-pair-rel="family edition" data-pair-name="The book record, books.adamthede.com" aria-label="The Reading Life. Books finished, merged from every place I logged them. Since 1999, 27 years." data-ly="330.2"><path class="ixn-leaf" d="M626 330.2 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="642" y="335.2">The Reading Life<tspan class="ixn-yr" dx="7">1999</tspan></text></a><a class="ixn-lf fam" href="https://books.adamthede.com/" aria-describedby="ix-note-family" data-k="p15" data-name="The book record" data-line="The full record behind The Reading Life." data-host="books.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 1999, 27 years" data-pair="p05" data-pair-rel="public edition" data-pair-name="The Reading Life, data.adamthede.com/books" aria-label="The book record. The full record behind The Reading Life. Since 1999, 27 years. Family, sign in by email code." data-ly="349"><path class="ixn-leaf" d="M626 349 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="642" y="354">The book record<tspan class="ixn-yr" dx="7">1999</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/reading/" data-k="p06" data-name="The Week in Reading" data-line="Articles read, first in Instapaper, then Matter." data-host="data.adamthede.com/reading" data-who="anyone" data-opens="this tab" data-rec="since 2005, 22 years" data-pair="p16" data-pair-rel="family edition" data-pair-name="The article archive, reading.adamthede.com" aria-label="The Week in Reading. Articles read, first in Instapaper, then Matter. Since 2005, 22 years." data-ly="367.9"><path class="ixn-leaf" d="M626 367.9 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="642" y="372.9">The Week in Reading<tspan class="ixn-yr" dx="7">2005</tspan></text></a><a class="ixn-lf fam" href="https://reading.adamthede.com/" aria-describedby="ix-note-family" data-k="p16" data-name="The article archive" data-line="The searchable archive behind The Week in Reading." data-host="reading.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 2005, 22 years" data-pair="p06" data-pair-rel="public edition" data-pair-name="The Week in Reading, data.adamthede.com/reading" aria-label="The article archive. The searchable archive behind The Week in Reading. Since 2005, 22 years. Family, sign in by email code." data-ly="386.7"><path class="ixn-leaf" d="M626 386.7 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="642" y="391.7">The article archive<tspan class="ixn-yr" dx="7">2005</tspan></text></a><a class="ixn-lf fam" href="https://letters.adamthede.com/" aria-describedby="ix-note-family" data-k="p12" data-name="The letters archive" data-line="The family letters, read by year, person and place." data-host="letters.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 1979, 48 years" aria-label="The letters archive. The family letters, read by year, person and place. Since 1979, 48 years. Family, sign in by email code." data-ly="414.5"><path class="ixn-leaf" d="M583.5 414.5 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="599.5" y="419.5">The letters archive<tspan class="ixn-yr" dx="7">1979</tspan></text></a><a class="ixn-lf fam" href="https://bigletter.adamthede.com/" aria-describedby="ix-note-family" data-k="p11" data-name="The Big Letter" data-line="My monthly family letter, every issue." data-host="bigletter.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 2026, under a year" aria-label="The Big Letter. My monthly family letter, every issue. Since 2026, under a year. Family, sign in by email code." data-ly="434.1"><path class="ixn-leaf" d="M570 434.1 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="586" y="439.1">The Big Letter<tspan class="ixn-yr" dx="7">2026</tspan></text></a><a class="ixn-lf fam" href="https://anniversary.adamthede.com/" aria-describedby="ix-note-family" data-k="p13" data-name="The anniversary pages" data-line="Keepsakes made for a family anniversary." data-host="anniversary.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="first year unknown" aria-label="The anniversary pages. Keepsakes made for a family anniversary. First year unknown. Family, sign in by email code." data-ly="453.7"><path class="ixn-leaf" d="M583 453.7 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="599" y="458.7">The anniversary pages<tspan class="ixn-yr" dx="7">?</tspan></text></a><text class="ixn-date" x="40" y="30">1 November 2026</text><text class="ixn-think" x="40" y="72">I think</text></svg><div class="ix-gate ixn-gate" style="left:0.40%;top:87.54%"><p class="ix-gate-head"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>Family</span><span class="ix-n">06</span></p><p class="ix-note" id="ix-note-family">Sign in by email code</p><p class="ix-hand">No code? Ask me to add your email.</p></div><aside class="ixr ixn-card" aria-hidden="true"><div class="ixr-default"></div><div class="ixr-live"><p class="ixn-kick"><span class="ixr-host"></span></p><p class="ixr-name"></p><p class="ixr-line"></p><dl class="ixr-facts"><div><dt>Who</dt><dd class="ixr-who"></dd></div><div><dt>Opens</dt><dd class="ixr-opens"></dd></div><div><dt>Record</dt><dd class="ixr-rec"></dd></div><div class="ixr-pairrow"><dt class="ixr-pairrel"></dt><dd class="ixr-pair"></dd></div></dl></div></aside></div><div class="ixn-page ixn-phone"><svg class="ixn-tree phone" viewBox="0 0 358 1045.4" role="group" aria-label="A tree of every place"><g class="ixn-wood"><path class="ixn-tw" data-via="p17 p20 p18 p19 p01 p02 p03 p07 p08 p09 p10 p04 p05 p06 p14 p15 p16 p12 p11 p13" d="M24 98 C24 118 24 120 24 140" style="stroke-width:12.5"/><path class="ixn-tw" data-via="p17 p20 p18 p19 p01 p02 p03 p07 p08 p09 p10 p04 p05 p06" d="M24 140 C28 200 50 432.0971428571428 60 512.0971428571428" style="stroke-width:9.7"/><path class="ixn-tw fam" data-via="p14 p15 p16 p12 p11 p13" d="M24 140 C30 340 8 668.5199999999999 14 868.5199999999999" style="stroke-width:7.9"/><path class="ixn-tw " data-via="p17 p20 p18 p19" d="M60 512.1 C81 514 81 301.9 102 304" style="stroke-width:4.4"/><path class="ixn-tw2" d="M60.7 511.5 C81.6 510.7 81.6 306.3 102.5 304.7" style="stroke-width:2"/><path class="ixn-tw " data-via="p01 p02" d="M60 512.1 C86 510 86 427.8 112 426" style="stroke-width:3.5"/><path class="ixn-tw2" d="M60.7 511.5 C86.6 513 86.6 424.8 112.5 426.7" style="stroke-width:1.6"/><path class="ixn-tw " data-via="p03 p07 p08 p09 p10 p04 p05 p06" d="M60 512.1 C90 513.9 90 636.6 120 637.7" style="stroke-width:7.9"/><path class="ixn-tw2" d="M60.7 511.5 C90.6 509.6 90.6 640.1 120.5 638.4" style="stroke-width:3.6"/><path class="ixn-tw " data-via="p17" d="M102 304 C127.7 303 127.7 250.3 153.5 250" style="stroke-width:2.7"/><path class="ixn-tw2" d="M102.7 303.4 C128.3 305.2 128.3 249.6 154 250.7" style="stroke-width:1.2"/><path class="ixn-tw " data-via="p20" d="M102 304 C119.9 304.3 119.9 286 137.9 286" style="stroke-width:2.5"/><path class="ixn-tw2" d="M102.7 303.4 C120.5 302.3 120.5 286.9 138.4 286.7" style="stroke-width:1.1"/><path class="ixn-tw " data-via="p18" d="M102 304 C120.2 304 120.2 322.2 138.5 322" style="stroke-width:2.3"/><path class="ixn-tw2" d="M102.7 303.4 C120.8 303.6 120.8 323.2 139 322.7" style="stroke-width:1"/><path class="ixn-tw unk " data-via="p19" d="M102 304 C127.8 304.2 127.8 357.2 153.7 358"/><path class="ixn-tw " data-via="p01" d="M112 426 C131.6 425.2 131.6 409.6 151.2 408" style="stroke-width:3.5"/><path class="ixn-tw2" d="M112.7 425.4 C132.2 424.7 132.2 409.1 151.7 408.7" style="stroke-width:1.6"/><path class="ixn-tw " data-via="p02" d="M112 426 C127.4 427.6 127.4 442.1 142.8 444" style="stroke-width:0.9"/><path class="ixn-tw2" d="M112.7 425.4 C128 425.8 128 445 143.3 444.7" style="stroke-width:0.6"/><path class="ixn-tw " data-via="p03" d="M120 637.7 C143.3 635.7 143.3 495.8 166.7 494" style="stroke-width:3.9"/><path class="ixn-tw2" d="M120.7 637.1 C143.9 637.3 143.9 493.9 167.2 494.7" style="stroke-width:1.8"/><path class="ixn-tw " data-via="p07" d="M120 637.7 C142.4 639.4 142.4 528.9 164.9 530" style="stroke-width:2.8"/><path class="ixn-tw2" d="M120.7 637.1 C143 636.2 143 531.7 165.4 530.7" style="stroke-width:1.2"/><path class="ixn-tw " data-via="p08" d="M120 637.7 C135.1 636.6 135.1 566.2 150.2 566" style="stroke-width:0.9"/><path class="ixn-tw2" d="M120.7 637.1 C135.7 638 135.7 566.2 150.7 566.7" style="stroke-width:0.6"/><path class="ixn-tw " data-via="p09" d="M120 637.7 C140.7 637.9 140.7 602.5 161.5 602" style="stroke-width:0.9"/><path class="ixn-tw2" d="M120.7 637.1 C141.3 636.5 141.3 602.4 162 602.7" style="stroke-width:0.6"/><path class="ixn-tw " data-via="p10" d="M120 637.7 C144.4 638.2 144.4 637.3 168.9 638" style="stroke-width:0.9"/><path class="ixn-tw2" d="M120.7 637.1 C145 636.8 145 639.9 169.4 638.7" style="stroke-width:0.6"/><path class="ixn-tw " data-via="p04" d="M120 637.7 C149 637 149 705.6 178 705.3" style="stroke-width:3.9"/><path class="ixn-tw2" d="M120.7 637.1 C149.6 638.2 149.6 704.3 178.5 706" style="stroke-width:1.7"/><path class="ixn-tw" data-via="p04" d="M178 705.3 L186 688" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p14" d="M14 868.5 C96 868.9 96 705.6 178 705.3" style="stroke-width:3.9"/><path class="ixn-tw2" d="M14.7 867.9 C96.6 866.2 96.6 707.6 178.5 706" style="stroke-width:1.7"/><path class="ixn-tw fam" data-via="p14" d="M178 705.3 L186 722.6" style="stroke-width:0.9"/><path class="ixn-tw " data-via="p05" d="M120 637.7 C149 637.9 149 773.6 178 774.4" style="stroke-width:3.6"/><path class="ixn-tw2" d="M120.7 637.1 C149.6 638.7 149.6 774 178.5 775.1" style="stroke-width:1.6"/><path class="ixn-tw" data-via="p05" d="M178 774.4 L186 757.1" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p15" d="M14 868.5 C96 867.7 96 775.4 178 774.4" style="stroke-width:3.6"/><path class="ixn-tw2" d="M14.7 867.9 C96.6 866.8 96.6 775.5 178.5 775.1" style="stroke-width:1.6"/><path class="ixn-tw fam" data-via="p15" d="M178 774.4 L186 791.7" style="stroke-width:0.9"/><path class="ixn-tw " data-via="p06" d="M120 637.7 C149 638.6 149 843 178 843.5" style="stroke-width:3.2"/><path class="ixn-tw2" d="M120.7 637.1 C149.6 637.5 149.6 844.3 178.5 844.2" style="stroke-width:1.5"/><path class="ixn-tw" data-via="p06" d="M178 843.5 L186 826.2" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p16" d="M14 868.5 C96 868 96 843.2 178 843.5" style="stroke-width:3.2"/><path class="ixn-tw2" d="M14.7 867.9 C96.6 868 96.6 844.2 178.5 844.2" style="stroke-width:1.5"/><path class="ixn-tw fam" data-via="p16" d="M178 843.5 L186 860.8" style="stroke-width:0.9"/><path class="ixn-tw fam" data-via="p12" d="M14 868.5 C85.7 868.2 85.7 910.5 157.5 909.4" style="stroke-width:4.8"/><path class="ixn-tw2" d="M14.7 867.9 C86.3 867.9 86.3 909.6 158 910.1" style="stroke-width:2.2"/><path class="ixn-tw fam" data-via="p11" d="M14 868.5 C79 869.7 79 943.7 144 945.4" style="stroke-width:0.9"/><path class="ixn-tw2" d="M14.7 867.9 C79.6 867.4 79.6 947.4 144.5 946.1" style="stroke-width:0.6"/><path class="ixn-tw unk fam" data-via="p13" d="M14 868.5 C85.5 866.8 85.5 983 157 981.4"/></g><circle class="ixn-knot" cx="178" cy="705.3" r="2.2"/><circle class="ixn-knot" cx="178" cy="774.4" r="2.2"/><circle class="ixn-knot" cx="178" cy="843.5" r="2.2"/><g class="gate" transform="translate(26.5 184)"><g transform="rotate(90)"><rect class="gate-cut" x="-6" y="-13" width="12" height="26"/><line x1="-3.2" y1="-13" x2="-3.2" y2="13"/><line x1="3.2" y1="-13" x2="3.2" y2="13"/></g></g><a class="ixn-lf here" href="https://adamthede.com/" aria-current="page" data-k="p00" data-name="A life, measured in seconds" data-line="The portrait: a century of family letters down to one second." data-host="adamthede.com" data-who="anyone" data-opens="this tab" data-rec="since 1910, 117 years" aria-label="A life, measured in seconds. The portrait: a century of family letters down to one second. Since 1910, 117 years. You are here." data-ly="98"><circle class="ixn-root" cx="24" cy="98" r="5"/><text class="ixn-name big" x="40" y="84">A life, measured in seconds</text><text class="ixn-yah" x="40" y="104">you are here, 1910</text></a><a class="ixn-lf" href="https://thedetech.com/" target="_blank" rel="noopener" data-k="p17" data-name="Thede Technologies" data-line="My company, its products and the essays." data-host="thedetech.com" data-who="anyone" data-opens="a new tab" data-rec="since 2011, 15 years" aria-label="Thede Technologies. My company, its products and the essays. Since 2011, 15 years. Opens a new tab." data-ly="250"><path class="ixn-leaf" d="M153.5 250 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="169.5" y="255">Thede Technologies ↗<tspan class="ixn-yr" dx="7">2011</tspan></text></a><a class="ixn-lf" href="https://github.com/adamthede" target="_blank" rel="noopener" data-k="p20" data-name="GitHub" data-line="My code, where it is public." data-host="github.com/adamthede" data-who="anyone" data-opens="a new tab" data-rec="since 2013, 13 years" aria-label="GitHub. My code, where it is public. Since 2013, 13 years. Opens a new tab." data-ly="286"><path class="ixn-leaf" d="M137.9 286 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="153.9" y="291">GitHub ↗<tspan class="ixn-yr" dx="7">2013</tspan></text></a><a class="ixn-lf" href="https://tractorandsilo.com/" target="_blank" rel="noopener" data-k="p18" data-name="Tractor and Silo" data-line="The app I build to keep a life&#x27;s record." data-host="tractorandsilo.com" data-who="anyone" data-opens="a new tab" data-rec="since 2016, 11 years" aria-label="Tractor and Silo. The app I build to keep a life&#x27;s record. Since 2016, 11 years. Opens a new tab." data-ly="322"><path class="ixn-leaf" d="M138.5 322 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="154.5" y="327">Tractor and Silo ↗<tspan class="ixn-yr" dx="7">2016</tspan></text></a><a class="ixn-lf" href="https://linkedin.com/in/adamthede" target="_blank" rel="noopener" data-k="p19" data-name="LinkedIn" data-line="My professional profile." data-host="linkedin.com/in/adamthede" data-who="anyone" data-opens="a new tab" data-rec="first year unknown" aria-label="LinkedIn. My professional profile. First year unknown. Opens a new tab." data-ly="358"><path class="ixn-leaf" d="M153.7 358 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="169.7" y="363">LinkedIn ↗<tspan class="ixn-yr" dx="7">?</tspan></text></a><a class="ixn-lf" href="https://adamthede.com/resume/" data-k="p01" data-name="Résumé" data-line="Experience and qualifications, on one page." data-host="adamthede.com/resume" data-who="anyone" data-opens="this tab" data-rec="since 2002, 25 years" aria-label="Résumé. Experience and qualifications, on one page. Since 2002, 25 years." data-ly="408"><path class="ixn-leaf" d="M151.2 408 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="167.2" y="413">Résumé<tspan class="ixn-yr" dx="7">2002</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/influences/" data-k="p02" data-name="The influences shelf" data-line="What I learned to see from, drawn as two bookcases." data-host="data.adamthede.com/influences" data-who="anyone" data-opens="this tab" data-rec="since 2026, under a year" aria-label="The influences shelf. What I learned to see from, drawn as two bookcases. Since 2026, under a year." data-ly="444"><path class="ixn-leaf" d="M142.8 444 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="158.8" y="449">The influences shelf<tspan class="ixn-yr" dx="7">2026</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/" data-k="p03" data-name="The coverage map" data-line="Every public record of my life, on one axis of years." data-host="data.adamthede.com" data-who="anyone" data-opens="this tab" data-rec="since 1995, 32 years" aria-label="The coverage map. Every public record of my life, on one axis of years. Since 1995, 32 years." data-ly="494"><path class="ixn-leaf" d="M166.7 494 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="182.7" y="499">The coverage map<tspan class="ixn-yr" dx="7">1995</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/meant-to-read/" data-k="p07" data-name="What I meant to read" data-line="Articles saved and never opened." data-host="data.adamthede.com/meant-to-read" data-who="anyone" data-opens="this tab" data-rec="since 2011, 16 years" aria-label="What I meant to read. Articles saved and never opened. Since 2011, 16 years." data-ly="530"><path class="ixn-leaf" d="M164.9 530 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="180.9" y="535">What I meant to read<tspan class="ixn-yr" dx="7">2011</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/b1/" data-k="p08" data-name="The B1 Years" data-line="Two years of physiology from one wrist band." data-host="data.adamthede.com/b1" data-who="anyone" data-opens="this tab" data-rec="2013 to 2015, 1.8 years" aria-label="The B1 Years. Two years of physiology from one wrist band. 2013 to 2015, 1.8 years." data-ly="566"><path class="ixn-leaf" d="M150.2 566 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="166.2" y="571">The B1 Years<tspan class="ixn-yr" dx="7">2013</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/office/" data-k="p09" data-name="One Year of Office" data-line="A year of readings from a sensor on a shelf." data-host="data.adamthede.com/office" data-who="anyone" data-opens="this tab" data-rec="2025 to 2026, a year" aria-label="One Year of Office. A year of readings from a sensor on a shelf. 2025 to 2026, a year." data-ly="602"><path class="ixn-leaf" d="M161.5 602 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="177.5" y="607">One Year of Office<tspan class="ixn-yr" dx="7">2025</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/chicago-river/" data-k="p10" data-name="Chicago River Elevations" data-line="The river&#x27;s buildings, drawn to height from one cruise." data-host="data.adamthede.com/chicago-river" data-who="anyone" data-opens="this tab" data-rec="one day, in 2026" aria-label="Chicago River Elevations. The river&#x27;s buildings, drawn to height from one cruise. One day, in 2026." data-ly="638"><path class="ixn-leaf" d="M168.9 638 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="184.9" y="643">Chicago River Elevations<tspan class="ixn-yr" dx="7">2026</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/viewing/" data-k="p04" data-name="A Viewing Life" data-line="Screenings, from a hand-kept diary to Trakt." data-host="data.adamthede.com/viewing" data-who="anyone" data-opens="this tab" data-rec="since 1995, 31 years" data-pair="p14" data-pair-rel="family edition" data-pair-name="The viewing diary, viewing.adamthede.com" aria-label="A Viewing Life. Screenings, from a hand-kept diary to Trakt. Since 1995, 31 years." data-ly="688"><path class="ixn-leaf" d="M186 688 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="202" y="693">A Viewing Life<tspan class="ixn-yr" dx="7">1995</tspan></text></a><a class="ixn-lf fam" href="https://viewing.adamthede.com/" aria-describedby="ix-note-family-p" data-k="p14" data-name="The viewing diary" data-line="The full diary behind A Viewing Life." data-host="viewing.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 1995, 31 years" data-pair="p04" data-pair-rel="public edition" data-pair-name="A Viewing Life, data.adamthede.com/viewing" aria-label="The viewing diary. The full diary behind A Viewing Life. Since 1995, 31 years. Family, sign in by email code." data-ly="722.6"><path class="ixn-leaf" d="M186 722.6 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="202" y="727.6">The viewing diary<tspan class="ixn-yr" dx="7">1995</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/books/" data-k="p05" data-name="The Reading Life" data-line="Books finished, merged from every place I logged them." data-host="data.adamthede.com/books" data-who="anyone" data-opens="this tab" data-rec="since 1999, 27 years" data-pair="p15" data-pair-rel="family edition" data-pair-name="The book record, books.adamthede.com" aria-label="The Reading Life. Books finished, merged from every place I logged them. Since 1999, 27 years." data-ly="757.1"><path class="ixn-leaf" d="M186 757.1 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="202" y="762.1">The Reading Life<tspan class="ixn-yr" dx="7">1999</tspan></text></a><a class="ixn-lf fam" href="https://books.adamthede.com/" aria-describedby="ix-note-family-p" data-k="p15" data-name="The book record" data-line="The full record behind The Reading Life." data-host="books.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 1999, 27 years" data-pair="p05" data-pair-rel="public edition" data-pair-name="The Reading Life, data.adamthede.com/books" aria-label="The book record. The full record behind The Reading Life. Since 1999, 27 years. Family, sign in by email code." data-ly="791.7"><path class="ixn-leaf" d="M186 791.7 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="202" y="796.7">The book record<tspan class="ixn-yr" dx="7">1999</tspan></text></a><a class="ixn-lf" href="https://data.adamthede.com/reading/" data-k="p06" data-name="The Week in Reading" data-line="Articles read, first in Instapaper, then Matter." data-host="data.adamthede.com/reading" data-who="anyone" data-opens="this tab" data-rec="since 2005, 22 years" data-pair="p16" data-pair-rel="family edition" data-pair-name="The article archive, reading.adamthede.com" aria-label="The Week in Reading. Articles read, first in Instapaper, then Matter. Since 2005, 22 years." data-ly="826.2"><path class="ixn-leaf" d="M186 826.2 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="202" y="831.2">The Week in Reading<tspan class="ixn-yr" dx="7">2005</tspan></text></a><a class="ixn-lf fam" href="https://reading.adamthede.com/" aria-describedby="ix-note-family-p" data-k="p16" data-name="The article archive" data-line="The searchable archive behind The Week in Reading." data-host="reading.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 2005, 22 years" data-pair="p06" data-pair-rel="public edition" data-pair-name="The Week in Reading, data.adamthede.com/reading" aria-label="The article archive. The searchable archive behind The Week in Reading. Since 2005, 22 years. Family, sign in by email code." data-ly="860.8"><path class="ixn-leaf" d="M186 860.8 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="202" y="865.8">The article archive<tspan class="ixn-yr" dx="7">2005</tspan></text></a><a class="ixn-lf fam" href="https://letters.adamthede.com/" aria-describedby="ix-note-family-p" data-k="p12" data-name="The letters archive" data-line="The family letters, read by year, person and place." data-host="letters.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 1979, 48 years" aria-label="The letters archive. The family letters, read by year, person and place. Since 1979, 48 years. Family, sign in by email code." data-ly="909.4"><path class="ixn-leaf" d="M157.5 909.4 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="173.5" y="914.4">The letters archive<tspan class="ixn-yr" dx="7">1979</tspan></text></a><a class="ixn-lf fam" href="https://bigletter.adamthede.com/" aria-describedby="ix-note-family-p" data-k="p11" data-name="The Big Letter" data-line="My monthly family letter, every issue." data-host="bigletter.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="since 2026, under a year" aria-label="The Big Letter. My monthly family letter, every issue. Since 2026, under a year. Family, sign in by email code." data-ly="945.4"><path class="ixn-leaf" d="M144 945.4 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="160" y="950.4">The Big Letter<tspan class="ixn-yr" dx="7">2026</tspan></text></a><a class="ixn-lf fam" href="https://anniversary.adamthede.com/" aria-describedby="ix-note-family-p" data-k="p13" data-name="The anniversary pages" data-line="Keepsakes made for a family anniversary." data-host="anniversary.adamthede.com" data-who="family, sign in by email code" data-opens="this tab" data-rec="first year unknown" aria-label="The anniversary pages. Keepsakes made for a family anniversary. First year unknown. Family, sign in by email code." data-ly="981.4"><path class="ixn-leaf" d="M157 981.4 q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="173" y="986.4">The anniversary pages<tspan class="ixn-yr" dx="7">?</tspan></text></a><text class="ixn-date" x="346" y="26" text-anchor="end">1 November 2026</text><text class="ixn-think" x="346" y="62" text-anchor="end">I think</text></svg><div class="ix-gate ixn-gate" style="left:12.99%;top:15.11%"><p class="ix-gate-head"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>Family</span><span class="ix-n">06</span></p><p class="ix-note" id="ix-note-family-p">Sign in by email code</p><p class="ix-hand">No code? Ask me to add your email.</p></div></div></div>
+    <footer class="ix-foot"><a href="index-page.html">The same list as a page, at adamthede.com/index/</a><span class="ix-keys">Esc closes</span></footer>
+  </div>
+</div>
+
+
+
+<section class="title-card">
+  <div class="kicker">A portrait of one builder · after the Eames film, 1977</div>
+  <h1>A life, measured in <em>seconds</em></h1>
+  <p class="standfirst">
+    In 1977, Charles and Ray Eames filmed a journey from a picnic blanket to the edge of the
+    universe and back, one power of ten at a time. This is that journey taken through time
+    instead of space - from a century of my family's letters down to a single captured second.
+    I'm Adam Thede. This is my life, measured in seconds.
+  </p>
+  <div class="ticker">You have been here for <b id="hereSeconds">0</b> seconds. Each one is the unit of this film.</div>
+  <div class="credit">Adam Thede · Nashville · <b>Thede Technologies</b></div>
+  <div class="scroll-cue">Scroll to descend ↓</div>
+</section>
+
+
+<div class="zoom-track" id="zoomTrack">
+  <div class="zoom-stage">
+
+    <div class="frame-rings" id="frameRings"></div>
+
+    <aside class="meter" aria-hidden="true">
+      <div>
+        <div class="count" id="meterCount">3,155,760,000</div>
+        <div class="unit" id="meterUnit">seconds</div>
+      </div>
+      <div class="power">10<sup id="meterPower">9.5</sup></div>
+      <div class="gauge"><i id="gaugeDot" style="top:0%"></i></div>
+      <div class="human-scale" id="meterHuman">a century</div>
+    </aside>
+
+    
+    <section class="scene" data-secs="3155760000" data-power="9.5" data-scale="a century">
+      <div class="scene-grid">
+        <div class="illo">
+          <div class="sky-inset">
+            <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#cfd8ef" opacity="0.7">
+                <circle cx="30" cy="30" r="0.8"/><circle cx="90" cy="18" r="0.6"/><circle cx="150" cy="40" r="0.7"/>
+                <circle cx="230" cy="22" r="0.8"/><circle cx="290" cy="48" r="0.6"/><circle cx="50" cy="120" r="0.6"/>
+                <circle cx="280" cy="120" r="0.7"/><circle cx="40" cy="220" r="0.7"/><circle cx="200" cy="238" r="0.6"/>
+                <circle cx="120" cy="200" r="0.5"/><circle cx="300" cy="200" r="0.6"/><circle cx="170" cy="14" r="0.5"/>
+              </g>
+              <path id="lineagePath" class="const-line" d="M 48 178 L 110 78 L 178 150 L 248 196"/>
+              <path class="const-line future" d="M 248 196 L 296 132"/>
+              <g>
+                <circle cx="48" cy="178" r="3.4" fill="#f3ead6"/>
+                <text class="star-lbl" x="48" y="158" text-anchor="middle">Emil &amp; Ella</text>
+                <text class="star-sub" x="48" y="196" text-anchor="middle">1910</text>
+              </g>
+              <g>
+                <circle cx="110" cy="78" r="2.8" fill="#f3ead6"/>
+                <text class="star-lbl" x="110" y="60" text-anchor="middle">The wartime letters</text>
+                <text class="star-sub" x="110" y="94" text-anchor="middle">1940s</text>
+              </g>
+              <g>
+                <circle cx="178" cy="150" r="3.2" fill="#f3ead6"/>
+                <text class="star-lbl" x="178" y="131" text-anchor="middle">Dad's weekly letters</text>
+                <text class="star-sub" x="178" y="167" text-anchor="middle">still writing</text>
+              </g>
+              <g>
+                <circle cx="248" cy="196" r="4.4" fill="#FF8F3B"/>
+                <text class="star-lbl" x="248" y="176" text-anchor="middle" fill="#FF8F3B">Adam</text>
+                <text class="star-sub" x="248" y="215" text-anchor="middle">now</text>
+              </g>
+              <g opacity="0.85">
+                <circle cx="296" cy="132" r="2" fill="rgba(243,234,214,0.55)"/>
+                <text class="star-sub" x="288" y="116" text-anchor="middle">who comes after</text>
+              </g>
+              <circle class="spark" r="2.2">
+                <animateMotion dur="9s" repeatCount="indefinite" rotate="none">
+                  <mpath href="#lineagePath"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+          <div class="fig-caption">Fig. 1 — four generations, drawn as stars; the light still traveling</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">3,155,760,000 seconds · the inheritance</div>
+          <h2>In 1910, my great-grandparents - Emil and Ella - began writing letters to each other.</h2>
+          <p>They wrote constantly - their courtship, their hopes, their ordinary days - and both
+             sides of the conversation survive: her letters to him, his letters to her. They married.
+             A generation later, letters crossed the Atlantic from a warship. A generation after
+             that, my father began writing a letter to his mother every week - and he is
+             writing them still.</p>
+          <p>I have held this paper in my hands. Paper from 1910. Paper from a warship. Paper
+             from the kitchen table where my father sits on Sunday afternoons. Four generations
+             understood something I inherited before I had words for it: <b>the act of recording
+             a life gives it meaning beyond itself.</b></p>
+          <div class="artifact"><span>ARTIFACT</span> the Emil &amp; Ella letters - now being typeset into a bound book</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="1000000000" data-power="9" data-scale="a generation · 32 years">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <circle class="draw" cx="92" cy="74" r="46"/>
+            <circle class="draw soft" cx="92" cy="74" r="14"/>
+            <circle class="draw soft" cx="92" cy="46" r="7"/>
+            <circle class="draw soft" cx="92" cy="102" r="7"/>
+            <circle class="draw soft" cx="64" cy="74" r="7"/>
+            <circle class="draw soft" cx="120" cy="74" r="7"/>
+            
+            <path class="draw" d="M 134 96 C 190 120 170 170 220 186 C 252 196 268 210 270 232"/>
+            <path class="draw" d="M 130 110 C 180 134 158 180 210 198 C 240 208 254 220 256 238"/>
+            
+            <g class="draw soft">
+              <path d="M 152 116 l 3 3"/><path d="M 172 132 l 3 3"/><path d="M 186 152 l 3 3"/>
+              <path d="M 200 172 l 3 3"/><path d="M 222 188 l 3 3"/><path d="M 242 204 l 3 3"/>
+            </g>
+            
+            <rect class="draw" x="196" y="38" width="100" height="74"/>
+            <path class="draw soft" d="M 202 86 q 12 -5 24 0 q 12 5 24 0 q 12 -5 24 0 q 8 3 16 0"/>
+            <path class="draw" d="M 226 78 L 240 60 L 254 78 Z"/>
+            <path class="draw soft" d="M 240 60 L 240 50"/>
+            <circle class="draw soft" cx="214" cy="54" r="6"/>
+            <path class="draw warm" d="M 196 38 L 188 30 M 296 38 L 304 30 M 196 112 L 188 120 M 296 112 L 304 120"/>
+          </svg>
+          <div class="fig-caption">Fig. 2 — a hundred reels, five generations · one boat on Maple Lane</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">1,000,000,000 seconds · the becoming</div>
+          <h2>It takes about three billion seconds to live a long life. I spent a billion of them learning to build.</h2>
+          <p>In 2001, helping my grandparents move to assisted living, I stayed behind to sort
+             the closets: tintypes from the 1870s, film reels, VHS tapes, letters tied with ribbon.
+             I became the family's archivist that day - hundreds of tapes, nearly a hundred reels,
+             thousands of photographs digitized over two decades. In one reel, my mother is a girl
+             on a fishing trip at Maple Lane Resort in Minnesota - a lake her grandparents had been
+             coming to for decades - in footage her father shot on 8mm film.</p>
+          <p>In 2012 I tried to build the successor to the letters - a life-capture startup called
+             LifeTagr. It failed; I couldn't build it myself and didn't yet know how to bootstrap
+             a build I couldn't do. <b>So I learned.</b> Code school at 35. A decade-plus shipping
+             production software. Becoming the CTO I couldn't afford to hire.</p>
+          <div class="artifact"><span>LESSON</span> conviction is only worth what you can execute</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="315576000" data-power="8.5" data-scale="a decade">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <path class="draw" d="M 12 218 L 308 218"/>
+            <path class="draw soft" d="M 20 234 q 30 -5 60 0 M 240 234 q 30 -5 60 0"/>
+            
+            <rect class="draw" x="140" y="84" width="46" height="134"/>
+            <path class="draw" d="M 140 84 Q 163 56 186 84"/>
+            <path class="draw soft" d="M 140 112 L 186 112 M 140 140 L 186 140 M 140 168 L 186 168 M 140 196 L 186 196"/>
+            <circle class="fill-warm" cx="163" cy="68" r="2.4"/>
+            
+            <rect class="draw" x="216" y="160" width="84" height="58"/>
+            <path class="draw" d="M 210 160 L 258 130 L 306 160"/>
+            <rect class="draw soft" x="246" y="184" width="24" height="34"/>
+            
+            <circle class="draw" cx="58" cy="202" r="16"/>
+            <circle class="draw soft" cx="58" cy="202" r="7"/>
+            <circle class="draw" cx="104" cy="208" r="10"/>
+            <path class="draw" d="M 42 186 L 42 168 L 76 168 L 82 186"/>
+            <path class="draw" d="M 76 168 L 76 156 L 98 156 L 104 198"/>
+            <path class="draw soft" d="M 46 156 L 46 144"/>
+            
+            <path class="draw warm" stroke-dasharray="3 6" d="M 112 170 Q 130 110 140 96"/>
+            <path class="draw warm" stroke-dasharray="3 6" d="M 186 100 Q 210 120 232 158"/>
+            
+            <circle class="draw" cx="40" cy="48" r="17"/>
+            <path class="draw soft" d="M 40 20 L 40 27 M 40 69 L 40 76 M 12 48 L 19 48 M 61 48 L 68 48"/>
+          </svg>
+          <div class="fig-caption">Fig. 3 — the homestead: the tractor harvests, the silo stores</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">315,576,000 seconds · the build</div>
+          <h2>In 2016 I started building Tractor &amp; Silo - because I needed it to exist.</h2>
+          <p>A container for the digital exhaust of a life: the who, what, when, where, and why of
+             my days. Places, people, photographs, experiences. <b>Your devices fill it. Your
+             thoughts make it yours.</b> I have used it every day for nearly a decade - it has
+             already outlived most of the services that failed me.</p>
+          <p>And they did fail me. Moves, Basis, Narrative, Automatic, Limitless - each one shut
+             down, each time the same ritual: the frantic export, the orphaned folders. That
+             history is why Silo is built the way it is - open exports, no lock-in, paid plainly,
+             <b>permanence over growth</b> - with a written promise that if the worst ever happens,
+             you leave with everything. In April 2026 the iOS companion shipped: fourteen years
+             after LifeTagr, the vision finally exists end-to-end.</p>
+          <a class="artifact" href="https://tractorandsilo.com" target="_blank" rel="noopener"><span>ECOSYSTEM</span> the tractor harvests · the silo stores<span class="ext">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="2629800" data-power="6.4" data-scale="a month">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect class="draw" x="58" y="34" width="204" height="192"/>
+            <path class="draw soft" d="M 58 98 L 262 98"/>
+            
+            <path class="draw" d="M 78 62 L 132 62 M 78 74 L 120 74"/>
+            <path class="draw warm" d="M 188 56 L 242 56 L 242 84 L 188 84 Z"/>
+            <path class="draw warm" d="M 188 56 L 215 72 L 242 56"/>
+            
+            <g class="draw soft">
+              <path d="M 78 118 L 154 118 M 78 130 L 154 130 M 78 142 L 146 142 M 78 154 L 154 154 M 78 166 L 150 166"/>
+              <path d="M 170 118 L 242 118 M 170 130 L 242 130 M 170 142 L 236 142"/>
+            </g>
+            
+            <rect class="draw" x="170" y="154" width="72" height="50"/>
+            <path class="draw soft" d="M 174 196 L 192 176 L 206 190 L 218 172 L 238 196"/>
+            <circle class="draw soft" cx="226" cy="166" r="5"/>
+            
+            <path class="draw soft" d="M 78 186 L 154 186 M 78 198 L 148 198"/>
+            
+            <path class="draw warm" stroke-dasharray="2 5" d="M 262 110 C 292 96 300 70 296 44"/>
+            <path class="draw warm" d="M 296 40 l -4 6 M 296 40 l 5 5"/>
+          </svg>
+          <div class="fig-caption">Fig. 4 — the Big Letter · the thread leads back to my father's</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">2,629,800 seconds · the synthesis</div>
+          <h2>Once a month, the whole system writes a letter.</h2>
+          <p>The Big Letter is a family newsletter synthesized from everything the ecosystem
+             captures - the month's places, projects, and photographs, what had my attention,
+             what the kids said at dinner. Drafted with AI in my own voice, every vignette citing
+             its sources, finished by hand. The first issue shipped in April 2026.</p>
+          <p>My father has been making this exact artifact by hand for decades. <b>The loop from
+             1910 closes every month</b> - digital exhaust becoming a warm, durable thing my
+             family can hold, and my kids will inherit.</p>
+          <div class="artifact"><span>METHOD</span> Capture · Enrich · Synthesize</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="604800" data-power="5.8" data-scale="a week">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect class="draw soft" x="70" y="58" width="180" height="104" transform="rotate(-4 160 110)"/>
+            <rect class="draw soft" x="66" y="52" width="180" height="104" transform="rotate(2 160 104)"/>
+            <rect class="draw" x="64" y="44" width="184" height="108"/>
+            
+            <path class="draw warm" d="M 96 84 q 0 -16 16 -16 q 16 0 16 14 q 0 10 -12 16 q -4 2 -4 8"/>
+            <circle class="fill-warm" cx="112" cy="118" r="2.6"/>
+            
+            <path class="draw soft" d="M 142 76 L 232 76 M 142 92 L 224 92 M 142 108 L 232 108"/>
+            
+            <g class="draw">
+              <path d="M 76 206 L 76 214"/><path d="M 90 198 L 90 222"/><path d="M 104 188 L 104 232"/>
+              <path d="M 118 196 L 118 224"/><path d="M 132 180 L 132 240"/><path d="M 146 192 L 146 228"/>
+              <path d="M 160 184 L 160 236"/><path d="M 174 198 L 174 222"/><path d="M 188 190 L 188 230"/>
+              <path d="M 202 200 L 202 220"/><path d="M 216 194 L 216 226"/><path d="M 230 204 L 230 216"/>
+            </g>
+            <path class="draw warm" stroke-dasharray="2 5" d="M 156 152 L 156 176"/>
+          </svg>
+          <div class="fig-caption">Fig. 5 — a question asked, a voice answering</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">604,800 seconds · the questions</div>
+          <h2>Some stories don't fall out of the data. You have to ask for them.</h2>
+          <p>Answers2Answers is the asking machine - a family Q&amp;A digest that sends a question
+             on a cadence, gathers answers in writing or in voice, and weaves them into something
+             the whole family reads. It began as a family digest app years ago; I'm rebuilding it
+             now as an audio-first iOS product, with a year-plus of the original family answers
+             preserved and honored inside it.</p>
+          <p>Where the silo captures a life passively, this one draws a life out of the people you
+             love - <b>the interview half of the family record.</b> The letters were never written
+             to be archives either. They were just people answering each other, week after week.</p>
+          <div class="artifact"><span>LINEAGE</span> correspondence, productized - questions on a cadence since 1910</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="86400" data-power="4.9" data-scale="a day">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <path class="draw warm" stroke-dasharray="4 6" d="M 36 150 Q 160 10 284 150"/>
+            <circle class="draw" cx="160" cy="80" r="12"/>
+            <path class="draw soft" d="M 160 58 L 160 64 M 182 80 L 188 80 M 132 80 L 138 80"/>
+            
+            <path class="draw" d="M 24 150 L 296 150"/>
+            <g class="draw soft">
+              <path d="M 36 150 L 36 158 M 67 150 L 67 156 M 98 150 L 98 158 M 129 150 L 129 156 M 160 150 L 160 160 M 191 150 L 191 156 M 222 150 L 222 158 M 253 150 L 253 156 M 284 150 L 284 158"/>
+            </g>
+            
+            <rect class="draw" x="64" y="182" width="40" height="64" rx="6"/>
+            <path class="draw soft" d="M 78 238 L 90 238"/>
+            <path class="draw warm" stroke-dasharray="2 4" d="M 84 182 Q 84 160 104 152"/>
+            
+            <path class="draw" d="M 196 230 L 206 188 L 270 188 L 260 230 Z"/>
+            <path class="draw" d="M 186 230 L 270 230"/>
+            <path class="draw soft" d="M 214 198 L 256 198 M 212 208 L 250 208 M 210 218 L 246 218"/>
+            <path class="draw warm" stroke-dasharray="2 4" d="M 236 188 Q 232 166 216 154"/>
+          </svg>
+          <div class="fig-caption">Fig. 6 — 86,400 seconds, kept by the phone and the Mac</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">86,400 seconds · a day, kept</div>
+          <h2>86,400 seconds. Most of them used to vanish.</h2>
+          <p>The phone keeps the day's path - Silo iOS tracks places, check-ins, voice memos,
+             photographs, as the day is lived. On the desk, <b>Lens</b> watches the working hours:
+             screen, webcam, focus - then an AI model running entirely on my Mac writes the day's
+             journal. Nothing leaves the machine. The PKM vault does the same for paper - documents
+             ingested and enriched locally, because the most sensitive records should never touch
+             a cloud.</p>
+          <p>That is the local-inference thesis I'm testing in public: the most personal
+             synthesis should happen on hardware you own. The frontier still lives in the cloud -
+             I'll say so plainly - but the journal of your day belongs to you.</p>
+          <a class="artifact" href="https://tractorandsilo.com" target="_blank" rel="noopener"><span>INSTRUMENTS</span> Silo iOS · Lens · PKM Vault<span class="ext">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="60" data-power="1.8" data-scale="a minute">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect class="draw" x="36" y="44" width="150" height="112"/>
+            <rect class="draw soft" x="44" y="52" width="134" height="84"/>
+            <path class="draw soft" d="M 48 128 L 84 92 L 108 114 L 134 80 L 174 128"/>
+            <circle class="draw soft" cx="150" cy="68" r="7"/>
+            
+            <g class="draw warm">
+              <path d="M 206 60 L 290 60"/>
+              <path d="M 206 76 L 282 76"/>
+              <path d="M 206 92 L 290 92"/>
+              <path d="M 206 108 L 270 108"/>
+              <path d="M 206 124 L 286 124"/>
+              <path d="M 206 140 L 250 140"/>
+            </g>
+            <path class="draw" d="M 186 100 L 200 100 M 196 96 L 200 100 L 196 104"/>
+            
+            <circle class="draw" cx="70" cy="208" r="18"/>
+            <rect class="draw soft" x="64" y="198" width="12" height="14" rx="6"/>
+            <path class="draw soft" d="M 60 208 q 0 10 10 10 q 10 0 10 -10 M 70 218 L 70 226"/>
+            <g class="draw soft">
+              <path d="M 104 204 L 104 216 M 116 198 L 116 222 M 128 206 L 128 214 M 140 200 L 140 220 M 152 208 L 152 212"/>
+            </g>
+          </svg>
+          <div class="fig-caption">Fig. 7 — a photograph, described; a moment, told</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">60 seconds · the enrichment</div>
+          <h2>A minute is enough to make a memory retrievable.</h2>
+          <p>A voice memo at a trailhead. A check-in at a diner. A paragraph written by a local
+             vision model describing a photograph from the family archive - who is in it, what is
+             happening - on the workbench I built for the job: a describer for old photographs, a
+             transcriber for voice and tape, a slideshow engine that turns archives into films for
+             the family's picture frames.</p>
+          <p>This is the middle of the method, where raw capture becomes memory: AI does the
+             cataloging, and I add the part only I know. <b>Metrics describe. Memory
+             means.</b></p>
+          <div class="artifact"><span>WORKBENCH</span> Photo Describer · WhisperKit · Slideshow Generator</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene" data-secs="1" data-power="0" data-scale="one second">
+      <div class="scene-grid">
+        <div class="illo">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            
+            <circle class="draw" cx="160" cy="130" r="86"/>
+            <circle class="draw soft" cx="160" cy="130" r="96"/>
+            <g class="draw">
+              <path d="M 160 44 L 196 116"/>
+              <path d="M 234 87 L 174 140"/>
+              <path d="M 246 130 L 168 158"/>
+              <path d="M 203 205 L 152 144"/>
+              <path d="M 117 205 L 138 124"/>
+              <path d="M 74 130 L 152 112"/>
+              <path d="M 86 87 L 160 100"/>
+            </g>
+            <circle class="fill-warm" cx="160" cy="130" r="5"/>
+            <path class="draw warm" d="M 160 18 L 160 28 M 160 232 L 160 242 M 48 130 L 58 130 M 262 130 L 272 130"/>
+          </svg>
+          <div class="fig-caption">Fig. 8 — one second · the shutter</div>
+        </div>
+        <div class="copy">
+          <div class="epoch">1 second · one second</div>
+          <h2>One second. A shutter clicks.</h2>
+          <p>Somewhere in Nashville, a photograph is taken. It will be captured tonight, enriched
+             this week, synthesized into a letter this month, kept in the silo for a lifetime -
+             and inherited, someday, by people who will want to know who I was.</p>
+          <p><b>This is the whole idea, at every scale:</b> a second, a day, a month, a life, a
+             century. Capture it. Enrich it. Synthesize it. Pass it on.</p>
+          <span class="margin-note">"Recording a life lets you live it twice."</span>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="scene pullback" data-secs="3155760000" data-power="9.5" data-scale="and back out">
+      <div class="pullback-inner">
+        <div class="copy">
+          <div class="epoch">And back out again</div>
+          <h2>The same shape, at every scale.</h2>
+          <p>Pull back from the single second and the pattern repeats all the way up - the day
+             assembles into the week, the week into the month, the month into a life, the life
+             into the record a family keeps for a century.</p>
+          <div class="scale-echoes">
+            <span><b>1</b> a shutter</span>
+            <span><b>60</b> a memo</span>
+            <span><b>86,400</b> a day kept</span>
+            <span><b>604,800</b> a question</span>
+            <span><b>2,629,800</b> a letter</span>
+            <span><b>315,576,000</b> a build</span>
+            <span><b>3,155,760,000</b> an inheritance</span>
+          </div>
+          <div class="ces">Capture <i>·</i> Enrich <i>·</i> Synthesize</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <div style="height: 1150vh;"></div>
+</div>
+
+
+<section class="coda">
+  <div class="coda-inner">
+    <div class="epoch">A letter to the future</div>
+    <h2>Letters won't be the medium for my generation. But the impulse is the same.</h2>
+    <p>Capture a life so the people you love can know it. My great-grandparents didn't know their
+       letters would survive a century - they were just writing to each other. I don't know who
+       will read the record of my life. Maybe my kids. Maybe their kids. But keeping it has made
+       me more present in the living of it.</p>
+    <p class="welcome">If you've lost data to a service that shut down, you're welcome here. If
+       you want to document your life for those who come after, you're welcome here. If you're an
+       asker of questions and a seeker of stories - you're welcome here.</p>
+    <div>
+      <span class="sig">Adam Thede</span>
+      <div class="sig-sub">Builder · Thede Technologies · Nashville</div>
+      <p class="sig-line">I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life.</p>
+    </div>
+    <div class="links">
+      <a class="primary" href="https://tractorandsilo.com">Explore Tractor &amp; Silo</a>
+      <a href="https://thedetech.com">Thede Technologies</a>
+    </div>
+    <div class="links" style="margin-top: 1rem;">
+      <a href="https://linkedin.com/in/adamthede" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/adamthede" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================== INDEX, FOOTER LIST (mockup) ====================== -->
+<nav class="ixf" id="places" aria-labelledby="ixfTitle">
+  <div class="ixf-inner">
+    <div class="ixf-title" id="ixfTitle">The index</div>
+    <div class="ixf-cols"><div class="ixf-col"><h3>Read <span>03</span></h3><ul><li><a href="https://adamthede.com/" aria-current="page"><span>A life, measured in seconds</span></a></li><li><a href="https://adamthede.com/resume/"><span>Résumé</span></a></li><li><a href="https://data.adamthede.com/influences/"><span>The influences shelf</span></a></li></ul></div><div class="ixf-col"><h3>Look at the data <span>08</span></h3><ul><li><a href="https://data.adamthede.com/"><span>The coverage map</span></a></li><li><a href="https://data.adamthede.com/viewing/"><span>A Viewing Life</span></a></li><li><a href="https://data.adamthede.com/books/"><span>The Reading Life</span></a></li><li><a href="https://data.adamthede.com/reading/"><span>The Week in Reading</span></a></li><li><a href="https://data.adamthede.com/meant-to-read/"><span>What I meant to read</span></a></li><li><a href="https://data.adamthede.com/b1/"><span>The B1 Years</span></a></li><li><a href="https://data.adamthede.com/office/"><span>One Year of Office</span></a></li><li><a href="https://data.adamthede.com/chicago-river/"><span>Chicago River Elevations</span></a></li></ul></div><div class="ixf-col"><h3>Family <span>06</span></h3><p class="ixf-note" id="ix-note-family-f">Sign in by email code</p><ul><li><a href="https://bigletter.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The Big Letter</span></a></li><li><a href="https://letters.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The letters archive</span></a></li><li><a href="https://anniversary.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The anniversary pages</span></a></li><li><a href="https://viewing.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The viewing diary</span></a></li><li><a href="https://books.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The book record</span></a></li><li><a href="https://reading.adamthede.com/" aria-describedby="ix-note-family-f"><svg class="ix-lock" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><rect x="1.6" y="6.2" width="8.8" height="6.6" rx="0.8"/><path d="M3.6 6.2V4.3a2.4 2.4 0 0 1 4.8 0v1.9"/></svg><span>The article archive</span></a></li></ul></div><div class="ixf-col"><h3>Elsewhere <span>04</span></h3><ul><li><a href="https://thedetech.com/" target="_blank" rel="noopener"><span>Thede Technologies</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li><li><a href="https://tractorandsilo.com/" target="_blank" rel="noopener"><span>Tractor and Silo</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li><li><a href="https://linkedin.com/in/adamthede" target="_blank" rel="noopener"><span>LinkedIn</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li><li><a href="https://github.com/adamthede" target="_blank" rel="noopener"><span>GitHub</span><span class="ix-ext" aria-hidden="true"> ↗</span></a></li></ul></div></div>
+    <p class="ixf-more"><a href="index-page.html">Every place with a line about it, on one page</a></p>
+  </div>
+</nav>
+
+<footer>
+  A life, measured in seconds · Thede Technologies, LLC<br>
+  Set after the Eames film "Powers of Ten" (1977) · drawn &amp; written from the family record
+</footer>
+
+<script>
+(function () {
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+   
+  const toggle = document.getElementById('themeToggle');
+  function syncToggle() {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    toggle.textContent = dark ? '☀ day' : '☾ night';
+  }
+  toggle.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('alms-theme', dark ? 'light' : 'dark'); } catch (e) {}
+    syncToggle();
+  });
+  syncToggle();
+
+   
+  const hereEl = document.getElementById('hereSeconds');
+  const t0 = Date.now();
+  setInterval(() => {
+    hereEl.textContent = Math.floor((Date.now() - t0) / 1000).toLocaleString();
+  }, 1000);
+
+   
+  const scenes = Array.from(document.querySelectorAll('.scene'));
+  const track = document.getElementById('zoomTrack');
+  const meterCount = document.getElementById('meterCount');
+  const meterUnit = document.getElementById('meterUnit');
+  const meterPower = document.getElementById('meterPower');
+  const meterHuman = document.getElementById('meterHuman');
+  const gaugeDot = document.getElementById('gaugeDot');
+  const ringsWrap = document.getElementById('frameRings');
+
+  const N = scenes.length;            
+  const LAST_CONTENT = N - 2;         
+
+   
+  const RING_COUNT = 7;
+  const rings = [];
+  for (let i = 0; i < RING_COUNT; i++) {
+    const r = document.createElement('div');
+    r.className = 'ring';
+    ringsWrap.appendChild(r);
+    rings.push(r);
+  }
+
+   
+  const sceneDraws = scenes.map(scene => {
+    const paths = Array.from(scene.querySelectorAll('.illo .draw'));
+    return paths.map(p => {
+      let len = 0;
+      try { len = p.getTotalLength(); } catch (e) { len = 0; }
+      if (len && !REDUCED) {
+        p.style.strokeDasharray = (p.getAttribute('stroke-dasharray')) ? p.style.strokeDasharray : len;
+        if (!p.getAttribute('stroke-dasharray')) {
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+        }
+      }
+      return { p, len, hasOwnDash: !!p.getAttribute('stroke-dasharray') };
+    });
+  });
+
+  function fmt(n) {
+    if (n >= 100) return Math.round(n).toLocaleString('en-US');
+    if (n >= 10) return n.toFixed(0);
+    return n.toFixed(0);
+  }
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+  let lastIdx = -1;
+  function update() {
+    const rect = track.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    const progress = clamp(-rect.top / total, 0, 1);
+    const sceneFloat = progress * (N - 1);
+    const idx = clamp(Math.round(sceneFloat), 0, N - 1);
+
+    if (idx !== lastIdx) {
+      scenes.forEach((s, i) => s.classList.toggle('active', i === idx));
+      lastIdx = idx;
+    }
+
+     
+    const lo = Math.floor(sceneFloat), hi = clamp(lo + 1, 0, N - 1);
+    const frac = sceneFloat - lo;
+    const sLo = parseFloat(scenes[lo].dataset.secs);
+    const sHi = parseFloat(scenes[hi].dataset.secs);
+    const secs = Math.pow(10, lerp(Math.log10(sLo), Math.log10(sHi), frac));
+    meterCount.textContent = fmt(secs);
+    meterUnit.textContent = secs < 1.5 ? 'second' : 'seconds';
+    meterPower.textContent = scenes[idx].dataset.power;
+    meterHuman.textContent = scenes[idx].dataset.scale;
+    gaugeDot.style.top = (progress * 92) + '%';
+
+     
+    let zoom;
+    if (sceneFloat <= LAST_CONTENT) {
+      zoom = sceneFloat;
+    } else {
+      const t = (sceneFloat - LAST_CONTENT); 
+      zoom = LAST_CONTENT * (1 - t * t * (3 - 2 * t)); 
+    }
+    rings.forEach((r, i) => {
+      const f = zoom % 1;
+      const level = i - f;
+      const size = Math.pow(1.9, level) * 120;
+      const op = level < 0 ? 0 : Math.max(0, 0.34 - level * 0.05);
+      r.style.width = size + 'px';
+      r.style.opacity = op;
+    });
+
+     
+    if (!REDUCED) {
+      const localT = clamp(sceneFloat - idx + 0.5, 0, 1);
+      const drawP = clamp((localT - 0.08) / 0.37, 0, 1);
+      sceneDraws[idx].forEach(({ p, len, hasOwnDash }, k) => {
+        if (!len || hasOwnDash) return;
+        const stagger = clamp(drawP * 1.35 - (k / Math.max(1, sceneDraws[idx].length)) * 0.35, 0, 1);
+        p.style.strokeDashoffset = len * (1 - stagger);
+      });
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => { update(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+<div class="mock-tag">Mockup, drawer F <a href="home-c.html#open">see C</a> <a href="index.html">board</a></div>
+
+<script>
+/* ====================== INDEX drawer (mockup) ====================== */
+(function () {
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var IN_FRAME = window.self !== window.top;
+  if (IN_FRAME) document.documentElement.classList.add('in-frame');
+  var trigger = document.getElementById('ixTrigger');
+  var drawer = document.getElementById('ixDrawer');
+  var scrim = document.getElementById('ixScrim');
+  var label = trigger.querySelector('.ix-trigger-label');
+  var arrow = trigger.querySelector('.ix-trigger-arrow');
+  var lastFocus = null;
+  var TRIGGER_NAME = trigger.getAttribute('aria-label');
+  var FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function isOpen() { return drawer.dataset.open === 'true'; }
+  function focusables() {
+    var inside = Array.prototype.slice.call(drawer.querySelectorAll(FOCUSABLE)).filter(function (el) {
+      return el.getClientRects().length > 0;   /* skip links hidden at this width */
+    });
+    return [trigger].concat(inside);
+  }
+  /* everything else on the page goes inert while the drawer is open */
+  function setInert(on) {
+    Array.prototype.forEach.call(document.body.children, function (el) {
+      if (el === drawer || el === trigger || el === scrim || el.tagName === 'SCRIPT') return;
+      if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+  }
+  function open(opts) {
+    opts = opts || {};
+    if (isOpen()) return;
+    lastFocus = document.activeElement;
+    drawer.dataset.open = 'true';
+    scrim.dataset.open = 'true';
+    trigger.setAttribute('aria-expanded', 'true');
+    label.textContent = 'Close';
+    arrow.textContent = '↑';
+    trigger.setAttribute('aria-label', 'Close index');
+    document.documentElement.classList.add('ix-locked');
+    setInert(true);
+    drawer.scrollTop = 0;
+    if (opts.focus !== false) drawer.focus({ preventScroll: true });
+  }
+  function close() {
+    if (!isOpen()) return;
+    drawer.dataset.open = 'false';
+    scrim.dataset.open = 'false';
+    trigger.setAttribute('aria-expanded', 'false');
+    label.textContent = 'Index';
+    arrow.textContent = '↓';
+    trigger.setAttribute('aria-label', TRIGGER_NAME);
+    document.documentElement.classList.remove('ix-locked');
+    setInert(false);
+    var back = (lastFocus && lastFocus !== document.body && document.contains(lastFocus)) ? lastFocus : trigger;
+    back.focus({ preventScroll: true });
+  }
+  trigger.addEventListener('click', function () { isOpen() ? close() : open(); });
+  scrim.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key !== 'Tab') return;
+    var f = focusables(), first = f[0], last = f[f.length - 1], a = document.activeElement;
+    var inside = a === trigger || drawer.contains(a);
+    if (!inside) { e.preventDefault(); first.focus(); return; }
+    if (e.shiftKey && (a === first || a === drawer)) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && a === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* mockup only: #open shows the open state without moving focus */
+  if (location.hash === '#open') open({ focus: !IN_FRAME });
+  /* mockup only: #at-places scrolls this window to the footer list without moving a parent page */
+  if (location.hash === '#at-places') {
+    var pl = document.getElementById('places');
+    window.scrollTo({ top: pl.getBoundingClientRect().top + window.scrollY - 300, behavior: 'instant' });
+  }
+  window.ixDrawer = { open: open, close: close };
+})();
+</script>
+
+<script>
+/* ====================== INDEX map variants: point, light, read out (mockup) ====================== */
+(function () {
+  var drawer = document.getElementById('ixDrawer');
+  var map = document.getElementById('ixMap');
+  if (!map) return;
+  var ro = drawer.querySelector('.ixr');
+  var src = {};
+  Array.prototype.forEach.call(drawer.querySelectorAll('[data-k][data-name]'), function (el) {
+    if (!src[el.dataset.k] || el.getClientRects().length) src[el.dataset.k] = el;
+  });
+  var cur = null;
+  function each(k, fn) { Array.prototype.forEach.call(drawer.querySelectorAll('[data-k="' + k + '"]'), fn); }
+  function q(sel) { return ro ? ro.querySelector(sel) : null; }
+  function reset() {
+    if (!cur) return;
+    var s = src[cur];
+    each(cur, function (el) { el.classList.remove('is-on'); });
+    if (s && s.dataset.pair) each(s.dataset.pair, function (el) { el.classList.remove('is-pair'); });
+    map.classList.remove('is-lit');
+    if (ro) ro.classList.remove('is-live', 'has-pair');
+    if (window.ixMapHook) window.ixMapHook(null);
+    cur = null;
+  }
+  function light(k) {
+    if (k === cur) return;
+    reset();
+    var s = src[k];
+    if (!s) return;
+    cur = k;
+    each(k, function (el) { el.classList.add('is-on'); });
+    if (s.dataset.pair) each(s.dataset.pair, function (el) { el.classList.add('is-pair'); });
+    map.classList.add('is-lit');
+    if (ro) {
+      q('.ixr-host').textContent = s.dataset.host;
+      q('.ixr-name').textContent = s.dataset.name;
+      q('.ixr-line').textContent = s.dataset.line;
+      q('.ixr-who').textContent = s.dataset.who;
+      q('.ixr-opens').textContent = s.dataset.opens;
+      q('.ixr-rec').textContent = s.dataset.rec;
+      if (s.dataset.pair) {
+        q('.ixr-pairrel').textContent = s.dataset.pairRel;
+        q('.ixr-pair').textContent = s.dataset.pairName;
+        ro.classList.add('has-pair');
+      } else ro.classList.remove('has-pair');
+      ro.classList.add('is-live');
+    }
+    if (window.ixMapHook) window.ixMapHook(k, s);
+  }
+  function keyOf(t) { var el = t && t.closest ? t.closest('[data-k]') : null; return el && map.contains(el) ? el.dataset.k : null; }
+  map.addEventListener('pointerover', function (e) { var k = keyOf(e.target); if (k) light(k); });
+  map.addEventListener('pointerout', function (e) {
+    var to = keyOf(e.relatedTarget);
+    if (to) return;
+    var f = keyOf(document.activeElement);
+    if (f) light(f); else reset();
+  });
+  map.addEventListener('focusin', function (e) { var k = keyOf(e.target); if (k) light(k); else reset(); });
+  map.addEventListener('focusout', function (e) { if (!keyOf(e.relatedTarget)) reset(); });
+  window.ixMap = { light: light, reset: reset };
+  /* mockup only: #open-lit shows the open drawer with one record and its family edition lit */
+  if (location.hash === '#open-lit') {
+    window.ixDrawer.open({ focus: false });
+    var lit = map.dataset.lit;
+    setTimeout(function () { light(lit); }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 640);
+  }
+})();
+</script>
+
+<script>
+/* variant F: light the twigs back to the root, and open the card beside the leaf */
+(function () {
+  var drawer = document.getElementById('ixDrawer');
+  var card = drawer.querySelector('.ixn-card');
+  var page = drawer.querySelector('.ixn-desk');
+  var lit = [];
+  window.ixMapHook = function (k, s) {
+    lit.forEach(function (el) { el.classList.remove('is-on', 'is-pair'); });
+    lit = [];
+    if (!k) return;
+    Array.prototype.forEach.call(drawer.querySelectorAll('[data-via~="' + k + '"]'), function (el) { el.classList.add('is-on'); lit.push(el); });
+    if (s && s.dataset.pair) Array.prototype.forEach.call(drawer.querySelectorAll('[data-via~="' + s.dataset.pair + '"]'), function (el) { el.classList.add('is-pair'); lit.push(el); });
+    if (!card || !page || !page.getClientRects().length) return;
+    var leaf = page.querySelector('.ixn-lf[data-k="' + k + '"]');
+    if (!leaf) return;
+    var pr = page.getBoundingClientRect(), lr = leaf.getBoundingClientRect();
+    var top = lr.top - pr.top - 24;
+    top = Math.max(0, Math.min(top, pr.height - card.offsetHeight));
+    card.style.top = top + 'px';
+  };
+})();
+</script>
+</body>
+</html>
