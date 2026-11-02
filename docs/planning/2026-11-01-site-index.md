@@ -41,7 +41,7 @@ Out of scope: money, household, command.thedetech.com and the office site stay o
 
 - [ ] Open https://adamthede.com/ at desktop width, press Index, point at A Viewing Life: the card opens beside it and The viewing diary lights with it.
 - [ ] Press Escape: the drawer closes and focus is back on the Index button.
-- [ ] On a phone, open the index and tap the Family chip: the family limb and the gate's words are in view, and the page does not scroll sideways.
+- [ ] On a phone, open the index: the gate and its words sit under the root, and the six family pages are the first places on the tree. Tap the Family chip: the drawer scrolls to The letters archive, and the page does not scroll sideways.
 - [ ] Open https://adamthede.com/index/ and https://adamthede.com/index/#family: the plain list renders, the family group carries the lock and the sign-in note.
 - [ ] Scroll to the foot of the home page: the footer list shows four groups and 21 names, and the coda has no Office of Adam Thede link.
 - [ ] View source on the home page and search for "officeofadamthede" and "Builder of systems": neither appears.

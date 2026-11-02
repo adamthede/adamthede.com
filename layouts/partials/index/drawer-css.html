@@ -190,6 +190,8 @@
   .ixn-tw.unk { stroke-width: 1.3; stroke-dasharray: 1.2 4; }
   .ixn-tw2 { fill: none; stroke: var(--paper); stroke-linecap: round; opacity: 0.32; pointer-events: none; }
   .ixn-tw.is-on, .ixn-tw.is-pair { stroke: var(--accent-deep); opacity: 1; }
+  /* the lit route outranks the night pencil, or it would stay bone at night */
+  html[data-theme="dark"] .ixn-tw.is-on, html[data-theme="dark"] .ixn-tw.is-pair { stroke: var(--accent-deep); }
   .ixn-knot { fill: var(--paper); stroke: #4d4f56; stroke-width: 1.2; }
   html[data-theme="dark"] .ixn-knot { stroke: #bdb5a8; }
   .ixn-leaf { fill: var(--paper); stroke: #4d4f56; stroke-width: 1.1; }
