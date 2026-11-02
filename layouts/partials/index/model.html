@@ -9,7 +9,7 @@
     todayLabel  the build date as the tree's page writes it, "1 November 2026"
   Each entry: k (p00, p01, ...), gid, name, line, url, host, fam, newtab, here,
   since, until, depth (years, nil when since is unknown), rec (the record line),
-  yr (the first year as lettered on the tree, "?" when unknown), who, opens,
+  yr (the first year as lettered on the tree, "" when unknown: an unearned mark stays blank), who, opens,
   pair (the k of its edition, or ""), pairRel, pairName, sortKey, aria.
   Set HUGO_INDEX_TODAY=YYYY-MM-DD to build as of another day (screenshots, comparisons).
 */ -}}
@@ -64,7 +64,7 @@
     {{- $depth := 0.0 -}}
     {{- $known := true -}}
     {{- $rec := "" -}}
-    {{- $yr := "?" -}}
+    {{- $yr := "" -}}
     {{- if eq $since nil -}}
       {{- $known = false -}}
       {{- $rec = "first year unknown" -}}

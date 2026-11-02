@@ -23,11 +23,13 @@
     {{- if $b.fam }}{{ $zone = $zone | append $b | append $a }}{{ else }}{{ $zone = $zone | append $a | append $b }}{{ end -}}
   {{- end -}}
 {{- end -}}
-{{- /* a rough width for a hand-lettered label, so a long name steps left to fit the page */ -}}
+{{- /* a rough width for a hand-lettered label, so a long name steps left to fit the page.
+       The year and its 7px gap count only when the year is lettered. An unknown year leaves no gap. */ -}}
 {{- $labelW := newScratch -}}
 {{- range $m.entries -}}
   {{- $chars := strings.RuneCount (printf "%s%s" .name (cond .newtab " ↗" "")) -}}
-  {{- $labelW.Set .k (add (mul (float $chars) 18.5 0.41) 7.0 (mul (float (strings.RuneCount .yr)) 14.0 0.5)) -}}
+  {{- $yrW := 0.0 }}{{ with .yr }}{{ $yrW = add 7.0 (mul (float (strings.RuneCount .)) 14.0 0.5) }}{{ end -}}
+  {{- $labelW.Set .k (add (mul (float $chars) 18.5 0.41) $yrW) -}}
 {{- end -}}
 
 {{- /* rows */ -}}
