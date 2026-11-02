@@ -26,7 +26,7 @@ Branch `fix/2026-11-02-index-unknown-year-blank`. Two places in `data/index.yaml
 
 ## Departures from the previous rendering
 
-1. **The "?" is gone** beside LinkedIn and The anniversary pages, on the desktop tree and the phone tree. New, by Adam's 2026-11-02 decision. Nothing replaces it: no placeholder, no dash, no empty tspan and no 7px gap.
+1. **The "?" is gone** beside LinkedIn and The anniversary pages, on the desktop tree and the phone tree. Nothing replaces it: no placeholder, no dash, no empty tspan and no 7px gap. This is also a departure from the approved mockup, drawer F in `docs/mockups/2026-11-01-index-drawer/home-f.html` (adamthede.com PR #5), which letters the same "?". Recorded: Adam decided on 2026-11-02 that an unknown year stays blank and is not guessed.
 
 That is the only visible change.
 
