@@ -1,10 +1,10 @@
 ---
 title: "Site index: Drawer F, the plain /index/ page and the footer list"
-status: "QA Needed"
+status: "Done"
 priority: "P2"
 project: "adamthede"
 created: 2026-11-01
-completed:
+completed: 2026-11-01
 linked_pr: "https://github.com/adamthede/adamthede.com/pull/6"
 mockup_pr: "https://github.com/adamthede/adamthede.com/pull/5"
 ---
