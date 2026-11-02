@@ -1,0 +1,119 @@
+{{- /*
+  The index model: data/index.yaml read once, with everything the three renderings need.
+  Returns a dict:
+    groups    the groups as written, in file order
+    entries   every place in file order, each a dict (see below)
+    fam       the family group (access: family)
+    nAll, nOpen, nFamily   counts, computed here and never typed
+    today     the build date as a decimal year (2026-11-01 is 2026 + 304/365)
+    todayLabel  the build date as the tree's page writes it, "1 November 2026"
+  Each entry: k (p00, p01, ...), gid, name, line, url, host, fam, newtab, here,
+  since, until, depth (years, nil when since is unknown), rec (the record line),
+  yr (the first year as lettered on the tree, "?" when unknown), who, opens,
+  pair (the k of its edition, or ""), pairRel, pairName, sortKey, aria.
+  Set HUGO_INDEX_TODAY=YYYY-MM-DD to build as of another day (screenshots, comparisons).
+*/ -}}
+{{- $t := now -}}
+{{- with os.Getenv "HUGO_INDEX_TODAY" }}{{ $t = time.AsTime . }}{{ end -}}
+{{- $daysInYear := (time.AsTime (printf "%d-12-31" $t.Year)).YearDay -}}
+{{- $today := add (float $t.Year) (div (float (sub $t.YearDay 1)) (float $daysInYear)) -}}
+{{- $home := strings.TrimRight "/" site.BaseURL -}}
+{{- $groups := site.Data.index.groups -}}
+
+{{- /* pass 1: a key per place, and who points at whom */ -}}
+{{- $keys := newScratch -}}
+{{- $i := 0 -}}
+{{- range $groups -}}
+  {{- range .entries -}}
+    {{- $k := printf "p%02d" $i -}}
+    {{- $host := replaceRE `^https?://` "" .url | strings.TrimRight "/" -}}
+    {{- $keys.SetInMap "name" $k .name -}}
+    {{- $keys.SetInMap "host" $k $host -}}
+    {{- with .id }}{{ $keys.SetInMap "byId" . $k }}{{ end -}}
+    {{- $i = add $i 1 -}}
+  {{- end -}}
+{{- end -}}
+{{- $i = 0 -}}
+{{- range $groups -}}
+  {{- range .entries -}}
+    {{- $k := printf "p%02d" $i -}}
+    {{- with .edition_of -}}
+      {{- $pub := index ($keys.Get "byId") . -}}
+      {{- $keys.SetInMap "pair" $k $pub -}}
+      {{- $keys.SetInMap "pairRel" $k "public edition" -}}
+      {{- $keys.SetInMap "pair" $pub $k -}}
+      {{- $keys.SetInMap "pairRel" $pub "family edition" -}}
+    {{- end -}}
+    {{- $i = add $i 1 -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* pass 2: the entries */ -}}
+{{- $entries := slice -}}
+{{- $fam := dict -}}
+{{- $nFamily := 0 -}}
+{{- $i = 0 -}}
+{{- range $g := $groups -}}
+  {{- $isFam := eq $g.access "family" -}}
+  {{- if $isFam }}{{ $fam = $g }}{{ end -}}
+  {{- range $e := $g.entries -}}
+    {{- $k := printf "p%02d" $i -}}
+    {{- $since := $e.since -}}
+    {{- $until := $e.until -}}
+    {{- $depth := 0.0 -}}
+    {{- $known := true -}}
+    {{- $rec := "" -}}
+    {{- $yr := "?" -}}
+    {{- if eq $since nil -}}
+      {{- $known = false -}}
+      {{- $rec = "first year unknown" -}}
+    {{- else -}}
+      {{- $since = float $since -}}
+      {{- $yr = string (int $since) -}}
+      {{- if ne $until nil -}}
+        {{- $until = float $until -}}
+        {{- $depth = sub $until $since -}}
+        {{- if lt (math.Abs $depth) 0.000000001 -}}
+          {{- $depth = 0.0 -}}
+          {{- $rec = printf "one day, in %d" (int $since) -}}
+        {{- else -}}
+          {{- $rec = printf "%d to %d, %s" (int $since) (int $until) (partial "index/years.html" $depth) -}}
+        {{- end -}}
+      {{- else -}}
+        {{- $depth = sub $today $since -}}
+        {{- $rec = printf "since %d, %s" (int $since) (partial "index/years.html" $depth) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $newtab := eq $g.opens "new-tab" -}}
+    {{- $here := eq (strings.TrimRight "/" $e.url) $home -}}
+    {{- $who := "anyone" -}}
+    {{- if $isFam }}{{ $who = printf "family, %s" (lower $g.note) }}{{ $nFamily = add $nFamily 1 }}{{ end -}}
+    {{- $pair := index ($keys.Get "pair") $k | default "" -}}
+    {{- $pairRel := "" -}}
+    {{- $pairName := "" -}}
+    {{- with $pair -}}
+      {{- $pairRel = index ($keys.Get "pairRel") $k -}}
+      {{- $pairName = printf "%s, %s" (index ($keys.Get "name") .) (index ($keys.Get "host") .) -}}
+    {{- end -}}
+    {{- $aria := printf "%s. %s %s." $e.name $e.line (strings.FirstUpper $rec) -}}
+    {{- if $isFam }}{{ $aria = printf "%s Family, %s." $aria (lower $g.note) }}{{ end -}}
+    {{- if $newtab }}{{ $aria = printf "%s Opens a new tab." $aria }}{{ end -}}
+    {{- if $here }}{{ $aria = printf "%s You are here." $aria }}{{ end -}}
+    {{- $sortKey := 100000.0 -}}
+    {{- if ne $since nil }}{{ $sortKey = $since }}{{ end -}}
+    {{- $entries = $entries | append (dict
+        "k" $k "gid" $g.id "name" $e.name "line" $e.line "url" $e.url
+        "host" (index ($keys.Get "host") $k)
+        "fam" $isFam "newtab" $newtab "here" $here
+        "since" $since "until" $until "depth" (cond $known $depth nil) "rec" $rec "yr" $yr
+        "who" $who "opens" (cond $newtab "a new tab" "this tab")
+        "pair" $pair "pairRel" $pairRel "pairName" $pairName
+        "sortKey" $sortKey "aria" $aria) -}}
+    {{- $i = add $i 1 -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return dict
+    "groups" $groups "entries" $entries "fam" $fam
+    "nAll" (len $entries) "nFamily" $nFamily "nOpen" (sub (len $entries) $nFamily)
+    "today" $today "todayLabel" ($t.Format "2 January 2006") -}}

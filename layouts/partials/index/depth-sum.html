@@ -1,0 +1,4 @@
+{{- /* The years of record above a limb: the sum of its places' known depths. */ -}}
+{{- $sum := 0.0 -}}
+{{- range . }}{{ with .depth }}{{ $sum = add $sum . }}{{ end }}{{ end -}}
+{{- return $sum -}}

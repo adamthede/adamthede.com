@@ -1,0 +1,14 @@
+{{- /* A pencil limb from a to b: one cubic, its handles nudged by a seeded wobble (the mockup's f_curve).
+       dict: a, b (slices of x y), seed. */ -}}
+{{- $x0 := index .a 0 }}{{ $y0 := index .a 1 }}{{ $x1 := index .b 0 }}{{ $y1 := index .b 1 -}}
+{{- $s := float .seed -}}
+{{- $w0 := mul 2.2 (math.Sin (mul $s 12.9898)) (math.Cos (mul $s 78.233)) -}}
+{{- $s1 := add $s 1.0 -}}
+{{- $w1 := mul 2.2 (math.Sin (mul $s1 12.9898)) (math.Cos (mul $s1 78.233)) -}}
+{{- $dx := sub $x1 $x0 -}}
+{{- $f := "index/f1.html" -}}
+{{- return printf "M%s %s C%s %s %s %s %s %s"
+    (partial $f $x0) (partial $f $y0)
+    (partial $f (add $x0 (mul $dx 0.5))) (partial $f (add $y0 $w0))
+    (partial $f (sub $x1 (mul $dx 0.5))) (partial $f (add $y1 $w1))
+    (partial $f $x1) (partial $f $y1) -}}

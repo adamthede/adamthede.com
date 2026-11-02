@@ -1,0 +1,138 @@
+{{- /* The index drawer's behavior: open and close, keep focus inside while open, and light a place.
+       Taken from the approved mockup's scripts for drawer F, without its demo states (#open, #open-lit). */ -}}
+<script>
+(function () {
+  var trigger = document.getElementById('ixTrigger');
+  var drawer = document.getElementById('ixDrawer');
+  var scrim = document.getElementById('ixScrim');
+  if (!trigger || !drawer || !scrim) return;
+  var label = trigger.querySelector('.ix-trigger-label');
+  var arrow = trigger.querySelector('.ix-trigger-arrow');
+  var TRIGGER_NAME = trigger.getAttribute('aria-label');
+  var FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  /* ---------- open, close, and keep focus inside ---------- */
+  function isOpen() { return drawer.dataset.open === 'true'; }
+  function focusables() {
+    var inside = Array.prototype.slice.call(drawer.querySelectorAll(FOCUSABLE)).filter(function (el) {
+      return el.getClientRects().length > 0;   /* skip the tree drawn for the other width */
+    });
+    return [trigger].concat(inside);
+  }
+  /* everything else on the page goes inert while the drawer is open */
+  function setInert(on) {
+    Array.prototype.forEach.call(document.body.children, function (el) {
+      if (el === drawer || el === trigger || el === scrim || el.tagName === 'SCRIPT') return;
+      if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+  }
+  function open() {
+    if (isOpen()) return;
+    drawer.dataset.open = 'true';
+    scrim.dataset.open = 'true';
+    trigger.setAttribute('aria-expanded', 'true');
+    label.textContent = 'Close';
+    arrow.textContent = '↑';
+    trigger.setAttribute('aria-label', 'Close index');
+    document.documentElement.classList.add('ix-locked');
+    setInert(true);
+    drawer.scrollTop = 0;
+    drawer.focus({ preventScroll: true });
+  }
+  function close() {
+    if (!isOpen()) return;
+    drawer.dataset.open = 'false';
+    scrim.dataset.open = 'false';
+    trigger.setAttribute('aria-expanded', 'false');
+    label.textContent = 'Index';
+    arrow.textContent = '↓';
+    trigger.setAttribute('aria-label', TRIGGER_NAME);
+    document.documentElement.classList.remove('ix-locked');
+    setInert(false);
+    reset();
+    trigger.focus({ preventScroll: true });
+  }
+  trigger.addEventListener('click', function () { isOpen() ? close() : open(); });
+  scrim.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key !== 'Tab') return;
+    var f = focusables(), first = f[0], last = f[f.length - 1], a = document.activeElement;
+    var inside = a === trigger || drawer.contains(a);
+    if (!inside) { e.preventDefault(); first.focus(); return; }
+    if (e.shiftKey && (a === first || a === drawer)) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && a === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* ---------- point at a place: light its twigs back to the root, its family edition with it,
+                and open the card beside the leaf ---------- */
+  var map = document.getElementById('ixMap');
+  var card = drawer.querySelector('.ixn-card');
+  var page = drawer.querySelector('.ixn-desk');
+  var src = {};
+  Array.prototype.forEach.call(drawer.querySelectorAll('[data-k][data-name]'), function (el) {
+    if (!src[el.dataset.k] || el.getClientRects().length) src[el.dataset.k] = el;
+  });
+  var cur = null;
+  var lit = [];
+  function all(sel, fn) { Array.prototype.forEach.call(drawer.querySelectorAll(sel), fn); }
+  function q(sel) { return card ? card.querySelector(sel) : null; }
+  function reset() {
+    if (!cur) return;
+    var s = src[cur];
+    all('[data-k="' + cur + '"]', function (el) { el.classList.remove('is-on'); });
+    if (s && s.dataset.pair) all('[data-k="' + s.dataset.pair + '"]', function (el) { el.classList.remove('is-pair'); });
+    lit.forEach(function (el) { el.classList.remove('is-on', 'is-pair'); });
+    lit = [];
+    if (map) map.classList.remove('is-lit');
+    if (card) card.classList.remove('is-live', 'has-pair');
+    cur = null;
+  }
+  function light(k) {
+    if (k === cur) return;
+    reset();
+    var s = src[k];
+    if (!s) return;
+    cur = k;
+    all('[data-k="' + k + '"]', function (el) { el.classList.add('is-on'); });
+    if (s.dataset.pair) all('[data-k="' + s.dataset.pair + '"]', function (el) { el.classList.add('is-pair'); });
+    all('[data-via~="' + k + '"]', function (el) { el.classList.add('is-on'); lit.push(el); });
+    if (s.dataset.pair) all('[data-via~="' + s.dataset.pair + '"]', function (el) { el.classList.add('is-pair'); lit.push(el); });
+    if (map) map.classList.add('is-lit');
+    if (!card) return;
+    q('.ixr-host').textContent = s.dataset.host;
+    q('.ixr-name').textContent = s.dataset.name;
+    q('.ixr-line').textContent = s.dataset.line;
+    q('.ixr-who').textContent = s.dataset.who;
+    q('.ixr-opens').textContent = s.dataset.opens;
+    q('.ixr-rec').textContent = s.dataset.rec;
+    if (s.dataset.pair) {
+      q('.ixr-pairrel').textContent = s.dataset.pairRel;
+      q('.ixr-pair').textContent = s.dataset.pairName;
+      card.classList.add('has-pair');
+    } else card.classList.remove('has-pair');
+    card.classList.add('is-live');
+    /* the card opens beside the leaf, the way the influences shelf opens its cards */
+    if (!page || !page.getClientRects().length) return;
+    var leaf = page.querySelector('.ixn-lf[data-k="' + k + '"]');
+    if (!leaf) return;
+    var pr = page.getBoundingClientRect(), lr = leaf.getBoundingClientRect();
+    var top = lr.top - pr.top - 24;
+    top = Math.max(0, Math.min(top, pr.height - card.offsetHeight));
+    card.style.top = top + 'px';
+  }
+  function keyOf(t) { var el = t && t.closest ? t.closest('[data-k]') : null; return el && map && map.contains(el) ? el.dataset.k : null; }
+  if (map) {
+    map.addEventListener('pointerover', function (e) { var k = keyOf(e.target); if (k) light(k); });
+    map.addEventListener('pointerout', function (e) {
+      if (keyOf(e.relatedTarget)) return;
+      var f = keyOf(document.activeElement);
+      if (f) light(f); else reset();
+    });
+    map.addEventListener('focusin', function (e) { var k = keyOf(e.target); if (k) light(k); else reset(); });
+    map.addEventListener('focusout', function (e) { if (!keyOf(e.relatedTarget)) reset(); });
+  }
+})();
+</script>
+{{- /**/ -}}

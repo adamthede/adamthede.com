@@ -1,0 +1,5 @@
+{{- /* A limb's thickness: F_C * scale * sqrt(years), at least 0.9, so a parent's square is the sum of
+       its children's (Leonardo's rule). dict: y (years, or -1 when unknown), scale. Returns -1 when unknown. */ -}}
+{{- $t := -1.0 -}}
+{{- if ge .y 0.0 }}{{ $t = math.Max 0.9 (mul 1.12 .scale (math.Sqrt (math.Max .y 0.0))) }}{{ end -}}
+{{- return $t -}}

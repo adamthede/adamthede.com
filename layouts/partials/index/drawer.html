@@ -1,0 +1,23 @@
+{{- /*
+  The index drawer on the home page: drawer F, the notebook tree (chosen 2026-11-01, adamthede.com PR #5).
+  The trigger sits at the top center of the window. Without JavaScript it is a link to /index/.
+  Fed from data/index.yaml through the model; every count here is computed.
+*/ -}}
+{{- $m := partialCached "index/model.html" . -}}
+{{- $page := "/index/" -}}
+<button class="ix-trigger" id="ixTrigger" type="button" aria-expanded="false" aria-controls="ixDrawer" aria-label="Index, {{ $m.nAll }} places"><span class="ix-trigger-label">Index</span><span class="ix-trigger-count" aria-hidden="true">{{ $m.nAll }}</span><span class="ix-trigger-arrow" aria-hidden="true">↓</span></button>
+<noscript><style>#ixTrigger { display: none; }</style><a class="ix-trigger ix-trigger-link" href="{{ $page }}">Index <span class="ix-trigger-count">{{ $m.nAll }}</span></a></noscript>
+<div class="ix-scrim" id="ixScrim" data-open="false"></div>
+<div class="ix-drawer ix-f ix-map" id="ixDrawer" role="dialog" aria-labelledby="ixTitle" data-open="false" tabindex="-1">
+  <div class="ix-inner">
+    <header class="ix-head">
+      <div class="ix-kicker">Index</div>
+      <h2 id="ixTitle">Everywhere you can go from here.</h2>
+      <p class="ix-counts"><span><b>{{ $m.nAll }}</b> places</span><span><b>{{ $m.nOpen }}</b> open to anyone</span><span><b>{{ $m.nFamily }}</b> for family</span></p>
+      <nav class="ix-jump" aria-label="Jump to a group">{{ range $m.groups }}<a href="#ix-g-{{ .id }}"{{ if eq .access "family" }} class="is-fam"{{ end }}>{{ .label }}</a>{{ end }}</nav>
+    </header>
+    <div class="ix-body ixm ixn" id="ixMap"><div class="ixn-page ixn-desk">{{ partial "index/tree-desk.html" $m }}</div><div class="ixn-page ixn-phone">{{ partial "index/tree-phone.html" $m }}</div></div>
+    <footer class="ix-foot"><a href="{{ $page }}">The same list as a page, at adamthede.com/index/</a><span class="ix-keys">Esc closes</span></footer>
+  </div>
+</div>
+{{- /**/ -}}

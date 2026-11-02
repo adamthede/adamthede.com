@@ -1,0 +1,230 @@
+{{- /* The index drawer and the footer list, styled on the home page's own tokens (layouts/index.html).
+       Taken from the approved mockup's CSS for drawer F, with the other variants' rules removed. */ -}}
+<style>
+  /* ====================== INDEX: trigger, scrim, drawer ====================== */
+  .ix-trigger {
+    position: fixed; top: 13px; left: 50%; transform: translateX(-50%);
+    z-index: 89;
+    display: inline-flex; align-items: baseline; gap: 0.6em;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    background: var(--paper);
+    border: 1px solid var(--ink-soft);
+    padding: 0.42rem 0.8rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .ix-trigger:hover, .ix-trigger[aria-expanded="true"] { border-color: var(--accent-deep); color: var(--accent-deep); }
+  .ix-trigger-count { color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .ix-trigger-arrow { color: var(--ink-soft); }
+  .ix-trigger[aria-expanded="true"] .ix-trigger-count { display: none; }
+  .ix-trigger:focus-visible, .ix-drawer a:focus-visible, .ixf a:focus-visible {
+    outline: 2px solid var(--accent-deep); outline-offset: 3px;
+  }
+  noscript .ix-trigger-link { display: inline-flex; }
+  html.ix-locked { overflow: hidden; }
+
+  .ix-scrim {
+    position: fixed; inset: 0; z-index: 87;
+    background: color-mix(in srgb, var(--paper-deep) 74%, transparent);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .ix-scrim[data-open="true"] { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+
+  .ix-drawer {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 88;
+    max-height: 100vh; max-height: 100dvh;
+    overflow-y: auto; overscroll-behavior: contain;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    transform: translateY(-101%);
+    visibility: hidden;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.55s;
+  }
+  .ix-drawer[data-open="true"] {
+    transform: none; visibility: visible;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+  }
+  .ix-drawer:focus { outline: none; }
+  .ix-inner { max-width: 1240px; margin: 0 auto; padding: 3.9rem 3rem 1.4rem; }
+
+  .ix-head {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: baseline;
+    gap: 0.4rem 2rem;
+    padding-bottom: 1.1rem; margin-bottom: 1.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ix-kicker {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  .ix-head h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.005em; }
+  .ix-counts {
+    display: flex; gap: 1.1rem; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ix-counts b { color: var(--accent-deep); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  .ix-n { color: var(--accent-deep); font-variant-numeric: tabular-nums; letter-spacing: 0.1em; }
+  .ix-note {
+    display: flex; align-items: center; gap: 0.45em;
+    margin-top: 0.5rem;
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .ix-note .ix-lock { color: var(--accent-deep); }
+  .ix-lock { width: 0.78em; height: 0.92em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; vertical-align: -0.08em; }
+  .ix-hand {
+    font-family: var(--hand); font-size: 1.25rem; line-height: 1.2;
+    color: #6f6350; transform: rotate(-1.2deg);
+    margin-top: 0.45rem; break-after: avoid;
+  }
+  html[data-theme="dark"] .ix-hand { color: #b5a78c; }
+
+  .ix-ext { color: var(--accent-deep); }
+
+  .ix-jump { display: none; }
+  .ix-foot {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    margin-top: 1.2rem; padding-top: 0.9rem;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ix-foot a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-deep); text-underline-offset: 0.3em; }
+  .ix-foot a:hover { color: var(--accent-deep); }
+
+  /* ====================== INDEX, FOOTER LIST ====================== */
+  .ixf { border-top: 1px solid var(--rule); padding: 3.2rem 1.5rem 2.6rem; }
+  .ixf-inner { max-width: 1100px; margin: 0 auto; }
+  .ixf-title {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent-deep); text-align: center; margin-bottom: 2rem;
+  }
+  .ixf-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
+  .ixf h3 {
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 0.45rem; margin-bottom: 0.7rem;
+  }
+  .ixf h3 span { color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .ixf-note { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); margin: -0.2rem 0 0.6rem; }
+  .ixf ul { list-style: none; }
+  .ixf li + li { margin-top: 0.38rem; }
+  .ixf li a {
+    display: inline-flex; align-items: baseline; gap: 0.4em;
+    font-size: 1.02rem; line-height: 1.3; color: var(--ink); text-decoration: none;
+  }
+  .ixf li a:hover { color: var(--accent-deep); }
+  .ixf li a .ix-lock { color: var(--ink-soft); }
+  .ixf .ix-ext { font-family: var(--mono); font-size: 0.62rem; }
+  .ixf-more {
+    margin-top: 2rem; text-align: center;
+    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .ixf-more a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-deep); text-underline-offset: 0.3em; }
+
+  @media (max-width: 880px) {
+    .ix-trigger { top: 0.8rem; font-size: 0.56rem; padding: 0.35rem 0.6rem; }
+    .ixf-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  /* phone: the two corner chips are inside the index, so only the résumé chip stays */
+  @media (max-width: 560px) {
+    .corner-nav a:first-child { display: none; }
+  }
+  @media (max-width: 720px) {
+    .ix-drawer { bottom: 0; max-height: none; height: 100vh; height: 100dvh; border-bottom: 0; }
+    /* a paper band under the Close chip, so the sheet scrolls behind it cleanly */
+    .ix-drawer::before { content: ''; display: block; position: sticky; top: 0; z-index: 4; height: 3.2rem; margin-bottom: -3.2rem; background: var(--paper); }
+    .ix-inner { padding: 3.6rem 16px 1.4rem; }
+    .ix-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .ix-jump a { color: var(--ink); text-decoration: none; border: 1px solid var(--rule); background: var(--chip); padding: 0.45rem 0.6rem; }
+    .ix-jump a.is-fam { border-color: var(--accent-deep); color: var(--accent-deep); }
+    .ix-head { grid-template-columns: 1fr; gap: 0.5rem; }
+    .ixf { padding: 2.6rem 16px 2rem; }
+    .ixf-cols { gap: 1.6rem 1.2rem; }
+  }
+  @media (max-width: 400px) {
+    .ixf-cols { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ix-drawer, .ix-drawer[data-open="true"], .ix-scrim, .ix-scrim[data-open="true"] { transition: none; }
+    .ix-trigger { transition: none; }
+  }
+
+  /* ---------- the tree's shared parts: the gate and the card ---------- */
+  .ix-map .ix-head { margin-bottom: 0.9rem; padding-bottom: 0.8rem; }
+  /* the gate, the same mark and words in every map variant */
+  .gate .gate-cut { fill: var(--paper); stroke: none; }
+  .gate line { stroke: var(--ink); stroke-width: 1.6; }
+  .ix-gate { z-index: 3; background: var(--paper); padding: 0.3rem 0.5rem 0.25rem 0.45rem; border-left: 2px solid var(--ink); line-height: 1.2; white-space: nowrap; }
+  .ix-gate-head { display: flex; align-items: baseline; gap: 0.45em; font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink); }
+  .ix-gate-head .ix-lock { color: var(--accent-deep); align-self: center; }
+  .ix-gate .ix-note { margin-top: 0.15rem; }
+  .ix-gate .ix-hand { margin-top: 0.1rem; font-size: 1.12rem; }
+  .ixr { min-height: 4.4rem; padding: 0.7rem 0.2rem 0.4rem; font-family: var(--mono); }
+  .ixr-live { display: none; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; }
+  .ixr.is-live .ixr-live { display: grid; }
+  .ixr-host { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--accent-deep); overflow-wrap: anywhere; }
+  .ixr-name { margin-top: 0.25rem; font-family: var(--serif); font-size: 1.4rem; font-weight: 500; line-height: 1.1; color: var(--ink); }
+  .ixr-line { font-family: var(--serif); font-size: 1rem; line-height: 1.4; color: var(--ink-soft); padding-top: 0.1rem; }
+  .ixr-facts div { display: grid; grid-template-columns: 6.6rem 1fr; gap: 0.5rem; padding: 0.12rem 0; }
+  .ixr-facts dt { font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); padding-top: 0.08rem; }
+  .ixr-facts dd { font-size: 0.66rem; letter-spacing: 0.03em; color: var(--ink); overflow-wrap: anywhere; }
+  .ixr-pairrow { display: none !important; }
+  .ixr.has-pair .ixr-pairrow { display: grid !important; }
+  .ixr-pair { color: var(--accent-deep) !important; }
+  .ix-map .ix-foot { margin-top: 0.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .ixm * { transition: none !important; }
+  }
+
+  /* ---------- variant F: the notebook tree ---------- */
+  .ixn-page { position: relative; line-height: 0; }
+  .ixn-phone { display: none; }
+  .ixn-tree { width: 100%; height: auto; display: block; overflow: visible; }
+  .ixn-tw { fill: none; stroke: #4d4f56; stroke-linecap: round; opacity: 0.92; transition: stroke 0.2s; }
+  html[data-theme="dark"] .ixn-tw { stroke: #bdb5a8; }
+  .ixn-tw.unk { stroke-width: 1.3; stroke-dasharray: 1.2 4; }
+  .ixn-tw2 { fill: none; stroke: var(--paper); stroke-linecap: round; opacity: 0.32; pointer-events: none; }
+  .ixn-tw.is-on, .ixn-tw.is-pair { stroke: var(--accent-deep); opacity: 1; }
+  .ixn-knot { fill: var(--paper); stroke: #4d4f56; stroke-width: 1.2; }
+  html[data-theme="dark"] .ixn-knot { stroke: #bdb5a8; }
+  .ixn-leaf { fill: var(--paper); stroke: #4d4f56; stroke-width: 1.1; }
+  html[data-theme="dark"] .ixn-leaf { stroke: #bdb5a8; }
+  .ixn-root { fill: #4d4f56; }
+  html[data-theme="dark"] .ixn-root { fill: #bdb5a8; }
+  .ixn-name { font-family: var(--hand); font-size: 18.5px; fill: #3b3d44; }
+  html[data-theme="dark"] .ixn-name { fill: #d6cfc2; }
+  .ixn-name.big { font-size: 22px; font-weight: 600; }
+  .ixn-yr { font-size: 14px; fill: #7a7468; }
+  html[data-theme="dark"] .ixn-yr { fill: #9d9588; }
+  .ixn-yah { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; fill: var(--accent-deep); }
+  .ixn-date { font-family: var(--hand); font-size: 19px; fill: #6f6350; }
+  .ixn-think { font-family: var(--hand); font-size: 38px; font-weight: 600; fill: #4d4f56; }
+  html[data-theme="dark"] .ixn-date { fill: #b5a78c; }
+  html[data-theme="dark"] .ixn-think { fill: #d6cfc2; }
+  .ixn-lf { cursor: pointer; scroll-margin-top: 4.5rem; }
+  .ixn-lf:focus { outline: none; }
+  .ixn-lf:hover .ixn-name, .ixn-lf.is-on .ixn-name, .ixn-lf.is-pair .ixn-name, .ixn-lf:focus-visible .ixn-name { fill: var(--accent-deep); }
+  .ixn-lf:focus-visible .ixn-name { text-decoration: underline; }
+  .ixn-lf.is-on .ixn-leaf, .ixn-lf.is-pair .ixn-leaf, .ixn-lf:focus-visible .ixn-leaf { stroke: var(--accent-deep); fill: rgba(255,143,59,0.25); }
+  .ixn-gate { position: absolute; }
+  /* the card, opened beside the leaf the way the influences shelf opens its cards */
+  .ixn-card { position: absolute; right: 0; width: 290px; min-height: 0; padding: 0.9rem 1rem 0.8rem; background: var(--paper); border: 1px solid var(--ink-soft); line-height: normal; opacity: 0; visibility: hidden; transition: opacity 0.15s; z-index: 4; }
+  .ixn-card.is-live { opacity: 1; visibility: visible; }
+  .ixn-card.is-live .ixr-live { display: block; }
+  .ixn-kick { font-size: 0.58rem; letter-spacing: 0.08em; }
+  .ixn-card .ixr-name { font-size: 1.5rem; margin-top: 0.3rem; }
+  .ixn-card .ixr-line { margin-top: 0.35rem; font-style: italic; }
+  .ixn-card .ixr-facts { margin-top: 0.55rem; border-top: 1px solid var(--rule); padding-top: 0.45rem; }
+  .ixn-card .ixr-facts div { display: grid; grid-template-columns: 5.4rem 1fr; }
+  @media (max-width: 720px) {
+    .ixn-desk { display: none; }
+    .ixn-phone { display: block; }
+    .ixn-gate { white-space: normal; max-width: 72%; }
+  }
+</style>
+{{- /**/ -}}

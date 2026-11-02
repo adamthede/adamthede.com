@@ -1,0 +1,11 @@
+{{- /* A count as a word, for the plain page's standfirst: 21 is "Twenty-one". */ -}}
+{{- $n := int . -}}
+{{- $ones := slice "Zero" "One" "Two" "Three" "Four" "Five" "Six" "Seven" "Eight" "Nine" "Ten" "Eleven" "Twelve" "Thirteen" "Fourteen" "Fifteen" "Sixteen" "Seventeen" "Eighteen" "Nineteen" -}}
+{{- $tens := slice "" "" "Twenty" "Thirty" "Forty" "Fifty" "Sixty" "Seventy" "Eighty" "Ninety" -}}
+{{- $w := string $n -}}
+{{- if lt $n 20 }}{{ $w = index $ones $n }}
+{{- else if lt $n 100 -}}
+  {{- $w = index $tens (div $n 10) -}}
+  {{- with mod $n 10 }}{{ $w = printf "%s-%s" $w (lower (index $ones .)) }}{{ end -}}
+{{- end -}}
+{{- return $w -}}

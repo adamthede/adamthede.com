@@ -1,0 +1,21 @@
+{{- /* The same index at the foot of the home page: names only, between the signature and the colophon. */ -}}
+{{- $m := partialCached "index/model.html" . -}}
+<nav class="ixf" id="places" aria-labelledby="ixfTitle">
+  <div class="ixf-inner">
+    <div class="ixf-title" id="ixfTitle">The index</div>
+    <div class="ixf-cols">
+      {{- range $g := $m.groups -}}
+      {{- $xs := where $m.entries "gid" $g.id -}}
+      <div class="ixf-col"><h3>{{ $g.label }} <span>{{ printf "%02d" (len $xs) }}</span></h3>
+        {{- with $g.note }}<p class="ixf-note" id="ix-note-{{ $g.id }}-f">{{ . }}</p>{{ end -}}
+        <ul>
+          {{- range $xs -}}
+          <li><a href="{{ .url }}"{{ if .newtab }} target="_blank" rel="noopener"{{ end }}{{ if .here }} aria-current="page"{{ end }}{{ if and .fam $g.note }} aria-describedby="ix-note-{{ $g.id }}-f"{{ end }}>{{ if .fam }}{{ partial "index/lock.html" . }}{{ end }}<span>{{ .name }}</span>{{ if .newtab }}<span class="ix-ext" aria-hidden="true"> ↗</span>{{ end }}</a></li>
+          {{- end -}}
+        </ul></div>
+      {{- end -}}
+    </div>
+    <p class="ixf-more"><a href="/index/">Every place with a line about it, on one page</a></p>
+  </div>
+</nav>
+{{- /**/ -}}

@@ -1,0 +1,19 @@
+{{- /* A place on the tree: a link carrying what the card reads out. A leaf with its hand-lettered name,
+       or, for the place you are standing on, the root.
+       dict: e (the place), x, y (the leaf's point), suffix (the family note id's suffix: "" or "-p"),
+       jid (an anchor for the phone's jump chips, or ""), root (true for the root),
+       nx, ny, yy (the root's name and "you are here" positions). */ -}}
+{{- $e := .e -}}
+{{- $f := "index/f1.html" -}}
+<a class="ixn-lf{{ if $e.fam }} fam{{ end }}{{ if .root }} here{{ end }}"{{ with .jid }} id="{{ . }}"{{ end }} href="{{ $e.url }}"
+{{- if $e.newtab }} target="_blank" rel="noopener"{{ end }}
+{{- if $e.here }} aria-current="page"{{ end }}
+{{- if $e.fam }} aria-describedby="ix-note-{{ $e.gid }}{{ .suffix }}"{{ end }} data-k="{{ $e.k }}" data-name="{{ $e.name }}" data-line="{{ $e.line }}" data-host="{{ $e.host }}" data-who="{{ $e.who }}" data-opens="{{ $e.opens }}" data-rec="{{ $e.rec }}"
+{{- with $e.pair }} data-pair="{{ . }}" data-pair-rel="{{ $e.pairRel }}" data-pair-name="{{ $e.pairName }}"{{ end }} aria-label="{{ $e.aria }}" data-ly="{{ partial $f .y }}">
+{{- if .root -}}
+<circle class="ixn-root" cx="{{ partial $f .x }}" cy="{{ partial $f .y }}" r="5"/><text class="ixn-name big" x="{{ partial $f .nx }}" y="{{ partial $f .ny }}">{{ $e.name }}</text><text class="ixn-yah" x="{{ partial $f .nx }}" y="{{ partial $f .yy }}">you are here, {{ $e.yr }}</text>
+{{- else -}}
+<path class="ixn-leaf" d="M{{ partial $f (sub .x 6) }} {{ partial $f .y }} q 6 -5.5 12 0 q -6 5.5 -12 0 z"/><text class="ixn-name" x="{{ partial $f (add .x 10) }}" y="{{ partial $f (add .y 5) }}">{{ $e.name }}{{ if $e.newtab }} ↗{{ end }}<tspan class="ixn-yr" dx="7">{{ $e.yr }}</tspan></text>
+{{- end -}}
+</a>
+{{- /**/ -}}

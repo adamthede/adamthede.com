@@ -1,0 +1,159 @@
+# The adamthede.com index: every place the site points at, in one file.
+# Approved as drawer F, the notebook tree, on 2026-11-01 (mockup: adamthede.com PR #5).
+#
+# One file feeds three renderings, and every count on the page is computed from it:
+#   - the drawer at the top of the home page (layouts/partials/index/drawer.html),
+#     which draws the notebook tree from these entries,
+#   - the plain page at /index/ (content/places.md, layouts/_default/places.html),
+#   - the list at the foot of the home page (layouts/partials/index/footer-list.html).
+# File order is display order on the plain page and in the footer list.
+# The tree orders each limb by `since`, oldest first, so the limbs taper as they go,
+# and draws the family limb first on a phone.
+# Adding a place is an entry here. Adding a group also works, but the tree's
+# branch positions are tuned for three open groups and one family group.
+#
+# groups[]
+#   id        stable key, used for anchors (/index/#family)
+#   label     the heading a reader sees, named for what the reader wants
+#   access    public | family. A family group renders the lock mark and the note
+#   note      one line under the heading, optional
+#   opens     here | new-tab. Elsewhere opens a new tab and carries the arrow
+# entries[]
+#   name      what the place is called
+#   line      one plain line that says what the page is, never what is in it
+#   url       the full address
+#   id        optional stable key, needed only when another entry points at it
+#   edition_of  family entries only, optional: the id of the public record this
+#               page is the full family edition of. The tree draws the pair as
+#               twigs that touch, and pointing at one lights both
+#   since     the first year the record covers, as a decimal year. Values copied
+#             from data.adamthede.com keep its twelfths (September 2013 is 2013.7).
+#             Values read from a dated source are that day's fraction of its year
+#             (6 July 2011 is 2011.51). Every value is read from the source named
+#             in its comment, never estimated.
+#             `~` means no file states it, and the tree draws that place as
+#             unknown: a dotted twig, with no thickness claim.
+#   until     only on a record that has ended: its last year, in the same form.
+#             Without it a record is still being kept, and its depth runs to the
+#             build date. Depth in years, (until or the build date) minus since,
+#             sets the thickness of the twig: thickness squared is proportional
+#             to the years, and a limb's square is the sum of its twigs'.
+
+groups:
+  - id: read
+    label: Read
+    access: public
+    opens: here
+    entries:
+      - name: A life, measured in seconds
+        line: "The portrait: a century of family letters down to one second."
+        url: https://adamthede.com/
+        since: 1910       # layouts/index.html, the film's first scene: "In 1910, my great-grandparents - Emil and Ella - began writing letters"
+      - name: Résumé
+        line: Experience and qualifications, on one page.
+        url: https://adamthede.com/resume/
+        since: 2002       # content/resume.md, the first dated role: Lehman Brothers, 2002 to 2007
+      - name: The influences shelf
+        line: What I learned to see from, drawn as two bookcases.
+        url: https://data.adamthede.com/influences/
+        since: 2026.73    # data-adamthede data/index.yaml, unlisted row influences, built 2026-09-23. Its subject runs from about 170 to 2020, which is not a span of this record
+
+  - id: data
+    label: Look at the data
+    access: public
+    opens: here
+    entries:
+      - name: The coverage map
+        line: Every public record of my life, on one axis of years.
+        url: https://data.adamthede.com/
+        since: 1995.0     # data-adamthede site/generate.py, PRACTICE_START: the axis every record is drawn on begins in 1995
+      - id: viewing
+        name: A Viewing Life
+        line: Screenings, from a hand-kept diary to Trakt.
+        url: https://data.adamthede.com/viewing/
+        since: 1995.5     # data-adamthede data/index.yaml, viewing span_start
+      - id: books
+        name: The Reading Life
+        line: Books finished, merged from every place I logged them.
+        url: https://data.adamthede.com/books/
+        since: 1999.75    # data-adamthede data/index.yaml, books span_start
+      - id: reading
+        name: The Week in Reading
+        line: Articles read, first in Instapaper, then Matter.
+        url: https://data.adamthede.com/reading/
+        since: 2005.0     # data-adamthede data/index.yaml, reading span_start
+      - name: What I meant to read
+        line: Articles saved and never opened.
+        url: https://data.adamthede.com/meant-to-read/
+        since: 2011.07    # data-adamthede data/index.yaml, meant-to-read span_start (its own row, not Reading's)
+      - name: The B1 Years
+        line: Two years of physiology from one wrist band.
+        url: https://data.adamthede.com/b1/
+        since: 2013.7     # data-adamthede data/index.yaml, b1 span_start
+        until: 2015.55    # same row, span_end
+      - name: One Year of Office
+        line: A year of readings from a sensor on a shelf.
+        url: https://data.adamthede.com/office/
+        since: 2025.27    # data-adamthede data/index.yaml, office span_start
+        until: 2026.31    # same row, span_end
+      - name: Chicago River Elevations
+        line: The river's buildings, drawn to height from one cruise.
+        url: https://data.adamthede.com/chicago-river/
+        since: 2026.5     # data-adamthede data/index.yaml, river span_start
+        until: 2026.5     # same row, span_end: one cruise, one day
+
+  - id: family
+    label: Family
+    access: family
+    note: Sign in by email code
+    opens: here
+    entries:
+      - name: The Big Letter
+        line: My monthly family letter, every issue.
+        url: https://bigletter.adamthede.com/
+        since: 2026.17    # the Big Letter site's own content/issues: the first issue it publishes is March 2026
+      - name: The letters archive
+        line: The family letters, read by year, person and place.
+        url: https://letters.adamthede.com/
+        since: 1979       # the letters reader's own README and ROADMAP: 47 years of letters, 1979 to 2025. The 1910 letters on the home page are a separate book and are not on this site. No until: the letter is annual and still written, so its depth runs to today
+      - name: The anniversary pages
+        line: Keepsakes made for a family anniversary.
+        url: https://anniversary.adamthede.com/
+        since: ~          # the hub's own README says it gathers keepsakes mined from the letters corpus for a family anniversary in 2026, but not which years its pages cover, so the span stays unknown
+      - name: The viewing diary
+        line: The full diary behind A Viewing Life.
+        url: https://viewing.adamthede.com/
+        since: 1995.5     # the diary's own records_enriched.json: the first entry is 1 July 1995
+        edition_of: viewing
+      - name: The book record
+        line: The full record behind The Reading Life.
+        url: https://books.adamthede.com/
+        since: 1999.9     # the book record's reading-life/README.md: the hand-kept log opens 26 November 1999
+        edition_of: books
+      - name: The article archive
+        line: The searchable archive behind The Week in Reading.
+        url: https://reading.adamthede.com/
+        since: 2005.06    # the archive's own 2026-08-12 audit: its honest span opens 24 January 2005
+        edition_of: reading
+
+  - id: elsewhere
+    label: Elsewhere
+    access: public
+    opens: new-tab
+    entries:
+      - name: Thede Technologies
+        line: My company, its products and the essays.
+        url: https://thedetech.com/
+        since: 2011.51    # thedetech data/about.yaml: the name's first use, 6 July 2011. The LLC followed on 18 February 2026
+      - name: Tractor and Silo
+        line: The app I build to keep a life's record.
+        url: https://tractorandsilo.com/
+        since: 2016.14    # thedetech data/about.yaml: silo's first commit, 22 February 2016
+      - name: LinkedIn
+        line: My professional profile.
+        url: https://linkedin.com/in/adamthede
+        since: ~          # no file states when the profile began
+      - name: GitHub
+        line: My code, where it is public.
+        url: https://github.com/adamthede
+        since: 2013.49    # the GitHub API, users/adamthede created_at: 30 June 2013
