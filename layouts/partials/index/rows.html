@@ -1,0 +1,34 @@
+{{- /*
+  The tree's rows, from the model (the mockup's f_rows):
+    here     the place you are standing on, drawn as the root
+    blocks   the open groups top to bottom on a desktop, each a dict gid and xs (its places by since,
+             oldest first, unknown last). A group whose records have family editions sits last,
+             next to the family limb; the rest run in reverse file order.
+    zone     where the two limbs meet: each public record that has a family edition, then that edition
+    famRest  the family places without a public record, by since
+*/ -}}
+{{- $m := . -}}
+{{- $here := dict -}}
+{{- $byk := newScratch -}}
+{{- range $m.entries }}{{ if .here }}{{ $here = . }}{{ end }}{{ $byk.Set .k . }}{{ end -}}
+{{- $plain := slice -}}
+{{- $paired := slice -}}
+{{- $n := len $m.groups -}}
+{{- range $j := seq $n -}}
+  {{- $g := index $m.groups (sub $n $j) -}}
+  {{- if ne $g.access "family" -}}
+    {{- $xs := where (where $m.entries "gid" $g.id) "here" false -}}
+    {{- $own := sort (where $xs "pair" "") "sortKey" -}}
+    {{- $b := dict "gid" $g.id "xs" $own -}}
+    {{- if lt (len $own) (len $xs) }}{{ $paired = $paired | append $b }}{{ else }}{{ $plain = $plain | append $b }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- $blocks := $plain -}}
+{{- range $paired }}{{ $blocks = $blocks | append . }}{{ end -}}
+{{- $zone := slice -}}
+{{- range sort (where (where $m.entries "fam" false) "pair" "ne" "") "sortKey" -}}
+  {{- $zone = $zone | append . -}}
+  {{- $zone = $zone | append ($byk.Get .pair) -}}
+{{- end -}}
+{{- $famRest := sort (where (where $m.entries "fam" true) "pair" "") "sortKey" -}}
+{{- return dict "here" $here "blocks" $blocks "zone" $zone "famRest" $famRest "byk" $byk -}}

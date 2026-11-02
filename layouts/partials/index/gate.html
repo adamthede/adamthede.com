@@ -1,0 +1,4 @@
+{{- /* The family gate's words, set beside the two bars the tree draws across the family limb.
+       dict: fam (the family group), n (its count), left, top (percent of the tree's box), suffix. */ -}}
+<div class="ix-gate ixn-gate" style="left:{{ printf "%.2f" .left }}%;top:{{ printf "%.2f" .top }}%"><p class="ix-gate-head">{{ partial "index/lock.html" . }}<span>{{ .fam.label }}</span><span class="ix-n">{{ printf "%02d" .n }}</span></p><p class="ix-note" id="ix-note-{{ .fam.id }}{{ .suffix }}">{{ .fam.note }}</p><p class="ix-hand">No code? Ask me to add your email.</p></div>
+{{- /**/ -}}

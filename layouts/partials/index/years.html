@@ -1,0 +1,9 @@
+{{- /* A record's depth in years, as the card and the plain page say it. */ -}}
+{{- $d := float . -}}
+{{- $s := "" -}}
+{{- if lt $d 0.95 }}{{ $s = "under a year" }}
+{{- else if lt $d 1.15 }}{{ $s = "a year" }}
+{{- else if lt $d 2.0 }}{{ $s = printf "%.1f years" $d }}
+{{- else }}{{ $s = printf "%d years" (int (math.Round $d)) }}
+{{- end -}}
+{{- return $s -}}

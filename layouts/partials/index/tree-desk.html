@@ -1,0 +1,138 @@
+{{- /*
+  Drawer F at a desktop: the notebook tree, root at the left, lettered to the right.
+  Ported from the mockup's f_svg (adamthede.com PR #5). Every position is computed from the rows:
+  a leaf's row from its order, a node's height from the mean of the leaves it carries,
+  every thickness from the years of record above it. Nothing is placed per entry.
+  Context: the model (partial "index/model.html").
+*/ -}}
+{{- $m := . -}}
+{{- $r := partial "index/rows.html" $m -}}
+{{- $f := "index/f1.html" -}}
+{{- $W := 1144.0 }}{{ $top := 50.0 }}{{ $rh := 19.6 }}{{ $gap := 9.0 }}{{ $scale := 1.0 -}}
+{{- /* columns: a leaf column and a branch node per open block, top block first */ -}}
+{{- $leafX := slice 506.0 536.0 566.0 }}{{ $nodeX := slice 392.0 420.0 440.0 -}}
+{{- $zoneX := 616.0 }}{{ $famX := 586.0 }}{{ $rootX := 40.0 }}{{ $forkX := 150.0 }}{{ $px := 262.0 }}{{ $qx := 330.0 -}}
+
+{{- /* rows */ -}}
+{{- $posX := newScratch }}{{ $posY := newScratch -}}
+{{- $order := slice -}}
+{{- $y := $top -}}
+{{- $n := 0 -}}
+{{- range $bi, $b := $r.blocks -}}
+  {{- $lx := index $leafX (int (math.Min $bi (sub (len $leafX) 1))) -}}
+  {{- range $b.xs -}}
+    {{- $n = add $n 1 -}}
+    {{- $posX.Set .k (add $lx (mul 10.0 (math.Sin (mul (float $n) 1.9)))) -}}
+    {{- $posY.Set .k $y -}}
+    {{- $order = $order | append . -}}
+    {{- $y = add $y $rh -}}
+  {{- end -}}
+  {{- $y = add $y $gap -}}
+{{- end -}}
+{{- $zoneTop := $y -}}
+{{- range $r.zone -}}
+  {{- $n = add $n 1 -}}
+  {{- $posX.Set .k (add $zoneX 16.0) -}}
+  {{- $posY.Set .k $y -}}
+  {{- $order = $order | append . -}}
+  {{- $y = add $y (mul $rh 0.96) -}}
+{{- end -}}
+{{- $y = add $y $gap -}}
+{{- range $r.famRest -}}
+  {{- $n = add $n 1 -}}
+  {{- $posX.Set .k (add $famX (mul 10.0 (math.Sin (mul (float $n) 1.9)))) -}}
+  {{- $posY.Set .k $y -}}
+  {{- $order = $order | append . -}}
+  {{- $y = add $y $rh -}}
+{{- end -}}
+{{- $H := add $y 6.0 -}}
+
+{{- /* nodes */ -}}
+{{- $zoneMid := $zoneTop -}}
+{{- with $r.zone }}{{ $zoneMid = partial "index/mean-y.html" (dict "xs" . "pos" $posY) }}{{ end -}}
+{{- $root := slice $rootX (sub $zoneMid 30.0) -}}
+{{- $fork := slice $forkX (sub $zoneMid 30.0) -}}
+{{- $zonePub := where $r.zone "fam" false -}}
+{{- $pub := slice -}}
+{{- range $r.blocks }}{{ range .xs }}{{ $pub = $pub | append . }}{{ end }}{{ end -}}
+{{- range $zonePub }}{{ $pub = $pub | append . }}{{ end -}}
+{{- $fam := where $r.zone "fam" true -}}
+{{- range $r.famRest }}{{ $fam = $fam | append . }}{{ end -}}
+{{- $P := slice $px (sub (partial "index/mean-y.html" (dict "xs" $pub "pos" $posY)) 14.0) -}}
+{{- $Q := slice $qx (add (partial "index/mean-y.html" (dict "xs" $fam "pos" $posY)) 10.0) -}}
+{{- $br := newScratch }}{{ $kids := newScratch -}}
+{{- range $bi, $b := $r.blocks -}}
+  {{- $k := $b.xs -}}
+  {{- range where $zonePub "gid" $b.gid }}{{ $k = $k | append . }}{{ end -}}
+  {{- $kids.Set $b.gid $k -}}
+  {{- $br.Set $b.gid (slice (index $nodeX (int (math.Min $bi (sub (len $nodeX) 1)))) (partial "index/mean-y.html" (dict "xs" $k "pos" $posY))) -}}
+{{- end -}}
+{{- $yPub := partial "index/depth-sum.html" $pub -}}
+{{- $yFam := partial "index/depth-sum.html" $fam -}}
+{{- $keysPub := delimit (apply $pub "index" "." "k") " " -}}
+{{- $keysFam := delimit (apply $fam "index" "." "k") " " -}}
+
+<svg class="ixn-tree" viewBox="0 0 {{ partial $f $W }} {{ partial $f $H }}" role="group" aria-label="A tree of every place"><g class="ixn-wood">
+{{- /* the trunk, from the root (you are here) to the fork, then the two limbs */ -}}
+{{- partial "index/limb.html" (dict "a" $root "b" $fork "t" (partial "index/thick.html" (dict "y" (add $yPub $yFam) "scale" $scale)) "keys" (printf "%s %s" $keysPub $keysFam) "seed" 1 "cls" "") -}}
+{{- partial "index/limb.html" (dict "a" $fork "b" $P "t" (partial "index/thick.html" (dict "y" $yPub "scale" $scale)) "keys" $keysPub "seed" 2 "cls" "") -}}
+{{- partial "index/limb.html" (dict "a" $fork "b" $Q "t" (partial "index/thick.html" (dict "y" $yFam "scale" $scale)) "keys" $keysFam "seed" 3 "cls" "fam") -}}
+{{- /* the open limb's branches */ -}}
+{{- $seed := 10 -}}
+{{- range $r.blocks -}}
+  {{- $k := $kids.Get .gid -}}
+  {{- partial "index/limb.html" (dict "a" $P "b" ($br.Get .gid) "t" (partial "index/thick.html" (dict "y" (partial "index/depth-sum.html" $k) "scale" $scale)) "keys" (delimit (apply $k "index" "." "k") " ") "seed" $seed "cls" "") -}}
+  {{- $seed = add $seed 1 -}}
+{{- end -}}
+{{- /* where a public record and its family edition touch */ -}}
+{{- $touch := newScratch -}}
+{{- $knots := slice -}}
+{{- if $r.zone -}}
+  {{- range $j := seq 0 2 (sub (len $r.zone) 1) -}}
+    {{- $a := index $r.zone $j }}{{ $b := index $r.zone (add $j 1) -}}
+    {{- $t := slice (add $zoneX 2.0) (div (add ($posY.Get $a.k) ($posY.Get $b.k)) 2.0) -}}
+    {{- $touch.Set $a.k $t }}{{ $touch.Set $b.k $t -}}
+    {{- $knots = $knots | append (dict "x" (index $t 0) "y" (index $t 1)) -}}
+  {{- end -}}
+{{- end -}}
+{{- /* twigs */ -}}
+{{- range $r.blocks -}}
+  {{- $from := $br.Get .gid -}}
+  {{- range .xs -}}
+    {{- $t := -1.0 }}{{ with .depth }}{{ $t = . }}{{ end }}{{ if eq .depth 0.0 }}{{ $t = 0.0 }}{{ end -}}
+    {{- partial "index/limb.html" (dict "a" $from "b" (slice (sub ($posX.Get .k) 6.0) ($posY.Get .k)) "t" (partial "index/thick.html" (dict "y" $t "scale" $scale)) "keys" .k "seed" $seed "cls" "") -}}
+    {{- $seed = add $seed 1 -}}
+  {{- end -}}
+{{- end -}}
+{{- range $r.zone -}}
+  {{- $from := $Q }}{{ if not .fam }}{{ $from = $br.Get .gid }}{{ end -}}
+  {{- $t := -1.0 }}{{ with .depth }}{{ $t = . }}{{ end }}{{ if eq .depth 0.0 }}{{ $t = 0.0 }}{{ end -}}
+  {{- $at := $touch.Get .k -}}
+  {{- partial "index/limb.html" (dict "a" $from "b" $at "t" (partial "index/thick.html" (dict "y" $t "scale" $scale)) "keys" .k "seed" $seed "cls" (cond .fam "fam" "")) -}}
+  <path class="ixn-tw{{ if .fam }} fam{{ end }}" data-via="{{ .k }}" d="M{{ partial $f (index $at 0) }} {{ partial $f (index $at 1) }} L{{ partial $f (sub ($posX.Get .k) 6.0) }} {{ partial $f ($posY.Get .k) }}" style="stroke-width:0.9"/>
+  {{- $seed = add $seed 1 -}}
+{{- end -}}
+{{- range $r.famRest -}}
+  {{- $t := -1.0 }}{{ with .depth }}{{ $t = . }}{{ end }}{{ if eq .depth 0.0 }}{{ $t = 0.0 }}{{ end -}}
+  {{- partial "index/limb.html" (dict "a" $Q "b" (slice (sub ($posX.Get .k) 6.0) ($posY.Get .k)) "t" (partial "index/thick.html" (dict "y" $t "scale" $scale)) "keys" .k "seed" $seed "cls" "fam") -}}
+  {{- $seed = add $seed 1 -}}
+{{- end -}}
+</g>
+{{- range $knots }}<circle class="ixn-knot" cx="{{ partial $f .x }}" cy="{{ partial $f .y }}" r="2.2"/>{{ end -}}
+{{- /* the gate, on the family limb just past the fork */ -}}
+{{- partial "index/gate-bars.html" (dict
+    "x" (add (index $fork 0) (mul (sub (index $Q 0) (index $fork 0)) 0.22))
+    "y" (add (index $fork 1) (mul (sub (index $Q 1) (index $fork 1)) 0.12))
+    "angle" 20.0) -}}
+{{- /* the root: you are here */ -}}
+{{- partial "index/leaf.html" (dict "e" $r.here "x" (index $root 0) "y" (index $root 1) "suffix" "" "jid" "" "root" true
+    "nx" (sub (index $root 0) 6.0) "ny" (sub (index $root 1) 36.0) "yy" (sub (index $root 1) 20.0)) -}}
+{{- /* the leaves, with their hand-lettered names */ -}}
+{{- range $order -}}
+  {{- partial "index/leaf.html" (dict "e" . "x" ($posX.Get .k) "y" ($posY.Get .k) "suffix" "" "jid" "" "root" false) -}}
+{{- end -}}
+{{- /* the only annotation: the date and "I think" */ -}}
+<text class="ixn-date" x="40" y="30">{{ $m.todayLabel }}</text><text class="ixn-think" x="40" y="72">I think</text></svg>
+{{- partial "index/gate.html" (dict "fam" $m.fam "n" $m.nFamily "left" 0.4 "top" (mul (div (add (index $Q 1) 18.0) $H) 100.0) "suffix" "") -}}
+<aside class="ixr ixn-card" aria-hidden="true"><div class="ixr-live"><p class="ixn-kick"><span class="ixr-host"></span></p><p class="ixr-name"></p><p class="ixr-line"></p><dl class="ixr-facts"><div><dt>Who</dt><dd class="ixr-who"></dd></div><div><dt>Opens</dt><dd class="ixr-opens"></dd></div><div><dt>Record</dt><dd class="ixr-rec"></dd></div><div class="ixr-pairrow"><dt class="ixr-pairrel"></dt><dd class="ixr-pair"></dd></div></dl></div></aside>
+{{- /**/ -}}

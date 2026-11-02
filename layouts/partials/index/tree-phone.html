@@ -1,0 +1,155 @@
+{{- /*
+  Drawer F on a phone: the tree runs down the page, root at the top. The family limb branches first,
+  directly under the gate and its words, so a family member reaches their pages before the open places.
+  Then each public record touches its family edition, then the open limb.
+  Ported from the mockup's f_svg_phone (adamthede.com PR #5). Context: the model.
+*/ -}}
+{{- $m := . -}}
+{{- $r := partial "index/rows.html" $m -}}
+{{- $f := "index/f1.html" -}}
+{{- $W := 358.0 }}{{ $rh := 36.0 }}{{ $gap := 14.0 }}{{ $scale := 0.62 }}{{ $top := 262.0 -}}
+{{- $root := slice 24.0 98.0 }}{{ $fork := slice 24.0 140.0 -}}
+{{- /* columns, open blocks in phone order (the desktop's order reversed: the paired group first) */ -}}
+{{- $baseX := slice 156.0 150.0 146.0 }}{{ $brX := slice 112.0 104.0 100.0 -}}
+{{- $famBase := 154.0 }}{{ $zoneBase := 168.0 }}{{ $qx := 62.0 }}{{ $px := 44.0 -}}
+{{- $blocks := slice -}}
+{{- $nb := len $r.blocks -}}
+{{- range $j := seq $nb }}{{ $blocks = $blocks | append (index $r.blocks (sub $nb $j)) }}{{ end -}}
+{{- /* each touching pair, the family edition first */ -}}
+{{- $zone := slice -}}
+{{- if $r.zone -}}
+  {{- range $j := seq 0 2 (sub (len $r.zone) 1) -}}
+    {{- $a := index $r.zone $j }}{{ $b := index $r.zone (add $j 1) -}}
+    {{- if $b.fam }}{{ $zone = $zone | append $b | append $a }}{{ else }}{{ $zone = $zone | append $a | append $b }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- /* a rough width for a hand-lettered label, so a long name steps left to fit the page */ -}}
+{{- $labelW := newScratch -}}
+{{- range $m.entries -}}
+  {{- $chars := strings.RuneCount (printf "%s%s" .name (cond .newtab " ↗" "")) -}}
+  {{- $labelW.Set .k (add (mul (float $chars) 18.5 0.41) 7.0 (mul (float (strings.RuneCount .yr)) 14.0 0.5)) -}}
+{{- end -}}
+
+{{- /* rows */ -}}
+{{- $posX := newScratch }}{{ $posY := newScratch -}}
+{{- $order := slice -}}
+{{- $n := 0 -}}
+{{- $y := $top -}}
+{{- range $r.famRest -}}
+  {{- $n = add $n 1 -}}
+  {{- $posX.Set .k (math.Min (add $famBase (mul 6.0 (math.Sin (mul (float $n) 1.9)))) (sub $W 6.0 ($labelW.Get .k) 10.0)) -}}
+  {{- $posY.Set .k $y }}{{ $order = $order | append . }}{{ $y = add $y $rh -}}
+{{- end -}}
+{{- $y = add $y (mul $gap 0.5) -}}
+{{- $zoneX := $zoneBase -}}
+{{- range $zone }}{{ $zoneX = math.Min $zoneX (sub $W 6.0 ($labelW.Get .k) 10.0 16.0) }}{{ end -}}
+{{- range $zone -}}
+  {{- $n = add $n 1 -}}
+  {{- $posX.Set .k (add $zoneX 16.0) -}}
+  {{- $posY.Set .k $y }}{{ $order = $order | append . }}{{ $y = add $y (mul $rh 0.96) -}}
+{{- end -}}
+{{- $y = add $y $gap -}}
+{{- range $bi, $b := $blocks -}}
+  {{- $bx := index $baseX (int (math.Min $bi (sub (len $baseX) 1))) -}}
+  {{- range $b.xs -}}
+    {{- $n = add $n 1 -}}
+    {{- $posX.Set .k (math.Min (add $bx (mul 6.0 (math.Sin (mul (float $n) 1.9)))) (sub $W 6.0 ($labelW.Get .k) 10.0)) -}}
+    {{- $posY.Set .k $y }}{{ $order = $order | append . }}{{ $y = add $y $rh -}}
+  {{- end -}}
+  {{- $y = add $y $gap -}}
+{{- end -}}
+{{- $H := add $y 14.0 -}}
+
+{{- /* nodes */ -}}
+{{- $zonePub := where $zone "fam" false -}}
+{{- $fam := $r.famRest -}}
+{{- range where $zone "fam" true }}{{ $fam = $fam | append . }}{{ end -}}
+{{- $pub := slice -}}
+{{- range $blocks }}{{ range .xs }}{{ $pub = $pub | append . }}{{ end }}{{ end -}}
+{{- range $zonePub }}{{ $pub = $pub | append . }}{{ end -}}
+{{- $Q := slice $qx (partial "index/mean-y.html" (dict "xs" $fam "pos" $posY)) -}}
+{{- $br := newScratch }}{{ $kids := newScratch -}}
+{{- $brSum := 0.0 -}}
+{{- range $bi, $b := $blocks -}}
+  {{- $k := $b.xs -}}
+  {{- range where $zonePub "gid" $b.gid }}{{ $k = $k | append . }}{{ end -}}
+  {{- $kids.Set $b.gid $k -}}
+  {{- $by := partial "index/mean-y.html" (dict "xs" $k "pos" $posY) -}}
+  {{- $br.Set $b.gid (slice (index $brX (int (math.Min $bi (sub (len $brX) 1)))) $by) -}}
+  {{- $brSum = add $brSum $by -}}
+{{- end -}}
+{{- $P := slice $px (div $brSum (float (len $blocks))) -}}
+{{- $yPub := partial "index/depth-sum.html" $pub -}}
+{{- $yFam := partial "index/depth-sum.html" $fam -}}
+{{- $keysPub := delimit (apply $pub "index" "." "k") " " -}}
+{{- $keysFam := delimit (apply $fam "index" "." "k") " " -}}
+{{- $fx := index $fork 0 }}{{ $fy := index $fork 1 -}}
+
+<svg class="ixn-tree phone" viewBox="0 0 {{ partial $f $W }} {{ partial $f $H }}" role="group" aria-label="A tree of every place, the family limb first"><g class="ixn-wood">
+{{- partial "index/limb.html" (dict "a" $root "b" $fork "t" (partial "index/thick.html" (dict "y" (add $yPub $yFam) "scale" $scale)) "keys" (printf "%s %s" $keysFam $keysPub) "seed" 1 "cls" "" "vertical" true) -}}
+{{- /* the family limb: first off the fork, bending right at once, through the gate, down to its node */ -}}
+{{- $c1 := slice (add $fx 26.0) (add $fy 30.0) }}{{ $c2 := slice (sub (index $Q 0) 4.0) (sub (index $Q 1) 150.0) -}}
+<path class="ixn-tw fam" data-via="{{ $keysFam }}" d="M{{ partial $f $fx }} {{ partial $f $fy }} C{{ partial $f (index $c1 0) }} {{ partial $f (index $c1 1) }} {{ partial $f (index $c2 0) }} {{ partial $f (index $c2 1) }} {{ partial $f (index $Q 0) }} {{ partial $f (index $Q 1) }}" style="stroke-width:{{ partial $f (partial "index/thick.html" (dict "y" $yFam "scale" $scale)) }}"/>
+{{- /* the gate sits 13% of the way down the family limb, across it */ -}}
+{{- $bez := slice -}}
+{{- range $u := slice 0.12 0.13 0.14 -}}
+  {{- $v := sub 1.0 $u -}}
+  {{- $bx := add (mul $v $v $v $fx) (mul 3.0 $v $v $u (index $c1 0)) (mul 3.0 $v $u $u (index $c2 0)) (mul $u $u $u (index $Q 0)) -}}
+  {{- $by := add (mul $v $v $v $fy) (mul 3.0 $v $v $u (index $c1 1)) (mul 3.0 $v $u $u (index $c2 1)) (mul $u $u $u (index $Q 1)) -}}
+  {{- $bez = $bez | append (dict "x" $bx "y" $by) -}}
+{{- end -}}
+{{- $g0 := index $bez 0 }}{{ $gp := index $bez 1 }}{{ $g1 := index $bez 2 -}}
+{{- $gAngle := math.ToDegrees (math.Atan2 (sub $g1.y $g0.y) (sub $g1.x $g0.x)) -}}
+{{- /* the open limb: down the margin, past the family pages, to its own node */ -}}
+<path class="ixn-tw" data-via="{{ $keysPub }}" d="M{{ partial $f $fx }} {{ partial $f $fy }} C{{ partial $f (sub $fx 12.0) }} {{ partial $f (add $fy 120.0) }} {{ partial $f (sub $fx 14.0) }} {{ partial $f (sub (index $P 1) 160.0) }} {{ partial $f (index $P 0) }} {{ partial $f (index $P 1) }}" style="stroke-width:{{ partial $f (partial "index/thick.html" (dict "y" $yPub "scale" $scale)) }}"/>
+{{- $seed := 10 -}}
+{{- range $blocks -}}
+  {{- $k := $kids.Get .gid -}}
+  {{- partial "index/limb.html" (dict "a" $P "b" ($br.Get .gid) "t" (partial "index/thick.html" (dict "y" (partial "index/depth-sum.html" $k) "scale" $scale)) "keys" (delimit (apply $k "index" "." "k") " ") "seed" $seed "cls" "") -}}
+  {{- $seed = add $seed 1 -}}
+{{- end -}}
+{{- $touch := newScratch -}}
+{{- $knots := slice -}}
+{{- if $zone -}}
+  {{- range $j := seq 0 2 (sub (len $zone) 1) -}}
+    {{- $a := index $zone $j }}{{ $b := index $zone (add $j 1) -}}
+    {{- $t := slice (add $zoneX 2.0) (div (add ($posY.Get $a.k) ($posY.Get $b.k)) 2.0) -}}
+    {{- $touch.Set $a.k $t }}{{ $touch.Set $b.k $t -}}
+    {{- $knots = $knots | append (dict "x" (index $t 0) "y" (index $t 1)) -}}
+  {{- end -}}
+{{- end -}}
+{{- range $r.famRest -}}
+  {{- $t := -1.0 }}{{ with .depth }}{{ $t = . }}{{ end }}{{ if eq .depth 0.0 }}{{ $t = 0.0 }}{{ end -}}
+  {{- partial "index/limb.html" (dict "a" $Q "b" (slice (sub ($posX.Get .k) 6.0) ($posY.Get .k)) "t" (partial "index/thick.html" (dict "y" $t "scale" $scale)) "keys" .k "seed" $seed "cls" "fam") -}}
+  {{- $seed = add $seed 1 -}}
+{{- end -}}
+{{- range $zone -}}
+  {{- $from := $Q }}{{ if not .fam }}{{ $from = $br.Get .gid }}{{ end -}}
+  {{- $t := -1.0 }}{{ with .depth }}{{ $t = . }}{{ end }}{{ if eq .depth 0.0 }}{{ $t = 0.0 }}{{ end -}}
+  {{- $at := $touch.Get .k -}}
+  {{- partial "index/limb.html" (dict "a" $from "b" $at "t" (partial "index/thick.html" (dict "y" $t "scale" $scale)) "keys" .k "seed" $seed "cls" (cond .fam "fam" "")) -}}
+  <path class="ixn-tw{{ if .fam }} fam{{ end }}" data-via="{{ .k }}" d="M{{ partial $f (index $at 0) }} {{ partial $f (index $at 1) }} L{{ partial $f (sub ($posX.Get .k) 6.0) }} {{ partial $f ($posY.Get .k) }}" style="stroke-width:0.9"/>
+  {{- $seed = add $seed 1 -}}
+{{- end -}}
+{{- range $blocks -}}
+  {{- $from := $br.Get .gid -}}
+  {{- range .xs -}}
+    {{- $t := -1.0 }}{{ with .depth }}{{ $t = . }}{{ end }}{{ if eq .depth 0.0 }}{{ $t = 0.0 }}{{ end -}}
+    {{- partial "index/limb.html" (dict "a" $from "b" (slice (sub ($posX.Get .k) 6.0) ($posY.Get .k)) "t" (partial "index/thick.html" (dict "y" $t "scale" $scale)) "keys" .k "seed" $seed "cls" "") -}}
+    {{- $seed = add $seed 1 -}}
+  {{- end -}}
+{{- end -}}
+</g>
+{{- range $knots }}<circle class="ixn-knot" cx="{{ partial $f .x }}" cy="{{ partial $f .y }}" r="2.2"/>{{ end -}}
+{{- partial "index/gate-bars.html" (dict "x" $gp.x "y" $gp.y "angle" $gAngle) -}}
+{{- partial "index/leaf.html" (dict "e" $r.here "x" (index $root 0) "y" (index $root 1) "suffix" "" "jid" "" "root" true
+    "nx" (add (index $root 0) 16.0) "ny" (sub (index $root 1) 14.0) "yy" (add (index $root 1) 6.0)) -}}
+{{- $seen := newScratch -}}
+{{- range $order -}}
+  {{- $jid := "" -}}
+  {{- if not ($seen.Get .gid) }}{{ $seen.Set .gid true }}{{ $jid = printf "ix-g-%s" .gid }}{{ end -}}
+  {{- partial "index/leaf.html" (dict "e" . "x" ($posX.Get .k) "y" ($posY.Get .k) "suffix" "-p" "jid" $jid "root" false) -}}
+{{- end -}}
+<text class="ixn-date" x="{{ partial $f (sub $W 12.0) }}" y="26" text-anchor="end">{{ $m.todayLabel }}</text><text class="ixn-think" x="{{ partial $f (sub $W 12.0) }}" y="62" text-anchor="end">I think</text></svg>
+{{- partial "index/gate.html" (dict "fam" $m.fam "n" $m.nFamily "left" (mul (div (add $gp.x 22.0) $W) 100.0) "top" (mul (div (sub $gp.y 12.0) $H) 100.0) "suffix" "-p") -}}
+{{- /**/ -}}

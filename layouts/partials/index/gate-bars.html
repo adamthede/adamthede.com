@@ -1,0 +1,4 @@
+{{- /* The gate's mark on the tree: two bars across the family limb. dict: x, y, angle (the limb's direction). */ -}}
+{{- $f := "index/f1.html" -}}
+<g class="gate" transform="translate({{ partial $f .x }} {{ partial $f .y }})"><g transform="rotate({{ partial $f .angle }})"><rect class="gate-cut" x="-6" y="-13" width="12" height="26"/><line x1="-3.2" y1="-13" x2="-3.2" y2="13"/><line x1="3.2" y1="-13" x2="3.2" y2="13"/></g></g>
+{{- /**/ -}}

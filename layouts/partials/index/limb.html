@@ -1,0 +1,26 @@
+{{- /* One limb or twig: a pencil stroke as thick as the years above it, and a paper highlight down its
+       middle. An unknown depth draws dotted, with no thickness claim.
+       dict: a, b (slices of x y), t (thickness, or -1 when unknown), keys (the places it carries,
+       space separated), seed, cls ("" or "fam"), vertical (the phone trunk: a plain drop, no highlight). */ -}}
+{{- $f := "index/f1.html" -}}
+{{- $d := "" -}}
+{{- $d2 := "" -}}
+{{- if .vertical -}}
+  {{- $ax := index .a 0 }}{{ $ay := index .a 1 }}{{ $bx := index .b 0 }}{{ $by := index .b 1 -}}
+  {{- $d = printf "M%s %s C%s %s %s %s %s %s"
+      (partial $f $ax) (partial $f $ay)
+      (partial $f $ax) (partial $f (add $ay (mul (sub $by $ay) 0.6)))
+      (partial $f $bx) (partial $f (sub $by (mul (sub $by $ay) 0.3)))
+      (partial $f $bx) (partial $f $by) -}}
+{{- else -}}
+  {{- $d = partial "index/curve.html" (dict "a" .a "b" .b "seed" .seed) -}}
+  {{- $a2 := slice (add (index .a 0) 0.7) (sub (index .a 1) 0.6) -}}
+  {{- $b2 := slice (add (index .b 0) 0.5) (add (index .b 1) 0.7) -}}
+  {{- $d2 = partial "index/curve.html" (dict "a" $a2 "b" $b2 "seed" (add .seed 7)) -}}
+{{- end -}}
+{{- if lt .t 0.0 -}}
+<path class="ixn-tw unk{{ with .cls }} {{ . }}{{ end }}" data-via="{{ .keys }}" d="{{ $d }}"/>
+{{- else -}}
+<path class="ixn-tw{{ with .cls }} {{ . }}{{ end }}" data-via="{{ .keys }}" d="{{ $d }}" style="stroke-width:{{ partial $f .t }}"/>
+{{- with $d2 }}<path class="ixn-tw2" d="{{ . }}" style="stroke-width:{{ partial $f (math.Max 0.6 (mul $.t 0.45)) }}"/>{{ end -}}
+{{- end -}}

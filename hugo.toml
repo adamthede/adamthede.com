@@ -1,5 +1,7 @@
 baseURL = 'https://adamthede.com/'
 languageCode = 'en-us'
+# Dates, the index's build date among them, are Nashville's, not the build machine's (Cloudflare builds in UTC)
+timeZone = 'America/Chicago'
 title = 'Adam Thede'
 enableRobotsTXT = true
 
@@ -9,15 +11,13 @@ enableRobotsTXT = true
   priority = 0.5
 
 [params]
-  description = "Builder of systems, keeper of memory. Engineering leader, AI-augmented builder, and creator of the Silo ecosystem."
+  description = "I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life."
   author = "Adam Thede"
-  tagline = "Builder of systems, keeper of memory."
   email = "adam@thedetech.com"
   linkedin = "https://linkedin.com/in/adamthede"
   github = "https://github.com/adamthede"
   location = "Nashville, TN"
   thedetech = "https://thedetech.com"
-  officeofadamthede = "https://officeofadamthede.com"
 
 [markup]
   [markup.goldmark]
