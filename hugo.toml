@@ -1,5 +1,7 @@
 baseURL = 'https://adamthede.com/'
 languageCode = 'en-us'
+# Dates, the index's build date among them, are Nashville's, not the build machine's (Cloudflare builds in UTC)
+timeZone = 'America/Chicago'
 title = 'Adam Thede'
 enableRobotsTXT = true
 

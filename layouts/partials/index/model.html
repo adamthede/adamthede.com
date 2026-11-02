@@ -13,7 +13,9 @@
   pair (the k of its edition, or ""), pairRel, pairName, sortKey, aria.
   Set HUGO_INDEX_TODAY=YYYY-MM-DD to build as of another day (screenshots, comparisons).
 */ -}}
-{{- $t := now -}}
+{{- /* now is the build machine's clock (UTC on Cloudflare); read it in the site's timeZone from hugo.toml */ -}}
+{{- $zone := (time.AsTime "2000-01-01T00:00:00").Location -}}
+{{- $t := now.In $zone -}}
 {{- with os.Getenv "HUGO_INDEX_TODAY" }}{{ $t = time.AsTime . }}{{ end -}}
 {{- $daysInYear := (time.AsTime (printf "%d-12-31" $t.Year)).YearDay -}}
 {{- $today := add (float $t.Year) (div (float (sub $t.YearDay 1)) (float $daysInYear)) -}}
