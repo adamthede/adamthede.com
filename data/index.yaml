@@ -23,6 +23,9 @@
 #   line      one plain line that says what the page is, never what is in it
 #   url       the full address
 #   id        optional stable key, needed only when another entry points at it
+#   here      true on the one page the index opens from (the home page). The tree
+#             draws it as the root, "you are here". A flag, not a url match, so the
+#             tree is the same under `hugo server` and on any preview address
 #   edition_of  family entries only, optional: the id of the public record this
 #               page is the full family edition of. The tree draws the pair as
 #               twigs that touch, and pointing at one lights both
@@ -48,6 +51,7 @@ groups:
       - name: A life, measured in seconds
         line: "The portrait: a century of family letters down to one second."
         url: https://adamthede.com/
+        here: true
         since: 1910       # layouts/index.html, the film's first scene: "In 1910, my great-grandparents - Emil and Ella - began writing letters"
       - name: Résumé
         line: Experience and qualifications, on one page.

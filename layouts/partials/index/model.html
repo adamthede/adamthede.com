@@ -17,7 +17,6 @@
 {{- with os.Getenv "HUGO_INDEX_TODAY" }}{{ $t = time.AsTime . }}{{ end -}}
 {{- $daysInYear := (time.AsTime (printf "%d-12-31" $t.Year)).YearDay -}}
 {{- $today := add (float $t.Year) (div (float (sub $t.YearDay 1)) (float $daysInYear)) -}}
-{{- $home := strings.TrimRight "/" site.BaseURL -}}
 {{- $groups := site.Data.index.groups -}}
 
 {{- /* pass 1: a key per place, and who points at whom */ -}}
@@ -85,7 +84,7 @@
       {{- end -}}
     {{- end -}}
     {{- $newtab := eq $g.opens "new-tab" -}}
-    {{- $here := eq (strings.TrimRight "/" $e.url) $home -}}
+    {{- $here := eq $e.here true -}}
     {{- $who := "anyone" -}}
     {{- if $isFam }}{{ $who = printf "family, %s" (lower $g.note) }}{{ $nFamily = add $nFamily 1 }}{{ end -}}
     {{- $pair := index ($keys.Get "pair") $k | default "" -}}
