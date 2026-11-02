@@ -6,14 +6,14 @@ Branch `fix/2026-11-02-index-unknown-year-blank`. Two places in `data/index.yaml
 
 - A local `hugo server` of each side, built as of 2026-11-02 (`HUGO_INDEX_TODAY=2026-11-02`) so the tree's date matches: this branch, and an export of `origin/master` at d834ed6 for the before crops.
 - Playwright's own headless Chromium (playwright-core 1.64, Chromium 1248), light color scheme, device scale factor 2. No desktop Chrome window was used.
-- Desktop is a 1280x800 viewport, phone is 390x844. Each crop is a fixed frame measured from the label's left edge, so the before and after crops line up pixel for pixel.
+- Desktop is a 1280x800 viewport, phone is 390x844. Each crop uses the same frame, measured from the label's left edge, so the before and after crops line up pixel for pixel.
 - Compressed with pngquant (quality 70-92).
 
 ## Files
 
 | File | What it shows |
 |------|---------------|
-| `after-home-drawer-desktop.png` | Home page, the Index drawer open at 1280x800. LinkedIn (top limb) and The anniversary pages (family limb, bottom) end at their names. |
+| `after-home-drawer-desktop.png` | Home page, the Index drawer open at 1280x800. LinkedIn (top limb) and The anniversary pages (family limb, bottom) stop at their names. |
 | `after-home-drawer-phone.png` | Home page, the drawer open at 390x844, as it first opens: the header, the root, the gate and the family limb, with The anniversary pages third on it. |
 | `after-home-drawer-phone-anniversary.png` | The phone drawer scrolled to The anniversary pages, third on the family limb. |
 | `after-home-drawer-phone-linkedin.png` | The phone drawer scrolled to LinkedIn, last on the Elsewhere limb. |
@@ -28,7 +28,7 @@ Branch `fix/2026-11-02-index-unknown-year-blank`. Two places in `data/index.yaml
 
 1. **The "?" is gone** beside LinkedIn and The anniversary pages, on the desktop tree and the phone tree. Nothing replaces it: no placeholder, no dash, no empty tspan and no 7px gap. This is also a departure from the approved mockup, drawer F in `docs/mockups/2026-11-01-index-drawer/home-f.html` (adamthede.com PR #5), which letters the same "?". Recorded: Adam decided on 2026-11-02 that an unknown year stays blank and is not guessed.
 
-That is the only visible change.
+That is the only change you can see.
 
 - No leaf moved. A diff of the built home page before and after differs only in the four removed `<tspan class="ixn-yr" dx="7">?</tspan>` elements, with every `x` and `y` unchanged.
 - `/index/` never printed a year. Its build output is byte-identical, and so are its screenshots (same md5 before and after), so only the after captures are kept here.
