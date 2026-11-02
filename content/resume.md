@@ -16,7 +16,7 @@ layout: "resume"
 
 ## Professional Summary
 
-Accomplished VP of Engineering with extensive experience in full-stack development, strategic leadership, and product management. Proven expertise in scaling technology teams, optimizing system performance, and implementing process improvements that drive business growth. Adept at leveraging data-driven methodologies and innovative technologies to enhance product offerings. Committed to fostering collaborative teams and delivering solutions that exceed customer expectations.
+I'm a product person who builds with AI agents, at Possip by day, and evenings and weekends on my own apps for capturing, enriching and synthesizing a life. Vice President of Engineering at Possip since 2019: scaled the engineering team from a sole developer to four, and for about the past year has run it alone with an agent workforce. Before that, a software developer at Senior Market Advisors and Vanderbilt University Medical Center, and earlier a trader in emerging market fixed income at Lehman Brothers.
 
 ## Experience
 
