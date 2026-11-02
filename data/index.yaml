@@ -19,7 +19,10 @@
 #   note      one line under the heading, optional
 #   opens     here | new-tab. Elsewhere opens a new tab and carries the arrow
 # entries[]
-#   name      what the place is called
+#   name      what the place is called. Keep it to about 30 characters, counting
+#             the arrow an Elsewhere name carries: on a phone a longer name steps
+#             its leaf left to fit the page, and past about 30 the leaf crosses the
+#             trunk and the family limb
 #   line      one plain line that says what the page is, never what is in it
 #   url       the full address
 #   id        optional stable key, needed only when another entry points at it
