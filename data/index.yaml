@@ -71,7 +71,7 @@ groups:
     opens: here
     entries:
       - name: The coverage map
-        line: Seven records of my life, on one axis of years.
+        line: Seven records of my life, on one axis of years.   # data.adamthede.com's own title, "Thirty-two years, in seven records". The count is typed, so an eighth record means editing this line
         url: https://data.adamthede.com/
         since: 1995.0     # data-adamthede site/generate.py, PRACTICE_START: the axis every record is drawn on begins in 1995
       - id: viewing
@@ -80,7 +80,7 @@ groups:
         url: https://data.adamthede.com/viewing/
         since: 1995.5     # data-adamthede data/index.yaml, viewing span_start
       - id: books
-        name: A Reading Life
+        name: The Reading Life
         line: Books finished, merged from every place I logged them.
         url: https://data.adamthede.com/books/
         since: 1999.75    # data-adamthede data/index.yaml, books span_start
@@ -133,7 +133,7 @@ groups:
         since: 1995.5     # the diary's own records_enriched.json: the first entry is 1 July 1995
         edition_of: viewing
       - name: The book record
-        line: The full record behind A Reading Life.
+        line: The full record behind The Reading Life.
         url: https://books.adamthede.com/
         since: 1999.9     # the book record's reading-life/README.md: the hand-kept log opens 26 November 1999
         edition_of: books
