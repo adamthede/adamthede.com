@@ -71,7 +71,7 @@ groups:
     opens: here
     entries:
       - name: The coverage map
-        line: Seven records of my life, on one axis of years.   # data.adamthede.com's own title, "Thirty-two years, in seven records". The count is typed, so an eighth record means editing this line
+        line: Seven records of my life, on one axis of years.   # data.adamthede.com's own title, "Thirty-two years, in seven records", and data-adamthede data/index.yaml, seven rows under records, both read 2 November 2026. The count is typed, so it goes stale when an eighth record ships
         url: https://data.adamthede.com/
         since: 1995.0     # data-adamthede site/generate.py, PRACTICE_START: the axis every record is drawn on begins in 1995
       - id: viewing
