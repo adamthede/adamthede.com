@@ -1,9 +1,10 @@
-# QA: two index lines say what the records say (2026-11-02)
+# QA: the coverage map's line says what the record says (2026-11-02)
 
-Branch `fix/2026-11-02-index-copy-two-lines`. Two lines in `data/index.yaml` were wrong on the live site. The review of the GitHub README found them.
+Branch `fix/2026-11-02-index-copy-two-lines`. One line in `data/index.yaml` was wrong on the live site. The review of the GitHub README found it.
 
-1. **The coverage map's line.** It said "Every public record of my life, on one axis of years." That overstates. data.adamthede.com's own title is "Thirty-two years, in seven records", and Tractor and Silo publishes a record outside those seven. It now says "Seven records of my life, on one axis of years."
-2. **The book record's name.** The index called it "The Reading Life". Its own page, data.adamthede.com/books/, is titled "A Reading Life", matching "A Viewing Life". The name changed, and so did the family edition's line, which now says "The full record behind A Reading Life."
+The coverage map's line said "Every public record of my life, on one axis of years." That overstates. data.adamthede.com's own title is "Thirty-two years, in seven records", and Tractor and Silo publishes a record outside those seven. It now says "Seven records of my life, on one axis of years." A comment beside the line names that source, so the next editor knows the count is typed.
+
+An earlier version of this branch also renamed the book record. That was withdrawn. "The Reading Life" is the name Adam approved, to tell the books record apart from the articles record, since both pages are headed with the same words. The data site's own manifest records that decision, so the name stays as it was.
 
 ## How these were made
 
@@ -11,30 +12,24 @@ Branch `fix/2026-11-02-index-copy-two-lines`. Two lines in `data/index.yaml` wer
 - Playwright's own headless Chromium (playwright-core 1.64, Chromium 1248), light color scheme, device scale factor 2. No desktop Chrome window was used.
 - Desktop is a 1280x800 viewport, phone is 390x844.
 - Compressed with pngquant (quality 70-92).
-- These are after captures only. The change is words, and each word is quoted above.
+- These are after captures only. The change is one line of words, quoted above.
 
-## Where each changed line shows, and the file that points at it
+## Where the line shows
 
-| Changed line | Where a reader sees it | File |
-|--------------|-----------------------|------|
-| "Seven records of my life, on one axis of years." | The drawer's reading card, pointing at The coverage map, desktop | `after-home-drawer-desktop-card-coverage-map.png` |
-| | `/index/`, The coverage map's row | `after-index-row-coverage-map-desktop.png`, `after-index-row-coverage-map-phone.png` |
-| "A Reading Life" as a name | The drawer's tree, desktop, paired with The book record just below it | `after-home-drawer-desktop.png` |
-| | The drawer's tree, phone, paired with The book record just above it | `after-home-drawer-phone-a-reading-life.png` |
-| | The footer list on the home page, under Look at the data | `after-home-footer-desktop.png`, `after-home-footer-phone.png` |
-| | `/index/`, its own row | `after-index-row-a-reading-life-desktop.png`, `after-index-row-a-reading-life-phone.png` |
-| "The full record behind A Reading Life." | The drawer's reading card, pointing at The book record, desktop. Its public edition row names A Reading Life too. | `after-home-drawer-desktop-card-book-record.png` |
-| | `/index/`, The book record's row | `after-index-row-book-record-desktop.png`, `after-index-row-book-record-phone.png` |
+| Where a reader sees it | File |
+|------------------------|------|
+| The drawer's reading card, pointing at The coverage map, desktop | `after-home-drawer-desktop-card-coverage-map.png` |
+| `/index/`, The coverage map's row, desktop | `after-index-row-coverage-map-desktop.png` |
+| `/index/`, The coverage map's row, phone | `after-index-row-coverage-map-phone.png` |
+| `/index/` whole, desktop, second group, first row | `after-index-page-desktop.png` |
+| `/index/` whole, phone, second group, first row | `after-index-page-phone.png` |
 
-`after-index-page-desktop.png` and `after-index-page-phone.png` are `/index/` whole, at each width.
-
-On a phone the drawer has no reading card, so the two lines show there only on `/index/`.
+On a phone the drawer has no reading card, so on a phone the line shows only on `/index/`. The tree, the footer list and every name are as they were.
 
 ## Departures from the previous rendering
 
 1. **The coverage map's line is new**, by the brief of 2026-11-02.
-2. **"The Reading Life" is now "A Reading Life"** in the tree, the card, the footer list and `/index/`, by the brief of 2026-11-02.
 
-Nothing moved. A diff of the whole built site against master differs in two files, the home page and `/index/`, and only in these strings and the screen-reader labels built from them. Every leaf's position on both trees is unchanged.
+Nothing else changed. A diff of the whole built site against master differs in two files, the home page and `/index/`. On the home page the line appears in the reading card's data and in the screen-reader label, once on each tree. Swapping the old line back into this branch's build gives master byte for byte.
 
-The approved mockup, `docs/mockups/2026-11-01-index-drawer/`, still shows the old two lines. Its files are the record of the design as approved on 2026-11-01, so they were left as they were.
+The approved mockup, `docs/mockups/2026-11-01-index-drawer/`, still shows the old line. Its files are the record of the design as approved on 2026-11-01, so they were left as they were.
