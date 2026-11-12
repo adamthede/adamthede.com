@@ -1,5 +1,7 @@
 # adamthede.com - Roadmap
 
+Decisions recorded 2026-11-11.
+
 Reconciled 2026-11-10 against the code and the deployed state. Replaces the 2026-07-11 draft of this file (in git history); the draft's shipped items are kept below. This is the first roadmap written after the one-identity work of 2026-10-30 to 2026-11-02. This file sits in `docs/`, which Hugo does not render (`hugo.toml` mounts only `assets` and `static` beyond the defaults); [adamthede.com #10](https://github.com/adamthede/adamthede.com/issues/10) covers the Tailwind scan that still reads it.
 
 ## What it is for
@@ -23,6 +25,7 @@ adamthede.com is the one front door for Adam's name: a Hugo and Tailwind site on
 
 Carried forward in `docs/planning/2026-10-30-one-identity-public-surfaces.md` (in command-center) and the 2026-11-03 handoff:
 
+- **Résumé voice fixes, one small PR.** The three items below, fixed together (queued 2026-11-11).
 - **Résumé nice-to-haves** from #8: the shift to third person mid-paragraph; an anchor date for "about the past year"; the old-voice lines (headline, "Extensive travel experience", en-dash date ranges).
 - **Commit `package-lock.json` so `npm ci` can run** - [adamthede.com #7](https://github.com/adamthede/adamthede.com/issues/7) (P3).
 - **Exclude `docs/` from Tailwind's content scan** - [adamthede.com #10](https://github.com/adamthede/adamthede.com/issues/10) (P3). Until then a docs-only commit, this file included, can change the CSS of `/terminal/` and `/index-card/`.
@@ -40,17 +43,9 @@ Carried forward in `docs/planning/2026-10-30-one-identity-public-surfaces.md` (i
 ## Questions for Adam
 
 ::: decision
-**Question:** Add the path-preserving Cloudflare rule so officeofadamthede.com/resume* lands on adamthede.com/resume/?
-**Facts:**
-- Skipped on 2026-11-05; checked 2026-11-02, the office `/resume` 301s to the home page.
-- The résumé now lives only here.
-**Recommendation:** Do it when the office zone is next opened, as a single rule.
+Decided 2026-11-11: no résumé redirect. Dropped; do not do it.
 :::
 
 ::: decision
-**Question:** Fix the three résumé voice items now or leave them?
-**Facts:**
-- Third-person shift, undated "past year", and old-voice headline lines remain after #8.
-- The résumé is the first page the identity sentence leads into.
-**Recommendation:** Fix them together in one small content PR.
+Decided 2026-11-11: fix the three résumé voice items together in one small content PR.
 :::
